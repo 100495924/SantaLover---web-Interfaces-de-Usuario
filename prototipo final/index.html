@@ -23,6 +23,7 @@
 		<script src="scripts/cartas.js" async> </script>
 		<script src="scripts/counter.js" async> </script>	
 		<script src="scripts/memory-quest.js" async> </script>
+		<script src="scripts/leche-con-galletas.js" async></script>
 
 		<title> SantaLover </title>
 	</head>
@@ -327,7 +328,7 @@
 										alt="Dibujo de leche de fresa">
 							</div>
 							<form id="form-leche">
-								<label for="tipo-leche">Elige un tipo de leche</label>
+								<label class="hidden-label" for="tipo-leche">Elige un tipo de leche</label>
 								<select name="tipo-leche" id="tipo-leche">
 									<option value="leche-normal">Normal</option>
 									<option value="leche-chocolate">Chocolate</option>
@@ -341,7 +342,7 @@
 						<p>Elige las galletas</p>
 						<div id="elige-las-galletas-contenido">
 							<form id="form-cantidad-galletas">
-								<label for="cantidad-galletas">Cantidad</label>
+								<label for="cantidad-galletas">Cantidad:</label>
 								<select name="cantidad-galletas" id="cantidad-galletas">
 									<option value="cantidad-galletas-1">1</option>
 									<option value="cantidad-galletas-2">2</option>
@@ -363,7 +364,7 @@
 								</div>
 
 								<form class="form-tipo-galleta">
-									<label for="tipo-galleta1">Elige un tipo de galleta</label>
+									<label class="hidden-label" for="tipo-galleta1">Elige un tipo de galleta</label>
 									<select name="tipo-galleta1" id="tipo-galleta1">
 										<option value="galleta-clasica">Clásica</option>
 										<option value="galleta-chocolate">Chocolate</option>
@@ -386,7 +387,7 @@
 								</div>
 
 								<form class="form-tipo-galleta">
-									<label for="tipo-galleta2">Elige un tipo de galleta</label>
+									<label class="hidden-label" for="tipo-galleta2">Elige un tipo de galleta</label>
 									<select name="tipo-galleta2" id="tipo-galleta2">
 										<option value="galleta-clasica">Clásica</option>
 										<option value="galleta-chocolate">Chocolate</option>
@@ -409,7 +410,7 @@
 								</div>
 
 								<form class="form-tipo-galleta">
-									<label for="tipo-galleta3">Elige un tipo de galleta</label>
+									<label class="hidden-label" for="tipo-galleta3">Elige un tipo de galleta</label>
 									<select name="tipo-galleta3" id="tipo-galleta3">
 										<option value="galleta-clasica">Clásica</option>
 										<option value="galleta-chocolate">Chocolate</option>
@@ -421,72 +422,74 @@
 						</div>
 					</div>
 				</div>
-				<button id="pagina2-boton-enviar">ENVIAR</button>
+				<button id="pagina2-boton-enviar" class="pagina2-boton">ENVIAR</button>
 			</div>
 
 			<div id="pagina2-contenido-2" class="pagina2-contenido">
-				<p id="pagina2-contenido-2-texto">Preparando tu pedido...</p>
+				<p id="pagina2-contenido-2-texto">Preparando tu pedido</p>
 			</div>
 
 			<div id="pagina2-contenido-3" class="pagina2-contenido">
-				<div id="pagina2-contenido-3-div-img-papa-noel">
-					<img id="pagina2-contenido-3-img-papa-noel"
-							src="images/papa-noel-tracker.png"
-							alt="Papá Noel saludando">
-				</div>
-				<div>
-					<div id="pagina2-mensaje-papa-noel">
-						<p class="texto-destacado-rojo">¡Ho, ho, ho!</p>
-						<p>Gracias por tu leche con galletas, ¡estaba muy rico!</p>
+				<div id="pagina2-contenido-3-div-principal">
+					<div id="pagina2-contenido-3-div-img-papa-noel">
+						<img id="pagina2-contenido-3-img-papa-noel"
+								src="images/papa-noel-tracker.png"
+								alt="Papá Noel saludando">
 					</div>
-					<div id="pagina2-pedido">
-						<div class="imgs-leche">
-							<img id="img-leche-normal"
-									src="images/leche-normal.png"
-									alt="Dibujo de leche normal">
-							<img id="img-leche-chocolate"
-									src="images/leche-chocolate.png"
-									alt="Dibujo de leche de chocolate">
-							<img id="img-leche-fresa"
-									src="images/leche-fresa.png"
-									alt="Dibujo de leche de fresa">
+					<div id="pagina2-contenido-3-div-otros">
+						<div id="pagina2-contenido-3-mensaje-papa-noel">
+							<p id="pagina2-contenido-3-texto1" class="texto-destacado-rojo">¡Ho, ho, ho!</p>
+							<p id="pagina2-contenido-3-texto2">Gracias por tu leche con galletas, ¡estaba muy rico!</p>
 						</div>
-						<div id="imgs-galleta1-pedido" class="imgs-galleta">
-							<img class="img-galleta-clasica"
-									src="images/galleta-clasica.png"
-									alt="Dibujo de una galleta clasica">
-							<img class="img-galleta-chocolate"
-									src="images/galleta-chocolate.png"
-									alt="Dibujo de una galleta de chocolate">
-							<img class="img-galleta-red-velvet"
-									src="images/galleta-red-velvet.png"
-									alt="Dibujo de una galleta de red velvet">
-						</div>
-						<div id="imgs-galleta2-pedido" class="imgs-galleta">
-							<img class="img-galleta-clasica"
-									src="images/galleta-clasica.png"
-									alt="Dibujo de una galleta clasica">
-							<img class="img-galleta-chocolate"
-									src="images/galleta-chocolate.png"
-									alt="Dibujo de una galleta de chocolate">
-							<img class="img-galleta-red-velvet"
-									src="images/galleta-red-velvet.png"
-									alt="Dibujo de una galleta de red velvet">
-						</div>
-						<div id="imgs-galleta3-pedido" class="imgs-galleta">
-							<img class="img-galleta-clasica"
-									src="images/galleta-clasica.png"
-									alt="Dibujo de una galleta clasica">
-							<img class="img-galleta-chocolate"
-									src="images/galleta-chocolate.png"
-									alt="Dibujo de una galleta de chocolate">
-							<img class="img-galleta-red-velvet"
-									src="images/galleta-red-velvet.png"
-									alt="Dibujo de una galleta de red velvet">
+						<div id="pagina2-pedido">
+							<div id="imgs-leche-pedido" class="imgs-leche">
+								<img id="img-leche-normal-pedido"
+										src="images/leche-normal.png"
+										alt="Dibujo de leche normal">
+								<img id="img-leche-chocolate-pedido"
+										src="images/leche-chocolate.png"
+										alt="Dibujo de leche de chocolate">
+								<img id="img-leche-fresa-pedido"
+										src="images/leche-fresa.png"
+										alt="Dibujo de leche de fresa">
+							</div>
+							<div id="imgs-galleta1-pedido" class="imgs-galleta">
+								<img class="img-galleta-clasica"
+										src="images/galleta-clasica.png"
+										alt="Dibujo de una galleta clasica">
+								<img class="img-galleta-chocolate"
+										src="images/galleta-chocolate.png"
+										alt="Dibujo de una galleta de chocolate">
+								<img class="img-galleta-red-velvet"
+										src="images/galleta-red-velvet.png"
+										alt="Dibujo de una galleta de red velvet">
+							</div>
+							<div id="imgs-galleta2-pedido" class="imgs-galleta">
+								<img class="img-galleta-clasica"
+										src="images/galleta-clasica.png"
+										alt="Dibujo de una galleta clasica">
+								<img class="img-galleta-chocolate"
+										src="images/galleta-chocolate.png"
+										alt="Dibujo de una galleta de chocolate">
+								<img class="img-galleta-red-velvet"
+										src="images/galleta-red-velvet.png"
+										alt="Dibujo de una galleta de red velvet">
+							</div>
+							<div id="imgs-galleta3-pedido" class="imgs-galleta">
+								<img class="img-galleta-clasica"
+										src="images/galleta-clasica.png"
+										alt="Dibujo de una galleta clasica">
+								<img class="img-galleta-chocolate"
+										src="images/galleta-chocolate.png"
+										alt="Dibujo de una galleta de chocolate">
+								<img class="img-galleta-red-velvet"
+										src="images/galleta-red-velvet.png"
+										alt="Dibujo de una galleta de red velvet">
+							</div>
 						</div>
 					</div>
 				</div>
-				<button id="pagina2-boton-volver-a-pedir">VOLVER A PEDIR</button>
+				<button id="pagina2-boton-volver-a-pedir" class="pagina2-boton">VOLVER A PEDIR</button>
 			</div>
 
 		</section>
@@ -603,6 +606,24 @@
 				</div>
 			</div>
 			
+		</section>
+
+		<section id="chat">
+			<h1>Chat 💬</h1>
+			<h2>¡Ten una conversación con Papá Noel!</h2>
+			<div>
+				<div id="chat-header">
+					
+				</div>
+				<div id="chat-body">
+					<p id="chat-mensaje-inicial-papa-noel"></p>
+					<div id="chat-mensaje-inicial-usuario">
+						<button id="chat-boton-chiste">Cuéntame un chiste</button>
+						<button id="chat-boton-curiosidad">Cuéntame una curiosidad</button>
+						<button id="chat-boton-adios">Adiós</button>
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<footer id="footer">
