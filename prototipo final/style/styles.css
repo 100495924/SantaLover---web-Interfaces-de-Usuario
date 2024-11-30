@@ -1,0 +1,1007 @@
+/*Aplicado a toda la página*/
+
+body{
+	font-size: 20px;
+	font-family: "Roboto Slab";
+	padding: 0;
+	margin: 0;
+}
+
+
+h1{
+	font-size: 2rem;
+}
+
+button{
+	font-family: "Roboto Slab";
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+form input, select, option{
+	font-family: "Roboto Slab";
+}
+
+/* Modales */
+
+.modal-background {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+	display: grid;
+	grid-template-rows: min-content 1fr min-content;
+	width: 80%;
+	/* min-height: 50%; */
+	max-height: 75%;
+	margin: auto;
+	margin-top: 20vh;
+	/* margin-bottom: 20vh; */
+	background-color: white;
+	overflow: auto;
+}
+
+.modal-header {
+	border-bottom: 2px dashed gray;
+	padding: 1rem 2rem;
+	/* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8); */
+	background-color: rgb(240, 240, 240);
+	/* margin-bottom: 1rem; */
+}
+
+.modal-header > * {
+	margin: 0;
+}
+
+.modal-header > p {
+	margin-top: 0.5rem;
+	color: gray;
+}
+
+.modal-body {
+	overflow: auto;
+	padding: 1rem 2rem;
+	/* padding-top: 0; */
+}
+
+/* #modal-inicia-sesion form {
+	min-width: 40%;
+	max-width: 60%;
+} */
+
+.modal-body .grid-registrarse, #div-hijos-variable-registrarse, #div-hijos-variable-mi-perfil {
+	display: grid;
+	/* grid-template-rows: 1fr; */
+	grid-template-columns: 1fr;
+	/* flex-flow: row nowrap; */
+	gap: 0.8rem;
+}
+
+/* .modal-body form #grupo1-registrarse {
+	flex-grow: 1;
+} */
+
+/* .modal-body form #grupo2-registrarse {
+	flex-grow: 1;
+} */
+
+.modal-body input, option {
+	height: 1.5rem;
+	/* margin-bottom: 0.8rem; */
+}
+
+.modal-body label {
+	margin-top: 1rem;
+	margin-bottom: 0.4rem;
+	font-size: 1rem;
+}
+
+.titulo-hijoX {
+	margin-top: 2rem;
+	margin-bottom: 0;
+}
+
+#form-inicia-sesion {
+	max-width: 30rem;
+	margin: auto;
+}
+
+.modal-body .elemento-form-registrarse, .elemento-form-inicia-sesion {
+	display: flex;
+	flex-direction: column;
+	/* margin-top: 0.2rem; */
+	/* gap: 0.8rem */
+}
+
+.modal-body .mensaje-error {
+	/* visibility: hidden; */
+	display: none;
+	font-size: 0.8rem;
+	color: rgb(224, 102, 102);
+	margin: 0;
+	/* margin-bottom: 0.2rem; */
+}
+
+.texto-destacado-rojo {
+	color: rgb(224, 102, 102);
+}
+
+.mensaje-error-inicia-sesion{
+	visibility: hidden;
+	font-size: 1rem;
+	margin: 1rem 0;
+	color: rgb(224, 102, 102);
+}
+
+.modal-footer {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	border-top: 2px dashed gray;
+	padding: 1rem;
+	background-color: rgb(240, 240, 240);
+}
+
+.modal-footer > button {
+	background-color: rgb(220, 220, 220);
+	border: none;
+	padding: 0.5rem 2rem;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+#div-opciones-perfil {
+	display: none;
+	position: absolute;
+	width: calc(100% - 2rem);
+}
+
+#icono-sesion-iniciada {
+	display: none;
+}
+
+#modal-mis-cartas-body {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1rem;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+}
+
+.carta-mis-cartas{
+	word-wrap: break-word;
+	border: rgb(150, 120, 120) solid 2px;
+	background-color: rgba(100, 0, 0, 0.1);
+	padding: 1.5rem;
+}
+
+.carta-mis-cartas-sub {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 0.5rem;
+	align-items: center;
+	align-content: center;
+}
+
+.carta-mis-cartas img{
+	height: 3rem;
+	display: block;
+	margin: auto;
+}
+
+.texto-carta-mis-cartas{
+	word-wrap: break-word;
+}
+
+h2.texto-carta-mis-cartas{
+	font-size: 1.3rem;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h3.texto-carta-mis-cartas{
+	font-size: 1.1rem;
+	margin-top: 0.1rem;
+	margin-bottom: 0;
+	color: rgb(150, 120, 120)
+}
+
+p.texto-carta-mis-cartas{
+	font-size: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.boton-borrar-mis-cartas{
+	display: block;
+	margin: auto;
+	padding: 0.3rem 1.3rem;
+	font-size: 1rem;
+}
+
+.mensaje-no-cartas {
+	text-align: center;
+	margin: 3rem 0;
+}
+
+#modal-registrarse-inicial {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+p.modal-subtitulo {
+	margin: 0;
+}
+
+#modal-registrarse-inicial-opciones{
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 5vw;
+	justify-content: center;
+}
+
+#modal-registrarse-inicial-opciones-adulto, #modal-registrarse-inicial-opciones-niño {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+#modal-registrarse-inicial-opciones-adulto-div-foto, #modal-registrarse-inicial-opciones-niño-div-foto {
+	width: 100%;
+	height: auto;
+}
+
+#modal-registrarse-inicial-opciones-adulto-foto, #modal-registrarse-inicial-opciones-niño-foto {
+	height: 100%;
+	width: 100%;
+}
+
+#modal-registrarse-inicial-opciones-adulto-texto, #modal-registrarse-inicial-opciones-niño-texto {
+	margin-top: 0;
+	text-align: center;
+}
+
+#modal-registrarse-niño-boton-iniciar-sesion, #modal-registrarse-niño-boton-registrarse{
+	padding: 0.5rem 0.7rem;
+	border-radius: 5px;
+	font-size: 1rem;
+	border: none;
+	transition-duration: 0.15s;
+	text-align: center;
+}
+
+#modal-registrarse-niño-boton-iniciar-sesion{
+	background-color: rgb(225, 225, 225);
+	color: black;
+}
+
+#modal-registrarse-niño-boton-iniciar-sesion:hover{
+	background-color: rgb(200, 200, 200);
+}
+
+#modal-registrarse-niño-boton-registrarse{
+	background-color: rgb(120, 120, 120);
+	color: white;
+}
+
+#modal-registrarse-niño-boton-registrarse:hover{
+	background-color: rgb(95, 95, 95);
+}
+
+
+/* Barra de navegación */
+
+.barra-navegacion {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: white;
+	position: fixed;
+}
+
+.div-logo-iconos {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	gap: 1rem;
+	height: 12vh;
+	flex-grow: 1;
+	padding: 0 3vw;
+}
+
+.div-logo {
+	height: 80%;
+	/* margin-left: 3vw; */
+}
+
+.logo {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+	object-position: left center;
+}
+
+.div-iconos-global {
+	display: flex;
+	height: 100%;
+}
+
+.div-iconos-movil {
+	height: 100%;
+	margin-right: 3vw;
+}
+
+.icono {
+	height: 35%;
+	margin-top: 5vh; 
+	/* margin-bottom: 4.5vh; */
+}
+
+.div-opciones-menu{
+	display: none;
+	background-color: rgb(240, 240, 240);
+	border-top: 1px solid black;
+	border-bottom: 2px solid black;
+	width: 100%;
+	position: absolute;
+	flex-shrink: 1;
+	padding: 0.7rem 3vw;
+}
+
+/* Al darle click al icono del menú hamburguesa, se muestran los botones del menú */
+.div-logo-iconos:has(#cerrar:target) ~ .div-opciones-menu {
+	display: block;
+}
+
+.div-opciones-menu > a {
+	display: block;
+	padding: 1rem 0;
+	text-decoration: none;
+	width: 100%;
+	text-align: center;
+	font-size: 10px;
+}
+
+.div-botones-menu > button {
+	display: block;
+	padding: 1rem 0;
+	font-size: 20px;
+	border: none;
+	transition-duration: 0.15s;
+	width: 100%;
+	text-align: center;
+}
+
+.link-rojo, .link-verde {
+  color: black;
+	transition-duration: 0.15s;
+}
+
+.link-evidencia, .link-rojo:hover {
+	background-color: rgb(224, 102, 102);
+	color: white;
+}
+
+.link-verde:hover {
+	background-color: rgb(47, 145, 93);
+	color: white;
+}
+
+.boton-inicia-sesion {
+	background-color: rgb(225, 225, 225);
+	color: black;
+}
+
+.boton-inicia-sesion:hover {
+	background-color: rgb(200, 200, 200);
+}
+
+.boton-registrarse {
+	background-color: rgb(120, 120, 120);
+	color: white;
+}
+
+.boton-registrarse:hover {
+	background-color: rgb(95, 95, 95);
+}
+
+/* Icono de cerrar está escondido de normal */
+#cerrar {
+	display: none;
+}
+
+/* Darle click al menú hamburguesa hace que el icono de cerrar aparezca*/
+#cerrar:target {
+	display: block;
+	height: 100%
+}
+
+/* Darle click al menú hamburguesa hace que el icono de hamburguesa desaparezca */
+#cerrar:target ~ #menu-hamburguesa {
+	display: none;
+}
+
+
+/* Pagina 1: Contador */
+
+#pagina1 {
+	display: flex;
+	background-image: url("../images/background-prueba4.gif");
+	background-position: 10%;
+	background-repeat: no-repeat;
+  background-attachment: fixed; 
+	background-size: cover;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	padding: 5vh;
+}
+
+#pagina1 h1 {
+	font-size: 10vw;
+	color: white;
+	text-shadow: 0px 0px 20px black;
+	margin: 0;
+	text-align: center;
+}
+
+#pagina1 p {
+	font-size: 6vw;
+	margin: 0 0 2rem 0;
+	color: rgb(226, 237, 255);
+	text-shadow: 0px 0px 20px black;
+}
+
+#pagina1 button {
+	border-radius: 5px;
+	font-size: 1.5rem;
+	padding: 0.5rem 2rem;
+	border: none;
+	background-color: rgb(255, 255, 255);
+	color: black;
+	box-shadow: 0px 0px 5px black;
+	transition-duration: 0.15s;
+}
+
+#pagina1 button:hover{
+	box-shadow: 0px 0px 10px white;
+}
+
+/*Página 2: Juego Leche con galletas*/
+
+/*Página 3: Cartas de otros niños.*/
+
+#pagina3{
+	padding: 1rem 2rem;
+	background-image: url("../images/background-pagina3-1.png");
+	background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+	background-position: bottom 30% right 50%;
+	color: white;
+	text-shadow: 0px 0px 10px black;
+	display: flex;
+	flex-flow: column;
+}
+
+.seccion_cartas{
+	display: flex;
+	flex-flow: column;
+	margin: 0;
+}
+
+.carta{
+	display: flex;
+	flex-direction: row;
+	margin: 2.5vw 0vw;
+	padding: 1.25vw;
+	border: 2px solid gray;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carta > img{
+	display: block;
+	border-radius: 50%;
+	height: 5.44rem;
+}
+
+.carta > div{
+	font-size: 0.75rem;
+	padding: 0 1rem;
+	margin: 0.5vw 0vw;
+}
+
+.texto_carta{
+	margin: 0vw;
+}
+
+.carta > div > p{
+	font-size: 1.03rem;
+}
+
+/*Página 4: Enviar una carta formulario.*/
+
+#pagina4{
+	background-image: url("../images/background-pagina4.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed; 
+	padding: 1rem 2rem;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+#pagina4 > h1{
+	color: white;
+	text-shadow: 0px 0px 15px black;
+}
+
+.carta_form{
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	font-size: 1.2rem;
+	padding: 0.63rem;
+	border: 0.25rem dashed;
+	border-image: linear-gradient(90deg, rgba(226,10,10,1) 0%, rgba(17,113,1,1) 100%) 5;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+.carta_form > label{
+	margin: 0.25rem 0;
+}
+
+#form-inputs > label{
+	margin: 0.25rem 0;
+}
+
+#form-inputs > input{
+	height: 1.2rem;
+	border: 2px solid gray;
+	font-size: 1rem;
+	font-family: "Roboto Slab";
+}
+
+.carta_form > .carta-papa-noel{
+	height: 10rem;
+	border: 2px solid gray;
+	font-size: 1rem;
+	font-family: "Roboto Slab";
+}
+
+.carta_form > button{
+	font-size: 2rem;
+	background-color: #ff6347;
+	margin: 1vw 0vw;
+}
+
+#form-inputs{
+	display: grid;
+}
+
+#form-no-completo{
+	display: none;
+	font-size: 1rem;
+	margin: 0;
+	color: red;
+}
+
+/* Pagina 5: Juego Memory Quest. */
+
+#pagina5 {
+	padding: 1rem 2rem 3rem 2rem;
+	background-image: url("../images/background-pagina5.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+	background-size: cover;
+}
+
+#pagina5 > h1 {
+	color: white;
+	text-shadow: 0px 0px 15px black;
+}
+
+#mq-container{
+	width: 100%;
+	justify-content: center;
+	display: flex;
+}
+
+#memory-quest{
+	/* height: 0;
+  aspect-ratio: width/height; */
+	/* padding-bottom: 100%; */
+	background-color: rgb(110, 169, 151);
+	/* aspect-ratio: 1 / 1;
+	max-width: 100%;
+	max-height: 100%; */
+	flex-flow: row wrap;
+	gap: 1rem;
+	align-content: center;
+	justify-content: center;
+	padding: 1rem;
+	text-align: center;
+}
+
+#card-container{
+		display: grid;
+		grid-template-columns: repeat(4, min-content);
+		grid-template-rows: repeat(4, min-content);
+		gap: 0.5rem;
+		background-color: rgba(255, 255, 255, 0.3);
+}
+
+.card{
+	background-color: white;
+	/* border: black solid 1px; */
+	padding: 0.2rem;
+}
+
+.card-content{
+	visibility: hidden;
+	font-size: 2rem;
+	margin: 0;
+}
+
+#mq-texto{
+	min-width: 213px;
+}
+
+#mq-vidas, #mq-puntos {
+	display: none;
+}
+
+#mq-vidas, #mq-puntos, #mq-mensaje {
+	margin-top: 0;
+}
+
+#mq-mensaje{
+	color: rgb(0, 100, 90);
+}
+
+#mq-boton{
+	padding: 0.3rem 1.3rem;
+	font-size: 1rem;
+}
+	
+/*Footer*/
+
+footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1rem;
+	justify-content: space-between;
+	padding: 1rem 0 0 0;
+	gap: 1rem;
+}
+
+.footer-logos{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.footer-logos > p{
+	margin: 0;
+}
+
+#footer-logo{
+	width: 20rem;
+}
+
+.social-logos{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem
+}
+
+
+.social-logos > img{
+	width: 1.5rem;
+}
+
+footer > .footer-links{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.footer-links > a{
+	display: block;
+	margin: 0;
+	border-top: 2px solid gray;
+	padding: 1rem;
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	background-color: rgb(200, 200, 200);
+	font-size: 1.2rem;
+}
+
+
+/* Media queries */
+
+@media only screen and (min-width: 1100px) {
+
+	/*Pagina 2*/
+	#pagina2 > div {
+		flex-flow: row;
+		gap: 2rem;
+	}
+
+	#santa_photo {
+		margin: initial;
+	}
+
+	/*Pagina 3*/
+	.seccion_cartas {
+		grid-template-columns: 1fr 1fr 1fr;
+		padding: 0 3vw;
+	}
+
+	.seccion_cartas > .carta{
+		width: initial;
+		width: auto;
+		height: auto;
+	}
+
+	/*Pagina 4*/
+	.carta_form{
+		margin: 0 25vw; 
+		width: 46.16vw;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+
+	/* Barra de navegación */
+
+	/* .barra-navegacion{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	} */
+	
+	.div-iconos-movil {
+		display: none;
+	}
+
+	#cerrar:target {
+		display: none;
+	}
+
+	.div-logo-iconos:has(#cerrar:target) ~ .div-opciones-menu {
+		display: flex;
+	}
+
+	.div-opciones-menu {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		gap: 0.3rem;
+		background-color: initial;
+		border-bottom: initial;
+		width: initial;
+		position: initial;
+	}
+
+	.div-opciones-menu > a {
+		display: initial;
+		padding: 0.5rem 0.7rem;
+		border-radius: 5px;
+		text-decoration: none;
+		width: initial;
+		text-align: initial;
+		font-size: 16px;
+		flex-shrink: 0;
+	}
+
+	.div-botones-menu > button {
+		display: initial;
+		padding: 0.5rem 0.7rem;
+		border-radius: 5px;
+		font-size: 1rem;
+		border: none;
+		transition-duration: 0.15s;
+		width: initial;
+		text-align: initial;
+	}
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1100px) {
+	/*Pagina 3*/
+	.seccion_cartas{
+		grid-template-columns: auto auto;
+	}
+
+	.seccion_cartas > .carta{
+		width: initial;
+		width: 19.45rem;
+		height: 18.3rem;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	/* Para ordenadores */
+
+	h1{
+		font-size: 3rem;
+	}
+
+	/* Pagina 1 */
+
+	#pagina1 h1 {
+		font-size: 5vw;
+	}
+	
+	#pagina1 p {
+		font-size: 4vw;
+	}
+
+	/* Pagina 3 */
+	.seccion_cartas{
+		display: grid;
+		column-gap: 0.5rem;
+		align-self: center;
+	}
+
+	/* Pagina 5 */
+/*
+	.div-juegos {
+		flex-flow: row nowrap;
+		gap: 10vw;
+	}
+	
+	.div-juegos-links {
+		flex-flow: column nowrap;
+		justify-content: start;
+		align-items: start;
+		gap: 2rem;
+		flex-shrink: 0;
+	}
+
+	.div-juegos-links > a {
+		font-size: 20px;
+		width: 100%;
+	}
+
+	.div-juegos-imagenes {
+		height: 60vh;
+	}
+
+	.div-juegos-imagenes img {
+		object-position: top left;
+	}
+*/
+}
+
+@media only screen and (min-width: 600px) and ( max-width: 768px){
+	/*Pagina 3*/
+	.seccion_cartas > .carta{
+		margin: 1rem 0;
+		padding: 0.5rem;
+		width: 32.25rem;
+		align-self: center;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	/*Para tablets */
+
+	/* Pagina 4 */
+
+	#form-inputs{
+		display: grid;
+		grid-template-columns: 50% 50%;
+		gap: 0.2rem;
+	}
+
+	.email-label{
+		grid-column-start: 2;
+		grid-row-start: 1;
+	}
+
+	.country-label{
+		grid-column-start: 2;
+		grid-row-start: 3;
+	}
+
+	/* Pagina 5 */
+/*
+	.div-juegos-imagenes {
+		height: 60vh;
+	}
+*/
+	/* Footer */
+
+	footer{
+		flex-direction: row;
+		padding: 1rem 2rem;
+	}
+
+	.footer-logos{
+		align-items: flex-start;
+		padding: 0;
+	}
+
+	.footer-links > a{
+		border-radius: 0.5rem;
+		padding: 0.7rem;
+		border: 0;
+	}
+
+	footer > .footer-links{
+		display: flex;
+		box-shadow: none;
+		flex-flow: row wrap;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1100px){
+	.carta_form{
+		align-self: center;
+		width: 31.74rem;
+	}
+
+}
+
+/* Práctica 2: Pop-ups */
+
+@media only screen and (min-width: 1200px) {
+	#modal-mis-cartas-body {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+	}
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+	#modal-mis-cartas-body {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+}
+
+@media only screen and (min-width: 680px) {
+	.modal-body .grid-registrarse, #div-hijos-variable-registrarse, #div-hijos-variable-mi-perfil {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.modal-footer{
+		gap: 2rem
+	}
+
+	.modal-body {
+		padding: 1rem 2rem;
+	}
+}
+
+@media only screen and (min-width: 515px) {
+	.card{
+		padding: 1rem;
+	}
+
+	.card-content{
+		font-size: 3rem;
+	}
+}

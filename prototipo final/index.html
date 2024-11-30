@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<!-- Para que se vea correctamente la pagina en distintos dispositivos -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Este link sirve para poner el favicon -->
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+		<link rel="stylesheet" type="text/css" href="style/styles.css">
+
+		<!-- Estos links sirven para importar la fuente de la página a través de Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Jacquarda+Bastarda+9&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+		<!-- Archivos de javascript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="scripts/registrarse-mi-perfil.js" async></script>
+		<script src="scripts/iniciar-sesion.js" async></script>
+		<script src="scripts/menu-perfil.js" async></script>
+		<script src="scripts/cartas.js" async> </script>
+		<script src="scripts/counter.js" async> </script>	
+		<script src="scripts/memory-quest.js" async> </script>
+
+		<title> SantaLover </title>
+	</head>
+
+	<body>
+		<header class="barra-navegacion">
+			<!--Barra de navegación-->
+			<div class="div-logo-iconos">
+				<div class="div-logo">
+					<img 
+					src="images/logo-1.png" 
+					alt="Logo" 
+					class="logo">
+				</div>
+
+				<div class="div-iconos-global">
+					<div id="cerrar" class="div-iconos-movil">
+						<a href="#menu-hamburguesa">
+							<img 
+							src="images/close-icon.svg" 
+							alt="Cerrar" 
+							class="icono">
+						</a>
+					</div>
+
+					<div id="menu-hamburguesa" class="div-iconos-movil">
+						<a href="#cerrar">
+							<img 
+							src="images/hamburger-icon.svg" 
+							alt="Menu" 
+							class="icono">
+						</a>
+					</div>
+
+					<div id="icono-sesion-iniciada" class="div-iconos-movil">
+						<a href="#">
+							<img 
+							src="images/perfil-icon.svg" 
+							alt="Perfil"
+							class="icono">
+						</a>
+					</div>
+				</div>
+
+				<div class="div-botones-menu">
+					<button class="boton-inicia-sesion">Inicia sesión</button>
+					<button class="boton-registrarse">Registrarse</button>
+				</div>
+			</div>
+
+			<div class="div-opciones-menu">
+				<a href="#pagina1" class="link-evidencia">Home 🏠</a>
+				<a href="#pagina2" class="link-verde">Envía comida 😋</a>
+				<a href="#pagina3" class="link-rojo">Las cartas ✉️</a>
+				<a href="#pagina4" class="link-verde">¡Envía tu carta! 📩</a>
+				<a href="#pagina5" class="link-rojo">Memory Quest 🎮</a>
+				<a href="#pagina6" class="link-verde">Mensajes personalizados 🎅</a>
+				<a href="#pagina7" class="link-rojo">Reserva 🏭</a>
+				<a href="#pagina8" class="link-verde">Chat 💬</a>
+				<a href="#pagina9" class="link-rojo">Calendario de adviento 📅</a>
+				<a href="#pagina10" class="link-verde">Videollamada 💻</a>
+			</div>
+		</header>
+
+		<div id="div-opciones-perfil" class="modal-footer">
+			<button id="boton-mi-perfil" class="link-rojo">Mi perfil</button>
+			<button id="boton-mis-cartas" class="link-verde">Mis cartas</button>
+			<button id="boton-cerrar-sesion" class="link-rojo">Cerrar sesión</button>
+		</div>
+
+		<div id="modal-registrarse" class="modal-background">
+			<div class="modal">
+
+				<div class="modal-header">
+					<h2>Registrarse ☃️</h2>
+					<!-- <p id="subtitulo-registrarse">¡Estás solo a un paso de disfrutar de la magia de la navidad!</p> -->
+				</div>
+
+				<div class="modal-body">
+					<div id="modal-registrarse-inicial">
+						<p class="modal-subtitulo">¿Cuántos años tienes?</p>
+						<div id="modal-registrarse-inicial-opciones">
+							<div id="modal-registrarse-inicial-opciones-adulto">
+								<div id="modal-registrarse-inicial-opciones-adulto-div-foto">
+									<img id="modal-registrarse-inicial-opciones-adulto-foto"
+									src="images/foto-cuenta-adultos.png"
+									alt="Elige la opción de adulto"> 
+								</div> 
+								<p id="modal-registrarse-inicial-opciones-adulto-texto">16 años o más</p>
+							</div>
+
+							<form id="form-registrarse" name="form-registrarse">
+								<div class="elemento-form-registrarse">
+									<label for="username-registrarse">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+									<input type="text" id="username-registrarse" name="username-registrarse" required>
+									<p class="mensaje-error">Mínimo 3 caracteres</p>
+								</div>
+							
+								<div class="elemento-form-registrarse">
+									<label for="email-registrarse">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
+									<input type="email" id="email-registrarse" name="email-registrarse" required>
+									<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
+								</div>
+							
+								<div class="elemento-form-registrarse">
+									<label for="contraseña-registrarse">Contraseña<span class="texto-destacado-rojo">*</span></label>
+									<input type="password" id="contraseña-registrarse" name="contraseña-registrarse" required>
+									<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+										carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+								</div>
+							
+								<div class="elemento-form-registrarse">				
+									<label for="repetir-contraseña-registrarse">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+									<input type="password" id="repetir-contraseña-registrarse" name="repetir-contraseña-registrarse" required>
+									<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+								</div>
+							</form>
+
+							<div id="modal-registrarse-inicial-opciones-niño-elegido">
+								<p id="modal-registrarse-inicial-opciones-niño-elegido-texto">
+									Para crearte una cuenta, pídele a un adulto que lo haga a través de su cuenta, iniciando sesión o registrándose:
+								</p>
+								<div id="modal-registrarse-inicial-opciones-niño-elegido-botones">
+									<button id="modal-registrarse-niño-boton-iniciar-sesion">Iniciar sesión</button>
+									<button id="modal-registrarse-niño-boton-registrarse">Registrarse</button>
+								</div>
+							</div>
+
+							<div id="modal-registrarse-inicial-opciones-niño">
+								<div id="modal-registrarse-inicial-opciones-niño-div-foto">
+									<img id="modal-registrarse-inicial-opciones-niño-foto"
+									src="images/foto-cuenta-niños.png"
+									alt="Elige la opción de niño">
+								</div>
+								<p id="modal-registrarse-inicial-opciones-niño-texto">15 años o menos</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-aceptar-registrarse" class="link-rojo">Aceptar</button>
+					<button id="boton-cancelar-registrarse" class="link-rojo">Cancelar</button>
+					<button id="boton-atras-registrarse" class="link-verde">Atrás</button>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="modal-inicia-sesion" class="modal-background">
+			<div class="modal">
+				<div class="modal-header">
+					<h2>Inicia sesión ☃️</h2>
+					<p id="subtitulo-registrarse">¡Que empiece la diversión!</p>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-inicia-sesion" name="form-inicia-sesion">
+						<div class="elemento-form-inicia-sesion">
+							<label for="username-inicia-sesion">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+							<input type="text" id="username-inicia-sesion" name="username-inicia-sesion" required>
+						</div>
+						<div class="elemento-form-inicia-sesion">
+							<label for="contraseña-inicia-sesion">Contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="contraseña-inicia-sesion" name="contraseña-inicia-sesion" required>
+						</div>
+						<p class="mensaje-error-inicia-sesion">Usuario o contraseña no encontrados</p>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-aceptar-inicia-sesion" class="link-rojo">Entrar</button>
+					<button id="boton-cancelar-inicia-sesion" class="link-verde">Cancelar</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="modal-mi-perfil" class="modal-background">
+			<div class="modal">
+				<div class="modal-header">
+					<h2>Mi perfil ☃️</h2>
+					<p>Consulta y modifica tus datos</p>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-mi-perfil" name="form-mi-perfil">
+						<div class="grid-registrarse">
+							<div class="grupo1-registrarse">
+								<div class="elemento-form-registrarse">
+									<label for="username-mi-perfil">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+									<input type="text" id="username-mi-perfil" name="username-mi-perfil" required>
+									<p class="mensaje-error">Mínimo 3 caracteres</p>
+								</div>
+
+								<div class="elemento-form-registrarse">
+									<label for="contraseña-mi-perfil">Contraseña<span class="texto-destacado-rojo">*</span></label>
+									<input type="password" id="contraseña-mi-perfil" name="contraseña-mi-perfil" required>
+									<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+										carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+								</div>
+
+								<div class="elemento-form-registrarse">				
+									<label for="repetir-contraseña-mi-perfil">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+									<input type="password" id="repetir-contraseña-mi-perfil" name="repetir-contraseña-mi-perfil" required>
+									<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+								</div>
+
+								<div class="elemento-form-registrarse">
+									<label for="genero-mi-perfil">Género</label>
+									<select id="genero-mi-perfil" name="genero-mi-perfil">
+										<option hidden disabled selected value> -- Selecciona una opción -- </option>
+										<option value="masculino">Masculino</option>
+										<option value="femenino">Femenino</option>
+										<option value="otro">Otro</option>
+										<option value="prefiero-no-decirlo">Prefiero no decirlo</option>
+									</select>
+									<p class="mensaje-error">Elige una opción</p>
+								</div>
+							</div>
+
+							<div class="grupo2-registrarse">
+								<div class="elemento-form-registrarse">
+									<label for="email-mi-perfil">Correo Electrónico<span class="texto-destacado-rojo">*</span></label>
+									<input type="email" id="email-mi-perfil" name="email-mi-perfil" required>
+									<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
+								</div>
+
+								<div class="elemento-form-registrarse">
+									<label for="ciudad-mi-perfil">Ciudad<span class="texto-destacado-rojo">*</span></label>
+									<input type="text" id="ciudad-mi-perfil" name="ciudad-mi-perfil" required>
+									<p class="mensaje-error">Mínimo 3 caracteres</p>
+								</div>
+
+								<div class="elemento-form-registrarse">
+									<label for="pais-mi-perfil">País<span class="texto-destacado-rojo">*</span></label>
+									<input type="text" id="pais-mi-perfil" name="pais-mi-perfil" required>
+									<p class="mensaje-error">Mínimo 3 caracteres</p>
+								</div>
+
+								<div class="elemento-form-registrarse">
+									<label for="hijos-mi-perfil">¿Cuántos hijos / hijas tienes? </label>
+									<input type="number" min="0" id="hijos-mi-perfil" name="hijos-mi-perfil">
+									<p class="mensaje-error">Introduce un número</p>
+								</div>
+							</div>
+						</div>
+
+						<div id="div-hijos-variable-mi-perfil"></div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-modificar-mi-perfil" class="link-rojo">Modificar</button>
+					<button id="boton-atras-mi-perfil" class="link-verde">Atrás</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="modal-mis-cartas" class="modal-background">
+			<div class="modal">
+				<div class="modal-header">
+					<h2>Mis cartas ☃️</h2>
+					<p>Consulta y modifica tus cartas</p>
+				</div>
+
+				<div id="modal-mis-cartas-body" class="modal-body">
+
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-atras-mis-cartas" class="link-rojo">Atrás</button>
+				</div>
+			</div>
+		</div>
+		
+		<section id="pagina1">
+			<!--Página 1-->
+			<h1>¡Vive la magia de la navidad!</h1>
+			<p id="counter-text">297 días 15 h 40 min 38 s</p>
+			<!-- <a href="#pagina1">EMPEZAR</a> -->
+			<button>EMPEZAR</button>
+		</section>
+
+		<section id="pagina2">
+			<h1>¡Envíale comida a Papá Noel! 😋</h1>
+			<h2>Tu pedido llegará a nuestros elfos chefs y lo entregarán de tu parte</h2>
+
+			<div id="pagina2-contenido-1" class="pagina2-contenido">
+				<div id="leche-y-galletas">
+					<div id="elige-la-leche" class="grupo-leche-galletas">
+						<p>Elige la leche</p>
+						<div id="elige-la-leche-contenido">
+							<div class="imgs-leche">
+								<img id="img-leche-normal"
+										src="images/leche-normal.png"
+										alt="Dibujo de leche normal">
+								<img id="img-leche-chocolate"
+										src="images/leche-chocolate.png"
+										alt="Dibujo de leche de chocolate">
+								<img id="img-leche-fresa"
+										src="images/leche-fresa.png"
+										alt="Dibujo de leche de fresa">
+							</div>
+							<form id="form-leche">
+								<label for="tipo-leche">Elige un tipo de leche</label>
+								<select name="tipo-leche" id="tipo-leche">
+									<option value="leche-normal">Normal</option>
+									<option value="leche-chocolate">Chocolate</option>
+									<option value="leche-fresa">Fresa</option>
+								</select>
+							</form>
+						</div>
+					</div>
+
+					<div id="elige-las-galletas" class="grupo-leche-galletas">
+						<p>Elige las galletas</p>
+						<div id="elige-las-galletas-contenido">
+							<form id="form-cantidad-galletas">
+								<label for="cantidad-galletas">Cantidad</label>
+								<select name="cantidad-galletas" id="cantidad-galletas">
+									<option value="cantidad-galletas-1">1</option>
+									<option value="cantidad-galletas-2">2</option>
+									<option value="cantidad-galletas-3">3</option>
+								</select>
+							</form>
+
+							<div id="galleta1" class="galleta">
+								<div id="imgs-galleta1" class="imgs-galleta">
+									<img class="img-galleta-clasica"
+											src="images/galleta-clasica.png"
+											alt="Dibujo de una galleta clasica">
+									<img class="img-galleta-chocolate"
+											src="images/galleta-chocolate.png"
+											alt="Dibujo de una galleta de chocolate">
+									<img class="img-galleta-red-velvet"
+											src="images/galleta-red-velvet.png"
+											alt="Dibujo de una galleta de red velvet">
+								</div>
+
+								<form class="form-tipo-galleta">
+									<label for="tipo-galleta1">Elige un tipo de galleta</label>
+									<select name="tipo-galleta1" id="tipo-galleta1">
+										<option value="galleta-clasica">Clásica</option>
+										<option value="galleta-chocolate">Chocolate</option>
+										<option value="galleta-red-velvet">Red velvet</option>
+									</select>
+								</form>
+							</div>
+
+							<div id="galleta2" class="galleta">
+								<div id="imgs-galleta2" class="imgs-galleta">
+									<img class="img-galleta-clasica"
+											src="images/galleta-clasica.png"
+											alt="Dibujo de una galleta clasica">
+									<img class="img-galleta-chocolate"
+											src="images/galleta-chocolate.png"
+											alt="Dibujo de una galleta de chocolate">
+									<img class="img-galleta-red-velvet"
+											src="images/galleta-red-velvet.png"
+											alt="Dibujo de una galleta de red velvet">
+								</div>
+
+								<form class="form-tipo-galleta">
+									<label for="tipo-galleta2">Elige un tipo de galleta</label>
+									<select name="tipo-galleta2" id="tipo-galleta2">
+										<option value="galleta-clasica">Clásica</option>
+										<option value="galleta-chocolate">Chocolate</option>
+										<option value="galleta-red-velvet">Red velvet</option>
+									</select>
+								</form>
+							</div>
+							
+							<div id="galleta3" class="galleta">
+								<div id="imgs-galleta3" class="imgs-galleta">
+									<img class="img-galleta-clasica"
+											src="images/galleta-clasica.png"
+											alt="Dibujo de una galleta clasica">
+									<img class="img-galleta-chocolate"
+											src="images/galleta-chocolate.png"
+											alt="Dibujo de una galleta de chocolate">
+									<img class="img-galleta-red-velvet"
+											src="images/galleta-red-velvet.png"
+											alt="Dibujo de una galleta de red velvet">
+								</div>
+
+								<form class="form-tipo-galleta">
+									<label for="tipo-galleta3">Elige un tipo de galleta</label>
+									<select name="tipo-galleta3" id="tipo-galleta3">
+										<option value="galleta-clasica">Clásica</option>
+										<option value="galleta-chocolate">Chocolate</option>
+										<option value="galleta-red-velvet">Red velvet</option>
+									</select>
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<button id="pagina2-boton-enviar">ENVIAR</button>
+			</div>
+
+			<div id="pagina2-contenido-2" class="pagina2-contenido">
+				<p id="pagina2-contenido-2-texto">Preparando tu pedido...</p>
+			</div>
+
+			<div id="pagina2-contenido-3" class="pagina2-contenido">
+				<div id="pagina2-contenido-3-div-img-papa-noel">
+					<img id="pagina2-contenido-3-img-papa-noel"
+							src="images/papa-noel-tracker.png"
+							alt="Papá Noel saludando">
+				</div>
+				<div>
+					<div id="pagina2-mensaje-papa-noel">
+						<p class="texto-destacado-rojo">¡Ho, ho, ho!</p>
+						<p>Gracias por tu leche con galletas, ¡estaba muy rico!</p>
+					</div>
+					<div id="pagina2-pedido">
+						<div class="imgs-leche">
+							<img id="img-leche-normal"
+									src="images/leche-normal.png"
+									alt="Dibujo de leche normal">
+							<img id="img-leche-chocolate"
+									src="images/leche-chocolate.png"
+									alt="Dibujo de leche de chocolate">
+							<img id="img-leche-fresa"
+									src="images/leche-fresa.png"
+									alt="Dibujo de leche de fresa">
+						</div>
+						<div id="imgs-galleta1-pedido" class="imgs-galleta">
+							<img class="img-galleta-clasica"
+									src="images/galleta-clasica.png"
+									alt="Dibujo de una galleta clasica">
+							<img class="img-galleta-chocolate"
+									src="images/galleta-chocolate.png"
+									alt="Dibujo de una galleta de chocolate">
+							<img class="img-galleta-red-velvet"
+									src="images/galleta-red-velvet.png"
+									alt="Dibujo de una galleta de red velvet">
+						</div>
+						<div id="imgs-galleta2-pedido" class="imgs-galleta">
+							<img class="img-galleta-clasica"
+									src="images/galleta-clasica.png"
+									alt="Dibujo de una galleta clasica">
+							<img class="img-galleta-chocolate"
+									src="images/galleta-chocolate.png"
+									alt="Dibujo de una galleta de chocolate">
+							<img class="img-galleta-red-velvet"
+									src="images/galleta-red-velvet.png"
+									alt="Dibujo de una galleta de red velvet">
+						</div>
+						<div id="imgs-galleta3-pedido" class="imgs-galleta">
+							<img class="img-galleta-clasica"
+									src="images/galleta-clasica.png"
+									alt="Dibujo de una galleta clasica">
+							<img class="img-galleta-chocolate"
+									src="images/galleta-chocolate.png"
+									alt="Dibujo de una galleta de chocolate">
+							<img class="img-galleta-red-velvet"
+									src="images/galleta-red-velvet.png"
+									alt="Dibujo de una galleta de red velvet">
+						</div>
+					</div>
+				</div>
+				<button id="pagina2-boton-volver-a-pedir">VOLVER A PEDIR</button>
+			</div>
+
+		</section>
+
+		<section id="pagina3">
+			<!--Página 3-->
+			<header>
+				<h1>Las cartas ✉️</h1>
+			</header>
+
+			<div class="seccion_cartas">
+				<!--6 cartas aquí-->
+				<section class="carta">
+					<img class="foto_carta"
+					src="images/persona1.png"
+					alt="Primera foto">
+					<div>
+						<h2 class="texto_carta">Lucía Hernández</h2>
+						<h3 class="texto_carta">Barcelona, España</h3>
+						<p class="texto_carta">Querido Papá Noel, Este año he sido muy buena. Ayudé a mi mamá, hice mis tareas y cuidé a mi hermanito. Me gustaría que me traigas una bicicleta roja y muchos chocolates. ¡Espero que te guste la galleta que te voy a dejar!</p>
+					</div>	
+				</section>
+				<section class="carta">
+					<img class="foto_carta"
+					src="images/persona2.png"
+					alt="Primera foto">
+					<div>
+						<h2 class="texto_carta">Mikael Svensson</h2>
+						<h3 class="texto_carta">Estocolmo, Suecia</h3>
+						<p class="texto_carta">Querido árbol de Navidad, Me encanta verte lleno de luces y bolitas de colores. Siempre te ponemos en un rincón especial de la casa y cuando te miro, siento que la Navidad ya está aquí. ¡Gracias por hacer que todo se vea tan bonito!</p>
+					</div>	
+				</section>
+				<section class="carta">
+					<img class="foto_carta"
+					src="images/persona3.png"
+					alt="Primera foto">
+					<div>
+						<h2 class="texto_carta">Elena Petrova</h2>
+						<h3 class="texto_carta">Moscú, Rusia</h3>
+						<p class="texto_carta">Querido reno Rudolf, ¡Eres mi reno favorito porque tienes una nariz roja que brilla! Espero que este año guíes a Papá Noel sin problemas. Cuídate mucho en el frío y no te olvides de llevarme mi regalo. Te dejo zanahorias para ti y tus amigos.</p>
+					</div>	
+				</section>
+				<section class="carta">
+					<img class="foto_carta"
+					src="images/persona4.png"
+					alt="Primera foto">
+					<div>
+						<h2 class="texto_carta">Jackson Miller</h2>
+						<h3 class="texto_carta">Nueva York, Estados Unidos</h3>
+						<p class="texto_carta">Querida estrella de Navidad, Te veo brillar en lo alto del árbol y me haces sentir muy feliz. Me pregunto si puedes ver todo desde allá arriba. Quiero que siempre ilumines nuestra casa y traigas felicidad a todos.</p>
+					</div>	
+				</section>
+				<section class="carta">
+					<img class="foto_carta"
+					src="images/persona5.png"
+					alt="Primera foto">
+					<div>
+						<h2 class="texto_carta">Mateo Oliveira</h2>
+						<h3 class="texto_carta">São Paulo, Brasil</h3>
+						<p class="texto_carta">Queridos Reyes Magos, Este año me porté muy bien en el cole. Me gustaría pedirles unos lápices de colores y un libro para dibujar. Prometo seguir siendo bueno y compartir mis juguetes con mis amigos. ¡Gracias por los regalos del año pasado!</p>
+					</div>	
+				</section>
+				<section class="carta">
+					<img class="foto_carta"
+					src="images/persona6.png"
+					alt="Primera foto">
+					<div>
+						<h2 class="texto_carta">Sakura Tanaka</h2>
+						<h3 class="texto_carta">Tokio, Japón</h3>
+						<p class="texto_carta">Querido muñeco de nieve, Este año no ha nevado mucho, pero si cae nieve quiero construirte con una gran nariz de zanahoria y una bufanda roja. Me encantaría jugar contigo y lanzarnos bolas de nieve. ¡Ojalá vengas pronto!</p>
+					</div>					
+					
+				</section>
+			</div>
+		</section>
+
+		<section id="pagina4">
+			<!--Página 4-->
+			<h1>¡Envía tu carta! 📩</h1>
+			<form id="carta_form" class="carta_form"> 
+				<div id="form-inputs">
+					<label class="name-label" for="nombre">Nombre </label>
+					<input class="name-input" id="nombre" type="text" name="nombre">
+					<label class="email-label" for="email">Email </label>
+					<input class="email-input" id="email" type="text" name="email">
+					<label class="city-label" for="ciudad">Ciudad </label>
+					<input class="city-input" id="ciudad" type="text" name="ciudad">
+					<label class="country-label" for="pais">País </label>
+					<input class="country-input" id="pais" type="text" name="pais">	
+				</div>
+				<label for="carta">Carta para Papá Noel </label>
+				<textarea class="carta-papa-noel" id="carta" name="carta"></textarea> 
+				<p id="form-no-completo"> 
+					¡Creo que te has olvidado de poner algún dato en tu carta! 
+				</p>
+				<button type="button" id="form-button" class="link-verde">Envía</button>
+			</form>
+		</section>
+
+		<section id="pagina5">
+			<!--Página 5-->
+			<h1>¡Juega! 🎮</h1>
+
+			<div id="mq-container">
+				<div id="memory-quest">
+					<div id="mq-texto">
+						<p id="mq-vidas"></p>
+						<p id="mq-puntos"></p>
+						<p id="mq-mensaje"></p>
+						<button id="mq-boton">Jugar</button>
+					</div>
+					<div id="card-container">
+					</div>
+				</div>
+			</div>
+			
+		</section>
+
+		<footer id="footer">
+			<div class="footer-logos">
+				<p>SantaLover<sup>TM</sup> es una marca registrada.</p>
+				<div>
+					<img 
+					src="images/logo-2.png"
+					alt="Logo de SantaLover"
+					id="footer-logo">
+				</div>
+				<div class="social-logos">
+					<img 
+					src="images/x-logo.svg"
+					alt="Logo de X"
+					id="X-logo">
+					<img 
+					src="images/Instagram-logo.png"
+					alt="Logo de Instagram"
+					id="Instagram-logo">
+					<img 
+					src="images/facebook-logo.png"
+					alt="Logo de Facebook"
+					id="Facebook-logo">
+					<img 
+					src="images/youtube-logo.png"
+					alt="Logo de Youtube"
+					id="Youtube-logo">
+				</div>
+			</div>
+			
+			<div class="footer-links">
+				<a class="link-rojo" href="#footer">¿Quienes Somos?</a>
+				<a class="link-verde" href="#footer">¡Contáctanos!</a>
+				<a class="link-rojo" href="#footer">Políticas de privacidad</a>
+			</div>
+			
+		</footer>
+			
+	</body>
+</html>
+
