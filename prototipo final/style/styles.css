@@ -1023,36 +1023,15 @@ footer > .footer-links{
 		column-gap: 0.5rem;
 		align-self: center;
 	}
-
-	/* Pagina 5 */
-/*
-	.div-juegos {
-		flex-flow: row nowrap;
-		gap: 10vw;
-	}
-	
-	.div-juegos-links {
-		flex-flow: column nowrap;
-		justify-content: start;
-		align-items: start;
-		gap: 2rem;
-		flex-shrink: 0;
-	}
-
-	.div-juegos-links > a {
-		font-size: 20px;
-		width: 100%;
-	}
-
-	.div-juegos-imagenes {
-		height: 60vh;
-	}
-
-	.div-juegos-imagenes img {
-		object-position: top left;
-	}
-*/
 }
+
+/* Chat */
+
+#chat {
+	background-color: rgba(74, 120, 70, 0.4);
+}
+
+/* Media queries */
 
 @media only screen and (min-width: 600px) and ( max-width: 768px){
 	/*Pagina 3*/
@@ -1085,12 +1064,6 @@ footer > .footer-links{
 		grid-row-start: 3;
 	}
 
-	/* Pagina 5 */
-/*
-	.div-juegos-imagenes {
-		height: 60vh;
-	}
-*/
 	/* Footer */
 
 	footer{

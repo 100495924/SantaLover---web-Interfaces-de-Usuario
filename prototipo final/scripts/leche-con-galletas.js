@@ -7,6 +7,7 @@ function delay(time) {
 }
 
 function changeSelect(){
+  // Chequear iniciar sesión
   const pantalla1 = document.getElementById("pagina2-contenido-1");
   const pantalla2 = document.getElementById("pagina2-contenido-2");
   const pantalla3 = document.getElementById("pagina2-contenido-3");
