@@ -6,14 +6,24 @@ function cartas_init(){
     );
 }
 
-function validarEmailCarta(emailValue){
-    // Compara el valor de email del usuario registrado en 
+function validarUsernameCarta(usernameValue, jsonUsuario){
+    // Compara el valor de username del usuario registrado en 
     // el local storage con el valor recibido.
-    const user_email = JSON.parse(localStorage.getItem("usuarioData"));
-    if (emailValue === user_email.email){
-        return true;
-    }else{
-        return false;
+    // -2: no coinciden los valores, -1: cuenta de adulto, otro: cuenta de niño
+    if (usernameValue === jsonUsuario["username"] && jsonUsuario["sesionIniciada"]){
+        return -1;
+    }
+    else{
+        const index = encontrarCuentaNiñoIndex(jsonUsuario);
+        if (index === -1){
+            return -2;
+        }
+        else if (usernameValue === jsonUsuario["cuentasAsociadas"][index]["username"]){
+            return index;
+        }
+        else{
+            return -2;
+        }
     }
 }
 
@@ -21,7 +31,7 @@ function guardarCarta(){
     const respuesta_form = document.forms["carta_form"];
 
     const nombre_input = document.getElementById("nombre");
-    const email_input = document.getElementById("email");
+    const username_input = document.getElementById("username");
     const ciudad_input = document.getElementById("ciudad");
     const pais_input = document.getElementById("pais");
     const carta_input = document.getElementById("carta");
@@ -43,8 +53,8 @@ function guardarCarta(){
         nombre_input.style.border = "2px solid gray";
     }
 
-    if(respuesta_form["email"].value === ""){
-        email_input.style.border = "2px solid red";
+    if(respuesta_form["username"].value === ""){
+        username_input.style.border = "2px solid red";
         is_form_complete = false;
     }
 
@@ -72,25 +82,36 @@ function guardarCarta(){
         carta_input.style.border = "2px solid gray";
     }
 
-    // revisamos si el usuario está registrado si la foto de perfil se muetra en pantalla.
-    const foto_perfil = document.getElementById("icono-sesion-iniciada");
-    // display: "" si nunca se ha iniciado sesión
-    // display: "none" si alguna vez se ha iniciado sesión pero luego se ha cerrado sesión
-    if (foto_perfil.style.display === "" || foto_perfil.style.display === "none"){
-        mensaje_error.innerText = "¡Antes de mandar una carta recuerda iniciar sesión! ¿O no te has registrado? D:";
-        mensaje_error.style.display = "inline";
+    // revisamos si el usuario está registrado
+    const jsonUsuario_existe = localStorage.getItem("usuarioData");
+
+    // no existen cuentas registradas
+    if (jsonUsuario_existe === null){
         return -1;
     }
 
-    // revisamos si el email proporcionado en la carta es el mismo
-    // que el email con el que el usuario se ha registrado.
-    if (validarEmailCarta(respuesta_form["email"].value) === false){
-        email_input.style.border = "2px solid red";
-        mensaje_error.innerText = "¡El email puesto en la carta no coincide con tu email!";
+    const jsonUsuario = JSON.parse(jsonUsuario_existe)
+
+    if (!jsonUsuario["sesionIniciada"]){
+        const index = encontrarCuentaNiñoIndex(jsonUsuario)
+        if (index === -1){
+            mensaje_error.innerText = "¡Antes de mandar una carta recuerda iniciar sesión! ¿O no te has registrado? D:";
+            mensaje_error.style.display = "inline";
+            return -1;
+        }
+    }
+
+    // revisamos si el username proporcionado en la carta es el mismo
+    // que el username con el que el usuario se ha registrado.
+    const codigoCuenta = validarUsernameCarta(respuesta_form["username"].value, jsonUsuario)
+
+    if (codigoCuenta === -2){
+        username_input.style.border = "2px solid red";
+        mensaje_error.innerText = "¡El nombre de usuario puesto en la carta no coincide con tu nombre de usuario!";
         mensaje_error.style.display = "inline";
         return -1;
     }else{
-        email_input.style.border = "2px solid gray";
+        username_input.style.border = "2px solid gray";
     }
 
     if (is_form_complete === false){
@@ -99,38 +120,29 @@ function guardarCarta(){
         return -1;
     }
 
-
     // Guardamos la carta en formato JSON.
-    const carta = JSON.stringify({ 
+    const carta = { 
         "carta_nombre": respuesta_form["nombre"].value,
-        "carta_email": respuesta_form["email"].value,
+        "carta_username": respuesta_form["username"].value,
         "carta_ciudad": respuesta_form["ciudad"].value,
         "carta_pais": respuesta_form["pais"].value,
         "carta_texto": respuesta_form["carta"].value,
-    });
+    };
 
-    // Revisamos el array de cartas
-    let array_cartas_json = localStorage.getItem("arrayCartas");
-    let array_cartas;
-
-    // si está vacío, solo tenemos que poner la carta que acabamos de recibir.
-    if (array_cartas_json === null){
-        array_cartas = [carta];
+    if (codigoCuenta === -1){
+        jsonUsuario["cartas"].push(carta);
     }
     else{
-        // Si ya habían cartas, tendremos que decodificar el JSON y 
-        // añadir nuestra carta como un elemento más.
-        array_cartas = JSON.parse(array_cartas_json);
-        array_cartas.push(carta);
+        jsonUsuario["cuentasAsociadas"][codigoCuenta]["cartas"].push(carta);
     }
 
     // Subimos el array de cartas al local storage.
-    localStorage.setItem("arrayCartas", JSON.stringify(array_cartas));
+    localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
 
     // limpiar inputs del form.
     formulario.reset();
     nombre_input.style.border = "2px solid gray";
-    email_input.style.border = "2px solid gray";
+    username_input.style.border = "2px solid gray";
     ciudad_input.style.border = "2px solid gray";
     pais_input.style.border = "2px solid gray";
     carta_input.style.border = "2px solid gray";

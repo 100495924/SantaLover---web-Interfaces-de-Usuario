@@ -11,7 +11,6 @@ $(document).ready(function(){
     if (cerrarModal) {
       $("#modal-inicia-sesion").fadeOut("fast");
       $(".div-botones-menu").hide();
-      $("#icono-sesion-iniciada").show();
     }
   });
 
@@ -42,8 +41,34 @@ function comprobarIniciarSesion(){
 
   if (usernameInput === usernameLocalStorage && contraseñaInput === contraseñaLocalStorage){
     cambiarVisibilityMessageError("hidden");
+    jsonUsuario["sesionIniciada"] = true;
+    localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+    $("#icono-sesion-iniciada").show();
     return true;
   }
+
+  // Comprobar si es la cuenta de una cuenta asociada
+  let cuentaEncontrada = false;
+  let index = 0;
+
+  while (!cuentaEncontrada && index < jsonUsuario["cuentasAsociadas"].length){
+    let cuentaActual = jsonUsuario["cuentasAsociadas"][index];
+    if (usernameInput === cuentaActual["username"] && contraseñaInput === cuentaActual["contraseña"]){
+      cuentaEncontrada = true;
+    }
+    else {
+      index += 1;
+    }
+  }
+
+  if (cuentaEncontrada){
+    cambiarVisibilityMessageError("hidden");
+    jsonUsuario["cuentasAsociadas"][index]["sesionIniciada"] = true;
+    localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+    $("#icono-sesion-iniciada-niño").show();
+    return true;
+  }
+
   cambiarVisibilityMessageError("visible");
   return false;
 }

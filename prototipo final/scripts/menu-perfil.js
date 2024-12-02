@@ -1,23 +1,68 @@
 $(document).ready(function(){
+  setLogin(false);
+  // $("#icono-sesion-iniciada").show();
+
+  calcularPosicionMenus();
+  $(window).on("resize", function() {
+    calcularPosicionMenus();
+  });
+
+  // Iconos de perfil y de menú hamburguesa
+  
   $("#icono-sesion-iniciada").click(function(){
-    if( $("#div-opciones-perfil").css("display").toLowerCase() === "none") {
-      $("#div-opciones-perfil").fadeIn("fast");
-      $("#div-opciones-perfil").css("display", "flex");
+    if( $("#div-opciones-perfil-adulto").css("display").toLowerCase() === "none") {
+      $("#div-opciones-perfil-adulto").fadeIn("fast");
+      $("#div-opciones-perfil-adulto").css("display", "flex");
     }
     else {
-      $("#div-opciones-perfil").fadeOut("fast");
+      $("#div-opciones-perfil-adulto").fadeOut("fast");
+    }
+  });
+
+  $("#icono-sesion-iniciada-niño").click(function(){
+    if( $("#div-opciones-perfil-niño").css("display").toLowerCase() === "none") {
+      $("#div-opciones-perfil-niño").fadeIn("fast");
+      $("#div-opciones-perfil-niño").css("display", "flex");
+    }
+    else {
+      $("#div-opciones-perfil-niño").fadeOut("fast");
     }
   });
 
   $("#cerrar").click(function(){
-    $("#div-opciones-perfil").hide();
+    $("#div-opciones-perfil-adulto").hide();
   });
 
   $("#menu-hamburguesa").click(function(){
-    $("#div-opciones-perfil").hide();
+    $("#div-opciones-perfil-adulto").hide();
+  });
+  
+  // Mi perfil
+
+  $("#contraseña-mi-perfil-adulto").change(function(){
+    $("#repetir-contraseña-mi-perfil-adulto").val("");
   });
 
-  $("#boton-mis-cartas").click(function(){
+  $("#contraseña-mi-perfil-niño").change(function(){
+    $("#repetir-contraseña-mi-perfil-niño").val("");
+  });
+
+  $("#boton-mi-perfil-niño").click(function(){
+    rellenarFormMiPerfilNiño();
+    $("#modal-mi-perfil-niño").fadeIn("fast");
+  });
+
+  $("#boton-modificar-mi-perfil-niño").click(function(){
+    validarFormCuentaAsociada("mi-perfil-niño");
+  });
+
+  $("#boton-atras-mi-perfil-niño").click(function(){
+    $("#modal-mi-perfil-niño").fadeOut("fast");
+  });
+
+  // Mis cartas
+
+  $(".boton-mis-cartas").click(function(){
     $("#modal-mis-cartas").fadeIn("fast");
     const arrayCartas = JSON.parse(localStorage.getItem("arrayCartas"));
     if (arrayCartas !== null && arrayCartas.length != 0) {
@@ -38,22 +83,154 @@ $(document).ready(function(){
     });
   });
 
-  $("#boton-cerrar-sesion").click(function(){
-    if (window.confirm("¿Estás seguro/a de que quieres cerrar sesión?")) {
-      $("#div-opciones-perfil").fadeOut("fast");
-      $(".div-botones-menu").show();
-      $("#icono-sesion-iniciada").hide();
+  // Mis mensajes
+
+  $(".boton-mis-mensajes").click(function(){
+    $("#modal-mis-mensajes").fadeIn("fast");
+  })
+
+  $("#boton-atras-mis-mensajes").click(function(){
+    $("#modal-mis-mensajes").fadeOut("fast");
+  });
+
+  // Mis reservas
+
+  $("#boton-mis-reservas").click(function(){
+    $("#modal-mis-reservas").fadeIn("fast");
+  })
+
+  $("#boton-atras-mis-reservas").click(function(){
+    $("#modal-mis-reservas").fadeOut("fast");
+  });
+
+  // Crear cuenta asociada
+
+  $("#boton-crear-cuenta-asociada").click(function(){
+    $("#modal-crear-cuenta-asociada").fadeIn("fast");
+  })
+
+  $("#boton-cancelar-crear-cuenta-asociada").click(function(){
+    $("#modal-crear-cuenta-asociada").fadeOut("fast");
+  });
+
+  $("#boton-aceptar-crear-cuenta-asociada").click(function(){
+    const cuentaCreada = validarFormCuentaAsociada("crear-cuenta-asociada");
+    if (cuentaCreada) {
+      document.getElementById("form-crear-cuenta-asociada").reset();
     }
   });
 
-  $("#hijos-mi-perfil").change(function(){
-    actualizarHijosVariableMiPerfil();
-  });
+  // Cerrar sesión
 
-  $("#contraseña-mi-perfil").change(function(){
-    $("#repetir-contraseña-mi-perfil").val("");
+  $(".boton-cerrar-sesion").click(function(){
+    if (window.confirm("¿Estás seguro/a de que quieres cerrar sesión?")) {
+      $("#div-opciones-perfil-adulto").fadeOut("fast");
+      $("#div-opciones-perfil-niño").fadeOut("fast");
+      $(".div-botones-menu").show();
+      $("#icono-sesion-iniciada").hide();
+      $("#icono-sesion-iniciada-niño").hide();
+      setLogin(false)
+    }
   });
 });
+
+function calcularPosicionMenus(){
+  // Pone los menús justo por debajo del "header superior" (usando la propiedad top de CSS)
+  headerSuperior = document.querySelector(".div-logo-iconos");
+  headerSuperiorHeight = headerSuperior.offsetHeight;
+
+  divOpcionesPerfilAdulto = document.getElementById("div-opciones-perfil-adulto");
+  divOpcionesPerfilAdulto.style.top = `${headerSuperiorHeight}px`;
+
+  divOpcionesPerfilNiño = document.getElementById("div-opciones-perfil-niño");
+  divOpcionesPerfilNiño.style.top = `${headerSuperiorHeight}px`;
+
+  divOpcionesMenu = document.querySelector(".div-opciones-menu");
+  divOpcionesMenu.style.top = `${headerSuperiorHeight}px`;
+}
+
+function setLogin(valorSesionIniciada){
+  // Cambia el atributo "sesionIniciada" del local storage de usuarioData
+  const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+  if (jsonUsuario === null){
+    return -1;
+  }
+
+  if (!valorSesionIniciada && !jsonUsuario["sesionIniciada"]){
+    // Cambiar el valor de la cuenta asociada de la que se está cerrando sesión
+    const index = encontrarCuentaNiñoIndex(jsonUsuario)
+    if (index === -1){
+      jsonUsuario["sesionIniciada"] = valorSesionIniciada;
+    }
+    else{
+      jsonUsuario["cuentasAsociadas"][index]["sesionIniciada"] = valorSesionIniciada;
+    }
+  }
+  else{
+    jsonUsuario["sesionIniciada"] = valorSesionIniciada;
+  }
+
+  localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+  return 0;
+}
+
+function encontrarCuentaNiñoIndex(jsonUsuario){
+  // Se asume que un niño tiene la sesión iniciada
+  let cuentaEncontrada = false;
+  let index = 0;
+
+  while (!cuentaEncontrada && index < jsonUsuario["cuentasAsociadas"].length){
+    let cuentaActual = jsonUsuario["cuentasAsociadas"][index];
+    if (cuentaActual["sesionIniciada"]){
+      cuentaEncontrada = true;
+    }
+    else {
+      index += 1;
+    }
+  }
+
+  if (cuentaEncontrada){
+    return index;
+  }
+  return -1
+}
+
+function isCuentaNiñoAdulto(){
+  // -2: ninguna cuenta ha iniciado sesión
+  // -1: cuenta adulto
+  // otro: cuenta niño
+  // "otro" es el index del niño con respecto al array de "cuentas asociadas" de la cuenta de adulto
+  const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+  if (!jsonUsuario["sesionIniciada"]){
+    const index = encontrarCuentaNiñoIndex(jsonUsuario);
+    if (index === -1){
+        return -2;
+    }
+    else{
+      return index;
+    }
+  }
+  else{
+    return -1;
+  }
+}
+
+// Mi perfil
+
+function rellenarFormMiPerfilNiño(){
+  const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+
+  const cuenta = jsonUsuario["cuentasAsociadas"][encontrarCuentaNiñoIndex(jsonUsuario)];
+
+  const usernameValue = cuenta["username"];
+  const contraseñaValue = cuenta["contraseña"];
+
+  $("#username-mi-perfil-niño").val(usernameValue);
+  $("#contraseña-mi-perfil-niño").val(contraseñaValue);
+  $("#repetir-contraseña-mi-perfil-niño").val(contraseñaValue);
+}
+
+// Mis cartas
 
 function mensajeNoCartas(){
   $("#modal-mis-cartas-body").css("display", "block");
@@ -158,4 +335,68 @@ function actualizarEventosDragDrop(){
       localStorage.setItem("arrayCartas", JSON.stringify(arrayCartas));
     })
   })
+}
+
+// Crear cuenta asociada
+
+function validarFormCuentaAsociada(opcionForm){
+  // Conseguir los inputs del form
+  const username = document.getElementById("username-" + opcionForm);
+  // const email = document.getElementById("email-" + opcionForm);
+  const contraseña = document.getElementById("contraseña-" + opcionForm);
+  const repetirContraseña = document.getElementById("repetir-contraseña-" + opcionForm);
+  
+  // Conseguir el valor de cada input (se eliminan los espacios en blanco que pueda haber)
+  const usernameValue = username.value.trim();
+  // const emailValue = email.value.trim();
+  const contraseñaValue = contraseña.value.trim();
+  const repetirContraseñaValue = repetirContraseña.value.trim();
+
+  // Indica si todos los inputs están bien (false si al menos uno no cumple los requisitos de validación)
+  let isValidado = true;
+
+  // Validar los inputs
+  // Si alguno no cumple los requisitos, mostrar un mensaje de error (si lo cumple, ocultarlo)
+  // Si todos los inputs están bien, guardar sus valores en local storage
+
+  const isValidadoNombre = validarMinimo3Caracteres(username, usernameValue);
+  const isValidadoConstraseña = validarContraseña(contraseña, contraseñaValue);
+  const isValidadoRepetirContraseña = validarRepetirContraseña(contraseñaValue, repetirContraseña, repetirContraseñaValue);
+  // const isValidadoEmail = validarEmail(email, emailValue);
+
+  isValidado = isValidadoNombre && 
+                isValidadoConstraseña &&
+                isValidadoRepetirContraseña;
+
+  // Si todos los campos son validados, guardar en local storage los datos del usuario
+  if (isValidado){
+    const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+
+    if (opcionForm === "crear-cuenta-asociada"){
+      const dictNiño = {
+        tipoCuenta: "niño",
+        username: usernameValue,
+        contraseña: contraseñaValue,
+        sesionIniciada: false,
+        cartas: [],
+        mensajesPersonalizados: []
+      };
+  
+      jsonUsuario["cuentasAsociadas"].push(dictNiño);
+      localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+
+      window.alert("¡Cuenta asociada creada con éxito!");
+    }
+    else {
+      const cuenta = jsonUsuario["cuentasAsociadas"][encontrarCuentaNiñoIndex(jsonUsuario)];
+      cuenta["username"] = usernameValue;
+      cuenta["contraseña"] = contraseñaValue;
+      
+      localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+
+      window.alert("¡Datos modificados con éxito!");
+    }
+  }
+
+  return isValidado;
 }

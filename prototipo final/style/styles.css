@@ -17,6 +17,7 @@ section h1{
 }
 
 section h2 {
+	font-size: 20px;
 	margin-top: 0.5rem;
 	margin-bottom: 1.5rem;
 	font-weight: normal;
@@ -169,13 +170,31 @@ form input, select, option{
 	font-size: 1rem;
 }
 
-#div-opciones-perfil {
+#div-opciones-perfil-adulto, #div-opciones-perfil-niño {
 	display: none;
-	position: absolute;
-	width: calc(100% - 2rem);
+	position: fixed;
+	/* width: calc(100% - 2rem); */
+	background-color: rgb(181, 181, 181);
+	/* top: 135px; */
+	right: 0px;
+	flex-flow: column;
+	padding: 1rem;
+	gap: 1rem;
 }
 
-#icono-sesion-iniciada {
+.boton-opciones-perfil {
+	background-color: rgb(220, 220, 220);
+	border: none;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+}
+
+/* #div-opciones-perfil-adulto > button:hover {
+	background-color: rgb(207, 29, 29);
+} */
+
+#icono-sesion-iniciada, #icono-sesion-iniciada-niño {
 	display: none;
 }
 
@@ -311,12 +330,17 @@ p.modal-subtitulo {
 
 /* Barra de navegación */
 
+.div-botones-menu{
+	display: none;
+}
+
 .barra-navegacion {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	background-color: white;
 	position: fixed;
+	top: 0;
 }
 
 .div-logo-iconos {
@@ -355,7 +379,7 @@ p.modal-subtitulo {
 
 .icono {
 	height: 35%;
-	margin-top: 5vh; 
+	margin-top: 4vh; 
 	/* margin-bottom: 4.5vh; */
 }
 
@@ -367,7 +391,7 @@ p.modal-subtitulo {
 	width: 100%;
 	position: absolute;
 	flex-shrink: 1;
-	padding: 0.7rem 3vw;
+	/* padding: 0.7rem 3vw; */
 }
 
 /* Al darle click al icono del menú hamburguesa, se muestran los botones del menú */
@@ -381,7 +405,7 @@ p.modal-subtitulo {
 	text-decoration: none;
 	width: 100%;
 	text-align: center;
-	font-size: 10px;
+	font-size: 1rem;
 }
 
 .div-botones-menu > button {
@@ -458,6 +482,7 @@ p.modal-subtitulo {
 	justify-content: center;
 	height: 100vh;
 	padding: 5vh;
+	margin-top: 3rem;
 }
 
 #pagina1 h1 {
@@ -897,7 +922,7 @@ footer > .footer-links{
 	color: black;
 	text-decoration: none;
 	text-align: center;
-	background-color: rgb(200, 200, 200);
+	background-color: rgb(225, 225, 225);
 	font-size: 1.2rem;
 }
 
@@ -929,12 +954,14 @@ footer > .footer-links{
 
 	/* Barra de navegación */
 
-	/* .barra-navegacion{
+	#boton-inicia-sesion-movil, #boton-registrarse-movil{
+		display: none;
+	}
+	.div-botones-menu {
 		display: flex;
-		flex-flow: row nowrap;
-		justify-content: space-between;
-		align-items: center;
-	} */
+		flex-flow: row;
+		gap: 0.5rem;
+	}
 	
 	.div-iconos-movil {
 		display: none;
@@ -957,6 +984,7 @@ footer > .footer-links{
 		border-bottom: initial;
 		width: initial;
 		position: initial;
+		padding: 0.7rem 3vw;
 	}
 
 	.div-opciones-menu > a {
@@ -1000,12 +1028,12 @@ footer > .footer-links{
 	/* Para ordenadores */
 
 	section h1{
-		font-size: 3rem;
+		font-size: 2.5rem;
 	}
 
-	/* section h2{
-		margin: 0;
-	} */
+	section h2{
+		font-size: 1.5rem;
+	}
 
 	/* Pagina 1 */
 
@@ -1054,7 +1082,7 @@ footer > .footer-links{
 		gap: 0.2rem;
 	}
 
-	.email-label{
+	.username-label{
 		grid-column-start: 2;
 		grid-row-start: 1;
 	}

@@ -60,40 +60,77 @@
 					</div>
 
 					<div id="icono-sesion-iniciada" class="div-iconos-movil">
-						<a href="#">
+						<a href="#icono-a">
 							<img 
 							src="images/perfil-icon.svg" 
 							alt="Perfil"
 							class="icono">
 						</a>
 					</div>
+
+					<div id="icono-sesion-iniciada-niño" class="div-iconos-movil">
+						<a href="#icono-n">
+							<img 
+							src="images/perfil-icon-niño.svg" 
+							alt="Perfil niño"
+							class="icono">
+						</a>
+					</div>
 				</div>
 
 				<div class="div-botones-menu">
-					<button class="boton-inicia-sesion">Inicia sesión</button>
-					<button class="boton-registrarse">Registrarse</button>
+					<button id="boton-inicia-sesion-ordenador" class="boton-inicia-sesion">Inicia sesión</button>
+					<button id="boton-registrarse-ordenador" class="boton-registrarse">Registrarse</button>
 				</div>
 			</div>
 
 			<div class="div-opciones-menu">
-				<a href="#pagina1" class="link-evidencia">Home 🏠</a>
+				<button id="boton-inicia-sesion-movil" class="boton-inicia-sesion">Inicia sesión</button>
+				<button id="boton-registrarse-movil" class="boton-registrarse">Registrarse</button>
+				<a href="#pagina1" class="link-rojo">Home 🏠</a>
 				<a href="#pagina2" class="link-verde">Envía comida 😋</a>
 				<a href="#pagina3" class="link-rojo">Las cartas ✉️</a>
 				<a href="#pagina4" class="link-verde">¡Envía tu carta! 📩</a>
 				<a href="#pagina5" class="link-rojo">Memory Quest 🎮</a>
 				<a href="#pagina6" class="link-verde">Mensajes personalizados 🎅</a>
 				<a href="#pagina7" class="link-rojo">Reserva 🏭</a>
-				<a href="#pagina8" class="link-verde">Chat 💬</a>
+				<a href="#chat" class="link-verde">Chat 💬</a>
 				<a href="#pagina9" class="link-rojo">Calendario de adviento 📅</a>
 				<a href="#pagina10" class="link-verde">Videollamada 💻</a>
 			</div>
 		</header>
 
-		<div id="div-opciones-perfil" class="modal-footer">
-			<button id="boton-mi-perfil" class="link-rojo">Mi perfil</button>
-			<button id="boton-mis-cartas" class="link-verde">Mis cartas</button>
-			<button id="boton-cerrar-sesion" class="link-rojo">Cerrar sesión</button>
+		<div id="div-opciones-perfil-adulto">
+			<button id="boton-mi-perfil-adulto" class="boton-opciones-perfil link-rojo">Mi perfil</button>
+			<button class="boton-mis-cartas boton-opciones-perfil link-verde">Mis cartas</button>
+			<button class="boton-mis-mensajes boton-opciones-perfil link-rojo">Mis mensajes</button>
+			<button id="boton-mis-reservas" class="boton-opciones-perfil link-verde">Mis reservas</button>
+			<button id="boton-crear-cuenta-asociada" class="boton-opciones-perfil link-rojo">Crear cuenta asociada</button>
+			<button class="boton-cerrar-sesion boton-opciones-perfil link-verde">Cerrar sesión</button>
 		</div>
+
+		<div id="div-opciones-perfil-niño">
+			<button id="boton-mi-perfil-niño" class="boton-opciones-perfil link-rojo">Mi perfil</button>
+			<button class="boton-mis-cartas boton-opciones-perfil link-verde">Mis cartas</button>
+			<button class="boton-mis-mensajes boton-opciones-perfil link-rojo">Mis mensajes</button>
+			<button class="boton-cerrar-sesion boton-opciones-perfil link-verde">Cerrar sesión</button>
+		</div>
+
+		<!-- <div id="div-opciones-perfil-adulto">
+			<button id="boton-mi-perfil-adulto" class="boton-opciones-perfil link-rojo">Mi perfil</button>
+			<button id="boton-mis-cartas" class="boton-opciones-perfil link-verde">Mis cartas</button>
+			<button id="boton-mis-mensajes" class="boton-opciones-perfil link-rojo">Mis mensajes</button>
+			<button id="boton-mis-reservas" class="boton-opciones-perfil link-verde">Mis reservas</button>
+			<button id="boton-crear-cuenta-asociada" class="boton-opciones-perfil link-rojo">Crear cuenta asociada</button>
+			<button id="boton-cerrar-sesion" class="boton-opciones-perfil link-verde">Cerrar sesión</button>
+		</div>
+
+		<div id="div-opciones-perfil-niño">
+			<button id="boton-mi-perfil-niño" class="boton-opciones-perfil link-rojo">Mi perfil</button>
+			<button id="boton-mis-cartas-niño" class="boton-opciones-perfil link-verde">Mis cartas</button>
+			<button id="boton-mis-mensajes-niño" class="boton-opciones-perfil link-rojo">Mis mensajes</button>
+			<button id="boton-cerrar-sesion-niño" class="boton-opciones-perfil link-verde">Cerrar sesión</button>
+		</div> -->
 
 		<div id="modal-registrarse" class="modal-background">
 			<div class="modal">
@@ -202,83 +239,116 @@
 			</div>
 		</div>
 
-		<div id="modal-mi-perfil" class="modal-background">
+		<div id="modal-mi-perfil-adulto" class="modal-background">
 			<div class="modal">
 				<div class="modal-header">
 					<h2>Mi perfil ☃️</h2>
-					<p>Consulta y modifica tus datos</p>
+					<!-- <p>Consulta y modifica tus datos</p> -->
 				</div>
 
 				<div class="modal-body">
-					<form id="form-mi-perfil" name="form-mi-perfil">
-						<div class="grid-registrarse">
-							<div class="grupo1-registrarse">
-								<div class="elemento-form-registrarse">
-									<label for="username-mi-perfil">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
-									<input type="text" id="username-mi-perfil" name="username-mi-perfil" required>
-									<p class="mensaje-error">Mínimo 3 caracteres</p>
-								</div>
 
-								<div class="elemento-form-registrarse">
-									<label for="contraseña-mi-perfil">Contraseña<span class="texto-destacado-rojo">*</span></label>
-									<input type="password" id="contraseña-mi-perfil" name="contraseña-mi-perfil" required>
-									<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
-										carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
-								</div>
+					<div id="modal-mi-perfil-adulto-decoracion">
+						<div id="modal-mi-perfil-adulto-decoracion-div-foto">
+							<img id="modal-mi-perfil-adulto-decoracion-foto"
+							src="images/foto-cuenta-adultos.png"
+							alt="Tienes una cuenta de adulto"> 
+						</div> 
+						<p id="modal-mi-perfil-adulto-decoracion-texto">16 años o más</p>
+					</div>
 
-								<div class="elemento-form-registrarse">				
-									<label for="repetir-contraseña-mi-perfil">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
-									<input type="password" id="repetir-contraseña-mi-perfil" name="repetir-contraseña-mi-perfil" required>
-									<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
-								</div>
-
-								<div class="elemento-form-registrarse">
-									<label for="genero-mi-perfil">Género</label>
-									<select id="genero-mi-perfil" name="genero-mi-perfil">
-										<option hidden disabled selected value> -- Selecciona una opción -- </option>
-										<option value="masculino">Masculino</option>
-										<option value="femenino">Femenino</option>
-										<option value="otro">Otro</option>
-										<option value="prefiero-no-decirlo">Prefiero no decirlo</option>
-									</select>
-									<p class="mensaje-error">Elige una opción</p>
-								</div>
-							</div>
-
-							<div class="grupo2-registrarse">
-								<div class="elemento-form-registrarse">
-									<label for="email-mi-perfil">Correo Electrónico<span class="texto-destacado-rojo">*</span></label>
-									<input type="email" id="email-mi-perfil" name="email-mi-perfil" required>
-									<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
-								</div>
-
-								<div class="elemento-form-registrarse">
-									<label for="ciudad-mi-perfil">Ciudad<span class="texto-destacado-rojo">*</span></label>
-									<input type="text" id="ciudad-mi-perfil" name="ciudad-mi-perfil" required>
-									<p class="mensaje-error">Mínimo 3 caracteres</p>
-								</div>
-
-								<div class="elemento-form-registrarse">
-									<label for="pais-mi-perfil">País<span class="texto-destacado-rojo">*</span></label>
-									<input type="text" id="pais-mi-perfil" name="pais-mi-perfil" required>
-									<p class="mensaje-error">Mínimo 3 caracteres</p>
-								</div>
-
-								<div class="elemento-form-registrarse">
-									<label for="hijos-mi-perfil">¿Cuántos hijos / hijas tienes? </label>
-									<input type="number" min="0" id="hijos-mi-perfil" name="hijos-mi-perfil">
-									<p class="mensaje-error">Introduce un número</p>
-								</div>
-							</div>
+					<form id="form-mi-perfil-adulto" name="form-mi-perfil-adulto">
+						<div class="elemento-form-registrarse">
+							<label for="username-mi-perfil-adulto">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+							<input type="text" id="username-mi-perfil-adulto" name="username-mi-perfil-adulto" required>
+							<p class="mensaje-error">Mínimo 3 caracteres</p>
 						</div>
-
-						<div id="div-hijos-variable-mi-perfil"></div>
+					
+						<div class="elemento-form-registrarse">
+							<label for="email-mi-perfil-adulto">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
+							<input type="email" id="email-mi-perfil-adulto" name="email-mi-perfil-adulto" required>
+							<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
+						</div>
+					
+						<div class="elemento-form-registrarse">
+							<label for="contraseña-mi-perfil-adulto">Contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="contraseña-mi-perfil-adulto" name="contraseña-mi-perfil-adulto" required>
+							<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+								carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+						</div>
+					
+						<div class="elemento-form-registrarse">				
+							<label for="repetir-contraseña-mi-perfil-adulto">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="repetir-contraseña-mi-perfil-adulto" name="repetir-contraseña-mi-perfil-adulto" required>
+							<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+						</div>
 					</form>
+
+					<div id="div-cuentas-asociadas">
+						<p>Cuentas asociadas:</p>
+						<div id="div-cuentas-asociadas-variable-mi-perfil">
+							
+						</div>
+					</div>
+
 				</div>
 
 				<div class="modal-footer">
-					<button id="boton-modificar-mi-perfil" class="link-rojo">Modificar</button>
-					<button id="boton-atras-mi-perfil" class="link-verde">Atrás</button>
+					<button id="boton-modificar-mi-perfil-adulto" class="link-rojo">Modificar</button>
+					<button id="boton-atras-mi-perfil-adulto" class="link-verde">Atrás</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="modal-mi-perfil-niño" class="modal-background">
+			<div class="modal">
+				<div class="modal-header">
+					<h2>Mi perfil ☃️</h2>
+					<!-- <p>Consulta y modifica tus datos</p> -->
+				</div>
+
+				<div class="modal-body">
+					
+					<form id="form-mi-perfil-niño" name="form-mi-perfil-niño">
+						<div class="elemento-form-registrarse">
+							<label for="username-mi-perfil-niño">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+							<input type="text" id="username-mi-perfil-niño" name="username-mi-perfil-niño" required>
+							<p class="mensaje-error">Mínimo 3 caracteres</p>
+						</div>
+					
+						<!-- <div class="elemento-form-registrarse">
+							<label for="email-mi-perfil-niño">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
+							<input type="email" id="email-mi-perfil-niño" name="email-mi-perfil-niño" required>
+							<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
+						</div> -->
+					
+						<div class="elemento-form-registrarse">
+							<label for="contraseña-mi-perfil-niño">Contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="contraseña-mi-perfil-niño" name="contraseña-mi-perfil-niño" required>
+							<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+								carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+						</div>
+					
+						<div class="elemento-form-registrarse">				
+							<label for="repetir-contraseña-mi-perfil-niño">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="repetir-contraseña-mi-perfil-niño" name="repetir-contraseña-mi-perfil-niño" required>
+							<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+						</div>
+					</form>
+
+					<div id="modal-mi-perfil-niño-decoracion">
+						<div id="modal-mi-perfil-niño-decoracion-div-foto">
+							<img id="modal-mi-perfil-niño-decoracion-foto"
+							src="images/foto-cuenta-niños.png"
+							alt="Tienes una cuenta de niño">
+						</div>
+						<p id="modal-mi-perfil-niño-decoracion-texto">15 años o menos</p>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-modificar-mi-perfil-niño" class="link-rojo">Modificar</button>
+					<button id="boton-atras-mi-perfil-niño" class="link-verde">Atrás</button>
 				</div>
 			</div>
 		</div>
@@ -299,7 +369,93 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="modal-mis-mensajes" class="modal-background">
+			<div class="modal">
+
+				<div class="modal-header">
+					<h2>Mis mensajes ☃️</h2>
+				</div>
+
+				<div class="modal-body">
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-atras-mis-mensajes" class="link-rojo">Atrás</button>
+				</div>
+			</div>
+		</div>
 		
+		<div id="modal-mis-reservas" class="modal-background">
+			<div class="modal">
+
+				<div class="modal-header">
+					<h2>Mis reservas ☃️</h2>
+				</div>
+
+				<div class="modal-body">
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-atras-mis-reservas" class="link-rojo">Atrás</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="modal-crear-cuenta-asociada" class="modal-background">
+			<div class="modal">
+
+				<div class="modal-header">
+					<h2>Crear cuenta asociada ☃️</h2>
+				</div>
+
+				<div class="modal-body">
+					<p class="modal-subtitulo">¿Cuántos años tienes?</p>
+
+					<form id="form-crear-cuenta-asociada" name="form-crear-cuenta-asociada">
+						<div class="elemento-form-registrarse">
+							<label for="username-crear-cuenta-asociada">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+							<input type="text" id="username-crear-cuenta-asociada" name="username-crear-cuenta-asociada" required>
+							<p class="mensaje-error">Mínimo 3 caracteres</p>
+						</div>
+					
+						<!-- <div class="elemento-form-registrarse">
+							<label for="email-crear-cuenta-asociada">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
+							<input type="email" id="email-crear-cuenta-asociada" name="email-crear-cuenta-asociada" required>
+							<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
+						</div> -->
+					
+						<div class="elemento-form-registrarse">
+							<label for="contraseña-crear-cuenta-asociada">Contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="contraseña-crear-cuenta-asociada" name="contraseña-crear-cuenta-asociada" required>
+							<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+								carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+						</div>
+					
+						<div class="elemento-form-registrarse">				
+							<label for="repetir-contraseña-crear-cuenta-asociada">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+							<input type="password" id="repetir-contraseña-crear-cuenta-asociada" name="repetir-contraseña-crear-cuenta-asociada" required>
+							<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+						</div>
+					</form>
+
+					<div id="modal-crear-cuenta-asociada-decoracion">
+						<div id="modal-crear-cuenta-asociada-decoracion-div-foto">
+							<img id="modal-crear-cuenta-asociada-decoracion-foto"
+							src="images/foto-cuenta-niños.png"
+							alt="Elige la opción de niño">
+						</div>
+						<p id="modal-crear-cuenta-asociada-decoracion-texto">15 años o menos</p>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button id="boton-aceptar-crear-cuenta-asociada" class="link-rojo">Aceptar</button>
+					<button id="boton-cancelar-crear-cuenta-asociada" class="link-verde">Cancelar</button>
+				</div>
+			</div>
+		</div>
+
 		<section id="pagina1">
 			<!--Página 1-->
 			<h1>¡Vive la magia de la navidad!</h1>
@@ -574,8 +730,8 @@
 				<div id="form-inputs">
 					<label class="name-label" for="nombre">Nombre </label>
 					<input class="name-input" id="nombre" type="text" name="nombre">
-					<label class="email-label" for="email">Email </label>
-					<input class="email-input" id="email" type="text" name="email">
+					<label class="username-label" for="username">Nombre de usuario</label>
+					<input class="username-input" id="username" type="text" name="username" autocomplete="on">
 					<label class="city-label" for="ciudad">Ciudad </label>
 					<input class="city-input" id="ciudad" type="text" name="ciudad">
 					<label class="country-label" for="pais">País </label>

@@ -8,10 +8,13 @@ $(document).ready(function(){
   });
 
   // Si todos los datos se validan y son almacenados con éxito, se oculta el pop-up de "Registrarse"
+  // Además, la sesión se inicia automáticamente
   $("#boton-aceptar-registrarse").click(function(){
     const cerrarModal = validarForm("registrarse");
     if (cerrarModal){
       $("#modal-registrarse").fadeOut("fast");
+      $(".div-botones-menu").hide();
+      $("#icono-sesion-iniciada").show();
     }
   });
 
@@ -40,18 +43,18 @@ $(document).ready(function(){
     clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño)
   });
 
-  $("#boton-mi-perfil").click(function(){
-    rellenarFormMiPerfil();
-    $("#modal-mi-perfil").fadeIn("fast");
+  $("#boton-mi-perfil-adulto").click(function(){
+    rellenarFormMiPerfilAdulto();
+    $("#modal-mi-perfil-adulto").fadeIn("fast");
   });
 
-  $("#boton-modificar-mi-perfil").click(function(){
-    validarForm("mi-perfil");
+  $("#boton-modificar-mi-perfil-adulto").click(function(){
+    validarForm("mi-perfil-adulto");
   });
 
-  $("#boton-atras-mi-perfil").click(function(){
-    $("#modal-mi-perfil").fadeOut("fast", function(){
-      limpiar("mi-perfil");
+  $("#boton-atras-mi-perfil-adulto").click(function(){
+    $("#modal-mi-perfil-adulto").fadeOut("fast", function(){
+      limpiar("mi-perfil-adulto");
     });
   });
 
@@ -61,6 +64,8 @@ $(document).ready(function(){
     cambioInputHijos()
   });
 });
+
+// Registrarse
 
 function modalRegistrarseInicial(){
   const modalRegistrarse = document.getElementById("modal-registrarse");
@@ -170,17 +175,27 @@ function validarForm(opcionForm){
 
   // Si todos los campos son validados, guardar en local storage los datos del usuario
   if (isValidado){
-    localStorage.setItem("usuarioData", JSON.stringify({
-      tipoCuenta: "adulto",
-      username: usernameValue,
-      contraseña: contraseñaValue,
-      email: emailValue,
-    }));
-
     if (opcionForm === "registrarse"){
+      localStorage.setItem("usuarioData", JSON.stringify({
+        tipoCuenta: "adulto",
+        username: usernameValue,
+        contraseña: contraseñaValue,
+        email: emailValue,
+        sesionIniciada: true,
+        cartas: [],
+        mensajesPersonalizados: [],
+        reservas: [],
+        cuentasAsociadas: []
+      }));
       window.alert("¡Cuenta creada con éxito!");
     }
     else {
+      const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+      jsonUsuario["username"] = usernameValue;
+      jsonUsuario["email"] = emailValue;
+      jsonUsuario["contraseña"] = contraseñaValue;
+      localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+      
       window.alert("¡Datos modificados con éxito!");
     }
   }
@@ -298,26 +313,57 @@ function resetMensajesError(opcionForm){
   ocultarMensajeError(email);
 }
 
+// Mi perfil
 
-function rellenarFormMiPerfil(){
+function rellenarFormMiPerfilAdulto(){
   const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
   const usernameValue = jsonUsuario["username"];
   const contraseñaValue = jsonUsuario["contraseña"];
   const emailValue = jsonUsuario["email"];
-  const ciudadValue = jsonUsuario["ciudad"];
-  const paisValue = jsonUsuario["pais"];
-  const generoValue = jsonUsuario["genero"];
-  const hijosValue = jsonUsuario["hijos"];
+  const cuentasAsociadasValue = jsonUsuario["cuentasAsociadas"];
 
-  $("#username-mi-perfil").val(usernameValue);
-  $("#contraseña-mi-perfil").val(contraseñaValue);
-  $("#repetir-contraseña-mi-perfil").val(contraseñaValue);
-  $("#email-mi-perfil").val(emailValue);
-  $("#ciudad-mi-perfil").val(ciudadValue);
-  $("#pais-mi-perfil").val(paisValue);
-  $("#genero-mi-perfil").val(generoValue);
-  $("#hijos-mi-perfil").val(hijosValue);
+  $("#username-mi-perfil-adulto").val(usernameValue);
+  $("#contraseña-mi-perfil-adulto").val(contraseñaValue);
+  $("#repetir-contraseña-mi-perfil-adulto").val(contraseñaValue);
+  $("#email-mi-perfil-adulto").val(emailValue);
 
-  añadirDivHijosVariable(hijosValue, "mi-perfil");
-  rellenarInputHijosVariableMiPerfil();
+  const cuentasAsociadasDivVariable = document.getElementById("div-cuentas-asociadas-variable-mi-perfil");
+  if (cuentasAsociadasValue.length === 0){
+    cuentasAsociadasDivVariable.innerHTML = `<p>No se encontraron</p>`;
+  }
+  else{
+    cuentasAsociadasValue.forEach(function(cuenta){
+      const divItem = document.createElement("div");
+      divItem.classList.add("cuenta-asociada-item");
+      const pItem = document.createElement("p");
+      pItem.innerHTML = cuenta["username"];
+      const buttonItem = document.createElement("button");
+      buttonItem.classList.add("boton-eliminar-cuenta-asociada");
+      buttonItem.innerHTML = "Eliminar";
+
+      divItem.appendChild(pItem);
+      divItem.appendChild(buttonItem);
+      cuentasAsociadasDivVariable.appendChild(divItem);
+
+      // cuentasAsociadasDivVariable.innerHTML += `<div class="cuenta-asociada-item">
+      //                                             <p>- ${cuenta["username"]}</p>
+      //                                             <button class="boton-eliminar-cuenta-asociada">Eliminar</button>
+      //                                           </div>`
+
+      // ELiminar cuenta asociada
+      // buttonItem.addEventListener("click", botonEliminarCuentaAsociadaHandler);
+    })
+  }
 }
+
+// function botonEliminarCuentaAsociadaHandler(){
+//   // Sacar index
+//   const cuentasAsociadasDivVariable = document.getElementById("div-cuentas-asociadas-variable-mi-perfil");
+//   const index = cuentasAsociadasDivVariable.children.length - 1;
+//   console.log(index);
+//   if (window.confirm(`¿Estás seguro/a de que quieres eliminar la cuenta asociada?`)) {
+//     jsonUsuario["cuentasAsociadas"].splice(index, 1);
+//     localStorage.setItem("usuarioData", jsonUsuario);
+//     rellenarFormMiPerfilAdulto();
+//   }
+// }
