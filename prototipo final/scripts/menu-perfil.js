@@ -64,7 +64,7 @@ $(document).ready(function(){
 
   $(".boton-mis-cartas").click(function(){
     $("#modal-mis-cartas").fadeIn("fast");
-    const arrayCartas = JSON.parse(localStorage.getItem("arrayCartas"));
+    const arrayCartas = JSON.parse(localStorage.getItem("usuarioData"))["cartas"];
     if (arrayCartas !== null && arrayCartas.length != 0) {
       $("#modal-mis-cartas-body").css("display", "grid");
       rellenarMisCartas(arrayCartas);
@@ -97,10 +97,23 @@ $(document).ready(function(){
 
   $("#boton-mis-reservas").click(function(){
     $("#modal-mis-reservas").fadeIn("fast");
-  })
+    const arrayReservas = JSON.parse(localStorage.getItem("usuarioData"))["reservas"];
+    if (arrayReservas !== null && arrayReservas.length != 0) {
+      $("#modal-mis-reservas-body").css("display", "grid");
+      rellenarMisReservas(arrayReservas);
+      actualizarEventosDragDropReservas();
+    }
+    else {
+      mensajeNoReservas();
+    }
+
+  });
 
   $("#boton-atras-mis-reservas").click(function(){
-    $("#modal-mis-reservas").fadeOut("fast");
+    $("#modal-mis-reservas").fadeOut("fast", function(){
+      const modalMisReservasBody = document.getElementById("modal-mis-reservas-body");
+      modalMisReservasBody.innerHTML = "";
+    });
   });
 
   // Crear cuenta asociada
@@ -129,6 +142,7 @@ $(document).ready(function(){
       $(".div-botones-menu").show();
       $("#icono-sesion-iniciada").hide();
       $("#icono-sesion-iniciada-niño").hide();
+      $("#boton-mostrar-reservas").hide();
       setLogin(false)
     }
   });
@@ -240,7 +254,7 @@ function mensajeNoCartas(){
 function rellenarMisCartas(arrayCartas){
   const modalMisCartasBody = document.getElementById("modal-mis-cartas-body");
   for(let i = 0; i < arrayCartas.length; i++) {
-    let cartaJSON = JSON.parse(arrayCartas[i]);
+    let cartaJSON = arrayCartas[i];
     let cartaNombre = cartaJSON.carta_nombre;
     let cartaCiudad = cartaJSON.carta_ciudad;
     let cartaPais = cartaJSON.carta_pais;
@@ -267,12 +281,13 @@ function rellenarMisCartas(arrayCartas){
 
 
 function borrarMisCartas(dropZoneParent){
-  let arrayCartas = JSON.parse(localStorage.getItem("arrayCartas"));
+  let userData = JSON.parse(localStorage.getItem("usuarioData"));
+  let arrayCartas = userData["cartas"];
   const indexBorrar = Number(dropZoneParent.id.split("-")[1]);
 
   arrayCartas.splice(indexBorrar, 1);
 
-  localStorage.setItem("arrayCartas", JSON.stringify(arrayCartas));
+  localStorage.setItem("usuarioData", JSON.stringify(userData));
 
   const modalMisCartasBody = document.getElementById("modal-mis-cartas-body");
   modalMisCartasBody.innerHTML = "";
@@ -326,13 +341,123 @@ function actualizarEventosDragDrop(){
       dropZone.appendChild(dragCarta);
       dragCartaParent.appendChild(dropeZoneCarta);
 
-      let arrayCartas = JSON.parse(localStorage.getItem("arrayCartas"));
+      let arrayCartas = JSON.parse(localStorage.getItem("usuarioData"))["cartas"];
       const indexDrag = Number(dragCartaParent.id.split("-")[1]);
       const indexDrop = Number(dropZone.id.split("-")[1]);
 
       [arrayCartas[indexDrag], arrayCartas[indexDrop]] = [arrayCartas[indexDrop], arrayCartas[indexDrag]];
 
       localStorage.setItem("arrayCartas", JSON.stringify(arrayCartas));
+    })
+  })
+}
+
+
+// Mis reservas
+
+function mensajeNoReservas(){
+  $("#modal-mis-reservas-body").css("display", "block");
+  $("#modal-mis-reservas-body").append(`<p class="mensaje-no-cartas">Visita a la sección <span class="texto-destacado-rojo">Reserva 🏭</span> para hacer una reserva y conocer la fábrica ;)</p>`);
+}
+
+function rellenarMisReservas(arrayReservas){
+  const modalMisReservasBody = document.getElementById("modal-mis-reservas-body");
+  for(let i = 0; i < arrayReservas.length; i++) {
+    let reserva = arrayReservas[i];
+    let reservaDia = reserva.dia;
+    let reservaHora = reserva.hora;
+    let reservaLugar = reserva.lugar;
+    let currentID = i.toString();
+    let codeToAppend = `<div id="dropzone-reserva-${currentID}" class="drop-zone">
+                          <div class="reserva-mis-reservas" draggable="true">
+                            <div class="reserva-mis-reservas-sub">
+                              <div>
+                                <h2 class="texto-reserva-mis-reservas"> Fecha: ${reservaDia}</h2>
+                                <h2 class="texto-reserva-mis-reservas"> Hora: ${reservaHora}</h2>
+                                <h2 class="texto-reserva-mis-reservas"> Lugar: ${reservaLugar}</h2>
+                              </div>
+                              <p>¡Te esperamos! </p>
+                              <img class="foto_carta"
+                              src="images/reserva-te-esperamos-foto.png"
+                              alt="Foto">
+                            </div>
+                            <button class="boton-cancelar-mis-reservas">Cancelar</button>
+                          </div>
+                        </div>`;
+    modalMisReservasBody.innerHTML += codeToAppend;
+  }
+}
+
+
+function borrarMisReservas(dropZoneParent){
+  let userData = JSON.parse(localStorage.getItem("usuarioData"));
+  let arrayReservas = userData["reservas"];
+  const indexBorrar = Number(dropZoneParent.id.split("-")[1]);
+
+  arrayReservas.splice(indexBorrar, 1);
+
+  localStorage.setItem("usuarioData", JSON.stringify(userData));
+
+  const modalMisReservasBody = document.getElementById("modal-mis-reservas-body");
+  modalMisReservasBody.innerHTML = "";
+
+  if (arrayReservas.length > 0){
+    rellenarMisReservas(arrayReservas);
+    actualizarEventosDragDrop();
+  }
+  else {
+    mensajeNoReservas();
+  }
+}
+
+
+function actualizarEventosDragDropReservas(){
+  const reservas = document.querySelectorAll(".reserva-mis-reservas");
+  const dropZones = document.querySelectorAll(".drop-zone");
+  const buttons = document.querySelectorAll(".boton-cancelar-mis-reservas");
+  
+  buttons.forEach(function(boton) {
+    // 
+    boton.addEventListener("click", function() {
+      if (window.confirm("¿Estás seguro/a de que quieres cancelar esta reserva?")) {
+        dropZoneParent = boton.closest(".drop-zone");
+        borrarMisReservas(dropZoneParent);
+      }
+    })
+  })
+
+  reservas.forEach(function(reserva) {
+    // Evento para detectar cuándo el usuario le hace "drag"
+    reserva.addEventListener("dragstart", function() {
+      reserva.classList.add("reserva-en-movimiento");
+    })
+
+    // Evento para detectar cuándo el usuario la suelta 
+    reserva.addEventListener("dragend", function() {
+      reserva.classList.remove("reserva-en-movimiento");
+    })
+  })
+
+  dropZones.forEach(function(dropZone) {
+    // Evento para detectar que un elemento está siendo movido por encima de la zona del div "drop-zone"
+    // El elemento pasa a estar ahí colocado y el usuario lo comprueba a tiempo real, no una vez soltado
+    dropZone.addEventListener("dragover", function(event) {
+      event.preventDefault();  
+      const dropZone = event.target.closest(".drop-zone");
+      const dropeZoneCarta = dropZone.querySelector(".reserva-mis-reservas");
+      const dragCarta = document.querySelector(".reserva-en-movimiento");
+      const dragCartaParent = dragCarta.closest(".drop-zone");
+      dropZone.appendChild(dragCarta);
+      dragCartaParent.appendChild(dropeZoneCarta);
+
+      let userData = JSON.parse(localStorage.getItem("usuarioData"));
+      let arrayReservas = userData["reservas"];
+      const indexDrag = Number(dragCartaParent.id.split("-")[1]);
+      const indexDrop = Number(dropZone.id.split("-")[1]);
+
+      [arrayReservas[indexDrag], arrayReservas[indexDrop]] = [arrayReservas[indexDrop], arrayReservas[indexDrag]];
+
+      localStorage.setItem("usuarioData", JSON.stringify(userData));
     })
   })
 }

@@ -262,6 +262,72 @@ p.texto-carta-mis-cartas{
 	margin: 3rem 0;
 }
 
+/*CSS Menú reservas*/
+#modal-mis-reservas-body {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1rem;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+}
+
+.reserva-mis-reservas{
+	word-wrap: break-word;
+	border: rgb(150, 120, 120) solid 2px;
+	background-color: rgba(100, 0, 0, 0.1);
+	padding: 1.5rem;
+}
+
+.reserva-mis-reservas-sub {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 0.5rem;
+	align-items: center;
+	align-content: center;
+}
+
+.reserva-mis-reservas img{
+	height: 3rem;
+	display: block;
+	margin: auto;
+}
+
+.texto-reserva-mis-reservas{
+	word-wrap: break-word;
+}
+
+h2.texto-reserva-mis-reservas{
+	font-size: 1.3rem;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h3.texto-reserva-mis-reservas{
+	font-size: 1.1rem;
+	margin-top: 0.1rem;
+	margin-bottom: 0;
+	color: rgb(150, 120, 120)
+}
+
+p.texto-reserva-mis-reservas{
+	font-size: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.boton-cancelar-mis-reservas{
+	display: block;
+	margin: auto;
+	padding: 0.3rem 1.3rem;
+	font-size: 1rem;
+}
+
+.mensaje-no-reservas {
+	text-align: center;
+	margin: 3rem 0;
+}
+
+
 #modal-registrarse-inicial {
 	display: flex;
 	flex-direction: column;
@@ -869,6 +935,77 @@ p.modal-subtitulo {
 	padding: 0.3rem 1.3rem;
 	font-size: 1rem;
 }
+
+/*Reserva-fabrica*/
+#reserva-fabrica{
+	color: white;
+	background-image: url("../images/background-reserva-fabrica.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+	background-size: cover;
+}
+
+#reserva-body{
+	color: black;
+	background-color: rgba(255, 255, 255, 0.6);
+	padding: 2vh 5vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#reserva-info{
+	display: flex;
+	gap: 2vw;
+}
+
+#reserva-horarios{
+	margin-top: 4rem; 
+	gap: 2vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#reserva-horarios > p{
+	margin: 0; 
+}
+
+#reserva-horas-botones{
+	background-color: lightgray;
+	padding: 1vh 1vw;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 0.7rem;
+}
+
+#reservar-form{
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+}
+
+#reserva-dia{
+	width: fit-content;
+}
+
+.hora-texto{
+	margin: 0;
+}
+
+.boton-hora{
+	display: flex;
+	flex-direction: row;
+}
+
+#reserva-button{
+	align-self: center;
+	transition-duration: 0.15s;
+	font-size: 1.5rem;
+}
+
+
 	
 /*Footer*/
 
@@ -1136,10 +1273,16 @@ footer > .footer-links{
 	#modal-mis-cartas-body {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
 	}
+	#modal-mis-reservas-body {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+	}
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
 	#modal-mis-cartas-body {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+	#modal-mis-reservas-body {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	}
 }

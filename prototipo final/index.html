@@ -25,6 +25,7 @@
 		<script src="scripts/memory-quest.js" async> </script>
 		<script src="scripts/leche-con-galletas.js" async></script>
 		<script src="scripts/chat.js" async></script>
+		<script src="scripts/reservas.js" async></script>
 
 		<title> SantaLover </title>
 	</head>
@@ -377,7 +378,7 @@
 					<h2>Mis mensajes ☃️</h2>
 				</div>
 
-				<div class="modal-body">
+				<div id="modal-mis-mensajes-body" class="modal-body">
 				</div>
 
 				<div class="modal-footer">
@@ -393,7 +394,7 @@
 					<h2>Mis reservas ☃️</h2>
 				</div>
 
-				<div class="modal-body">
+				<div id="modal-mis-reservas-body" class="modal-body">
 				</div>
 
 				<div class="modal-footer">
@@ -761,6 +762,81 @@
 					<div id="card-container">
 					</div>
 				</div>
+			</div>
+			
+		</section>
+
+		<section id="reserva-fabrica">
+			<h1>¡Conoce la fábrica de Papá Noel! 🎅🏼</h1>
+			<h2>¡Nuestros elfos lo gestionarán todo para que puedas conocer nuestra fábrica!</h2>
+			<div id="reserva-body">
+				<div id="reserva-info">
+					<div id="reserva-mapa">
+						<p>🇪🇦 Fábrica de Papá Noel, Leganés, Madrid, España</p>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6082.8929412025345!2d-3.767690287667223!3d40.33244076064483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41898b1cc06b5b%3A0xaf0cadd098b516f8!2sUniversidad%20Carlos%20III%20de%20Madrid%20%7C%20Campus%20de%20Legan%C3%A9s!5e0!3m2!1ses!2ses!4v1733571916693!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+					<div id="reserva-horarios">
+						<p>Apúntate a esta trepidante aventura por la fábrica de 
+							juguetes de Papá Noel, conócelo a él y a todos sus 
+							renos y elfos. Y si te portas bien, ¡hasta podrás 
+							conseguir un regalo!
+						</p>
+						<form id="reservar-form">
+							<label for="reserva-dia">Elige un dia:</label>
+							<select name="reserva-dia" id="reserva-dia">
+								<option value="1 Diciembre 2024">1 Diciembre 2024</option>
+								<option value="2 Diciembre 2024">2 Diciembre 2024</option>
+								<option value="3 Diciembre 2024">3 Diciembre 2024</option>
+							</select>
+							<label for="reserva-hora">Elige una hora:</label>
+							<div id="reserva-horas-botones">
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="10:00">
+									<p class="hora-texto">10:00</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="10:30">
+									<p class="hora-texto">10:30</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="11:00">
+									<p class="hora-texto">11:00</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="11:30">
+									<p class="hora-texto">11:30</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="12:00">
+									<p class="hora-texto">12:00</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="12:30">
+									<p class="hora-texto">12:30</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="16:00">
+									<p class="hora-texto">16:00</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="17:00">
+									<p class="hora-texto">17:00</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="18:00">
+									<p class="hora-texto">18:00</p>
+								</div>
+								<div class="boton-hora">
+									<INPUT TYPE="Radio" Name="reserva-hora" Value="19:00">
+									<p class="hora-texto">19:00</p>
+								</div>
+							</div>
+							
+						</form>
+					</div>
+				</div>
+				<button id="boton-mostrar-reservas" class="link-rojo">Mis reservas</button>
+				<button type="button" id="reserva-button">ENVIAR RESERVA</button>
 			</div>
 			
 		</section>
