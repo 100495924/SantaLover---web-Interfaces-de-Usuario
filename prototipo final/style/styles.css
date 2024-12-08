@@ -1192,8 +1192,101 @@ footer > .footer-links{
 
 /* Chat */
 
+#reserva-fabrica{
+	display: none;
+}
+
 #chat {
-	background-color: rgba(74, 120, 70, 0.4);
+	background-color: lightblue;
+}
+
+#chat-contenido{
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#chat-header{
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	background-color: white;
+	padding: 0.5rem;
+}
+
+#chat-header > p{
+	margin: 0;
+}
+
+#chat-header-icono-div{
+	height: 60px;
+}
+
+#chat-header-icono{
+	height: 100%;
+	width: auto;
+	border-radius: 50%;
+	background-color: rgb(185, 202, 189);
+}
+
+#chat-body{
+	display: flex;
+	flex-flow: column;
+	gap: 2rem;
+	padding: 2rem;
+	height: 50vh;
+	max-height: 50vh;
+	overflow: auto;
+	align-items: center;
+}
+
+.chat-mensaje-papa-noel, .chat-mensaje-usuario{
+	margin: 0;
+	padding: 1rem;
+	width: fit-content;
+}
+
+.chat-mensaje-papa-noel{
+	background-color: white;
+	border-radius: 20px 20px 20px 0;
+	font-size: 20px;
+	align-self: flex-start;
+}
+
+.chat-mensaje-usuario{
+	background-color: rgb(202, 218, 206);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 1rem;
+	border-radius: 20px 20px 0 20px;
+	align-self: flex-end;
+}
+
+.chat-boton, .chat-boton-repetir{
+	background-color: white;
+	color: black;
+	padding: 0.5rem 0.7rem;
+	border-radius: 5px;
+	border: none;
+	transition-duration: 0.15s;
+	font-size: 20px;
+	text-align: center;
+	width: fit-content;
+}
+
+.chat-boton-repetir{
+	border: solid 2px rgb(147, 147, 147);
+	background-color: rgb(220, 220, 220);
+	/* box-shadow: 0 0 4px rgba(0, 0, 0, 0.416); */
+}
+
+.chat-boton:hover{
+	background-color: rgb(167, 188, 175);
+}
+
+.chat-boton-repetir:hover{
+	background-color: rgb(200, 200, 200);
 }
 
 /* Media queries */

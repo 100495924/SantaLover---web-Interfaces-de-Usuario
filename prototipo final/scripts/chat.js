@@ -2,6 +2,12 @@ $(document).ready(function(){
   startChat();
 })
 
+// Para que los mensajes se muestren correctamente cuando el chat-body hace overflow
+function scrollchatBodyToBottom() {
+  chatBody = document.getElementById("chat-body");
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
@@ -17,6 +23,7 @@ function startChat(){
   chatBody.innerHTML += papaNoelPrimero;
 
   appendUsuarioInicial(chatBody);
+  scrollchatBodyToBottom();
 }
 
 async function appendPapaNoelInicial(chatBody){
@@ -25,6 +32,7 @@ async function appendPapaNoelInicial(chatBody){
   
   await escribirRespuestaPapaNoel(item, listaClases, chatBody);
   appendUsuarioInicial(chatBody);
+  scrollchatBodyToBottom();
 
 }
 
@@ -51,14 +59,17 @@ function appendUsuarioInicial(chatBody){
   botonChiste.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelChiste(chatBody);
+    scrollchatBodyToBottom();
   });
   botonCuriosidad.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelCuriosidad(chatBody);
+    scrollchatBodyToBottom();
   });
   botonAdios.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelAdios(chatBody);
+    scrollchatBodyToBottom();
   });
 }
 
@@ -79,6 +90,7 @@ async function escribirRespuestaPapaNoel(item, listaClases, chatBody){
   pMensaje.innerHTML = "escribiendo...";
   await delay(1000);
   pMensaje.innerHTML = item;
+  scrollchatBodyToBottom();
 }
 
 async function appendPapaNoelChiste(chatBody){
@@ -126,6 +138,7 @@ async function appendPapaNoelChiste(chatBody){
   
   await escribirRespuestaPapaNoel(itemElegido, listaClases, chatBody);
   appendUsuarioChisteAnswer(chatBody);
+  scrollchatBodyToBottom();
 }
 
 function appendUsuarioChisteAnswer(chatBody){
@@ -151,14 +164,17 @@ function appendUsuarioChisteAnswer(chatBody){
   botonChistePositivo.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelChisteAnswer(chatBody, "positivo");
+    scrollchatBodyToBottom();
   });
   botonChisteNegativo.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelChisteAnswer(chatBody, "negativo");
+    scrollchatBodyToBottom();
   });
   botonChisteOtro.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelChisteAnswer(chatBody, "otro");
+    scrollchatBodyToBottom();
   });
 }
 
@@ -180,6 +196,7 @@ async function appendPapaNoelChisteAnswer(chatBody, tipo){
   else{
     appendPapaNoelChiste(chatBody);
   }
+  scrollchatBodyToBottom();
 }
 
 async function appendPapaNoelCuriosidad(chatBody){
@@ -200,6 +217,7 @@ async function appendPapaNoelCuriosidad(chatBody){
 
   await escribirRespuestaPapaNoel(itemElegido, listaClases, chatBody);
   appendUsuarioCuriosidadAnswer(chatBody);
+  scrollchatBodyToBottom();
 }
 
 function appendUsuarioCuriosidadAnswer(chatBody){
@@ -225,14 +243,17 @@ function appendUsuarioCuriosidadAnswer(chatBody){
   botonCuriosidadPositivo.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelCuriosidadAnswer(chatBody, "positivo");
+    scrollchatBodyToBottom();
   });
   botonCuriosidadNegativo.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelCuriosidadAnswer(chatBody, "negativo");
+    scrollchatBodyToBottom();
   });
   botonCuriosidadOtro.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelCuriosidadAnswer(chatBody, "otro");
+    scrollchatBodyToBottom();
   });
 }
 
@@ -254,6 +275,7 @@ async function appendPapaNoelCuriosidadAnswer(chatBody, tipo){
   else{
     appendPapaNoelCuriosidad(chatBody);
   }
+  scrollchatBodyToBottom();
 }
 
 async function appendPapaNoelAdios(chatBody){
@@ -269,4 +291,5 @@ async function appendPapaNoelAdios(chatBody){
     chatBody.innerHTML = "";
     startChat();
   });
+  scrollchatBodyToBottom();
 }
