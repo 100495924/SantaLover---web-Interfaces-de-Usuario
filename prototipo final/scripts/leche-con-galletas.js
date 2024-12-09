@@ -109,29 +109,93 @@ function changeSelect(){
     pantalla2.style.display = "flex";
     
     const mensajePantalla2 = document.getElementById("pagina2-contenido-2-texto");
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido.";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido.";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido..";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido..";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido...";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido...";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido.";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido.";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido..";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido..";
     await delay(300);
-    mensajePantalla2.innerHTML = "☃️ Preparando tu pedido...";
+    mensajePantalla2.innerHTML = "☃️<br>Preparando tu pedido...";
     await delay(300);
 
     pantalla2.style.display = "none";
     pantalla3.style.display = "flex";
+    textoVariable = document.getElementById("pagina2-contenido-3-texto2");
+    cuenta = isCuentaNiñoAdulto();
+    if (cuenta == -2){
+      // No se ha iniciado sesión
+      textoVariable.innerHTML = `Gracias por tu leche con galletas, ¡estaba muy rico!`;
+    }
+    else {
+      const userData = JSON.parse(localStorage.getItem("usuarioData"));
+      let username = "";
+      if (cuenta == -1){
+        username = userData["username"];
+      }
+      else{
+        username = userData["cuentasAsociadas"][cuenta]["username"];
+      }
+      textoVariable.innerHTML = `${username}, gracias por tu leche con galletas, ¡estaba muy rico!`;
+    }
   })
 
   botonVolverPedir.addEventListener("click", function(event){
     pantalla3.style.display = "none";
+
+    imgLecheNormal.style.display = "initial";
+    imgLecheChocolate.style.display = "none";
+    imgLecheFresa.style.display = "none";
+  
+    galleta1.style.visibility = "initial";
+    galleta2.style.visibility = "hidden";
+    galleta3.style.visibility = "hidden";
+  
+    imgGalletaClasica1.style.display = "initial";
+    imgGalletaChocolate1.style.display = "none";
+    imgGalletaRedVelvet1.style.display = "none";
+  
+    imgGalletaClasica2.style.display = "initial";
+    imgGalletaChocolate2.style.display = "none";
+    imgGalletaRedVelvet2.style.display = "none";
+  
+    imgGalletaClasica3.style.display = "initial";
+    imgGalletaChocolate3.style.display = "none";
+    imgGalletaRedVelvet3.style.display = "none";
+  
+    imgLecheNormalPedido.style.display = "initial";
+    imgLecheChocolatePedido.style.display = "none";
+    imgLecheFresaPedido.style.display = "none";
+  
+    imgsGalleta1Pedido.style.visibility = "initial";
+    imgsGalleta2Pedido.style.visibility = "hidden";
+    imgsGalleta3Pedido.style.visibility = "hidden";
+  
+    imgGalletaClasica1Pedido.style.display = "initial";
+    imgGalletaChocolate1Pedido.style.display = "none";
+    imgGalletaRedVelvet1Pedido.style.display = "none";
+  
+    imgGalletaClasica2Pedido.style.display = "initial";
+    imgGalletaChocolate2Pedido.style.display = "none";
+    imgGalletaRedVelvet2Pedido.style.display = "none";
+  
+    imgGalletaClasica3Pedido.style.display = "initial";
+    imgGalletaChocolate3Pedido.style.display = "none";
+    imgGalletaRedVelvet3Pedido.style.display = "none";
+
+    tipoLeche.selectedIndex = 0;
+    cantidadGalletas.selectedIndex = 0;
+    tipoGalleta1.selectedIndex = 0;
+    tipoGalleta2.selectedIndex = 0;
+    tipoGalleta3.selectedIndex = 0;
+
     pantalla1.style.display = "flex";
   })
 

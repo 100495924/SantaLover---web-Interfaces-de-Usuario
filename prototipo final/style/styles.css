@@ -583,8 +583,12 @@ p.modal-subtitulo {
 
 /*Página 2: Juego Leche con galletas*/
 
+#reserva-fabrica{
+	display: none;
+}
+
 #pagina2 {
-	background-color: rgba(74, 120, 70, 0.4);
+	background-color: lightblue;
 	/* height: 80vh; */
 }
 
@@ -593,16 +597,34 @@ p.modal-subtitulo {
 	flex-flow: column;
 	align-content: center;
 	background-color: rgba(255, 255, 255, 0.4);
-	height: 60vh;
+	min-height: 60vh;
 	padding: 2rem;
   padding-top: 0;
+	margin: auto;
+	max-width: 1000px;
 }
 
 #pagina2-contenido-1{
 	display: flex;
 	flex-flow: column;
-	align-items: center;
+	/* align-items: center; */
 	gap: 1rem;
+	justify-content: center;
+}
+
+.pagina2-boton{
+	padding: 0.5rem 0.7rem;
+	border-radius: 5px;
+	border: solid 2px rgb(147, 147, 147);
+	background-color: rgb(220, 220, 220);
+	transition-duration: 0.15s;
+	font-size: 20px;
+	width: fit-content;
+	align-self: center;
+}
+
+.pagina2-boton:hover{
+	background-color: rgb(200, 200, 200);
 }
 
 #leche-y-galletas{
@@ -610,8 +632,8 @@ p.modal-subtitulo {
 	flex-flow: row nowrap;
 	justify-content: center;
 	/* padding: 1vw 5vw; */
-	height: 100%;
-  width: 100%;
+	/* height: 100%; */
+  /* width: 100%; */
 	gap: 1rem;
 }
 
@@ -619,9 +641,11 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	align-items: center;
-	width: 30%;
+	/* width: 30%; */
 	/* width: 100%; */
 	padding: 0 1rem;
+	text-align: center;
+	flex-grow: 1;
 }
 
 .grupo-leche-galletas > p{
@@ -683,12 +707,14 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
+	/* padding: 0; */
+	text-align: center;
 }
 
 #pagina2-contenido-2-texto{
 	/* margin-left: 20%;  */
-	margin-left: 15%;
-	font-size: 5vw;
+	font-size: max(2rem, 4vw);
+	margin: auto;
 }
 
 #pagina2-contenido-3{
@@ -702,12 +728,14 @@ p.modal-subtitulo {
 	flex-flow: row;
 	gap: 1rem;
 	margin: auto;
+	align-items: center;
 }
 
 #pagina2-contenido-3-div-otros{
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
+	gap: 1rem;
 }
 
 #pagina2-contenido-3-mensaje-papa-noel{
@@ -720,7 +748,8 @@ p.modal-subtitulo {
 	flex-flow: row;
 	align-items: end;
 	background-color: lightblue;
-	padding: 3rem 1rem;
+	padding: 2rem 1rem;
+	gap: 1rem;
 }
 
 #imgs-leche-pedido, #imgs-galleta1-pedido, #imgs-galleta2-pedido, #imgs-galleta3-pedido {
@@ -728,14 +757,19 @@ p.modal-subtitulo {
 }
 
 #pagina2-contenido-3-texto1{
-	margin-bottom: 0;
+	margin: 0;
 }
 
 #pagina2-contenido-3-texto2{
-	margin-top: 0;
+	margin: 0;
 }
 
-#pagina2-contenido-3-div-img-papa-noel{
+/* #pagina2-contenido-3-div-img-papa-noel{
+	width: 100%;
+	height: auto;
+} */
+
+#pagina2-contenido-3-img-papa-noel{
 	width: 100%;
 	height: auto;
 }
@@ -1191,10 +1225,6 @@ footer > .footer-links{
 }
 
 /* Chat */
-
-/* #reserva-fabrica{
-	display: none;
-} */
 
 #chat {
 	background-color: lightblue;
