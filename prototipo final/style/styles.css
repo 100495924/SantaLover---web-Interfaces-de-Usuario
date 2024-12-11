@@ -327,6 +327,7 @@ p.texto-reserva-mis-reservas{
 	margin: 3rem 0;
 }
 
+/* Modal registrarse */
 
 #modal-registrarse-inicial {
 	display: flex;
@@ -366,6 +367,20 @@ p.modal-subtitulo {
 	text-align: center;
 }
 
+#form-registrarse{
+	width: 50%;
+}
+
+#modal-registrarse-inicial-opciones-niño-elegido{
+	width: 50%;
+}
+
+#modal-registrarse-inicial-opciones-niño-elegido-botones{
+	display: flex;
+	flex-flow: wrap;
+	gap: 0.5rem;
+}
+
 #modal-registrarse-niño-boton-iniciar-sesion, #modal-registrarse-niño-boton-registrarse{
 	padding: 0.5rem 0.7rem;
 	border-radius: 5px;
@@ -393,6 +408,124 @@ p.modal-subtitulo {
 	background-color: rgb(95, 95, 95);
 }
 
+/* Modal mi perfil adulto */
+
+/* #reserva-fabrica{
+	display: none;
+} */
+
+#modal-mi-perfil-adulto-opciones{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 2rem;
+	margin-top: 1rem;
+}
+
+/* #modal-mi-perfil-adulto-decoracion{
+	align-self: center;
+} */
+
+#form-mi-perfil-niño{
+	width: 50%;
+}
+
+#modal-mi-perfil-niño-decoracion-div-foto {
+	width: 100%;
+	height: auto;
+}
+
+#modal-mi-perfil-niño-decoracion-foto {
+	height: 100%;
+	width: 100%;
+}
+
+#modal-mi-perfil-niño-decoracion-texto {
+	margin-top: 0;
+	text-align: center;
+}
+
+.cuenta-asociada-item > p{
+	margin-bottom: 0;
+}
+
+.cuenta-asociada-item > button{
+	background-color: rgb(225, 225, 225);
+	border: none;
+	border-radius: 5px;
+	padding: 0.2rem 0.5rem;
+	transition-duration: 0.15s;
+	/* border: 1px solid rgb(120, 120, 120); */
+	/* background-color: rgb(200, 200, 200); */
+}
+
+.cuenta-asociada-item > button:hover{
+	color: white;
+	background-color: rgb(224, 102, 102);
+}
+
+/* Modal mi perfil niño */
+
+#modal-mi-perfil-niño-opciones{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 2rem;
+	margin-top: 1rem;
+}
+
+/* #modal-mi-perfil-niño-decoracion{
+	align-self: center;
+} */
+
+#form-mi-perfil-adulto{
+	width: 30%;
+}
+
+#modal-mi-perfil-adulto-decoracion-div-foto {
+	width: 100%;
+	height: auto;
+}
+
+#modal-mi-perfil-adulto-decoracion-foto {
+	height: 100%;
+	width: 100%;
+}
+
+#modal-mi-perfil-adulto-decoracion-texto {
+	margin-top: 0;
+	text-align: center;
+}
+
+
+/* Modal crear cuenta asociada */
+
+#modal-mi-perfil-adulto-opciones{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 2rem;
+	margin-top: 1rem;
+}
+
+#form-crear-cuenta-asociada{
+	width: 50%;
+}
+
+#modal-crear-cuenta-asociada-decoracion-div-foto {
+	width: 100%;
+	height: auto;
+}
+
+#modal-crear-cuenta-asociada-decoracion-foto {
+	height: 100%;
+	width: 100%;
+}
+
+#modal-crear-cuenta-asociada-decoracion-texto {
+	margin-top: 0;
+	text-align: center;
+}
 
 /* Barra de navegación */
 
@@ -465,13 +598,18 @@ p.modal-subtitulo {
 	display: block;
 }
 
-.div-opciones-menu > a {
+.div-opciones-menu > a, .div-opciones-menu > button {
 	display: block;
 	padding: 1rem 0;
 	text-decoration: none;
 	width: 100%;
 	text-align: center;
 	font-size: 1rem;
+	cursor: pointer;
+}
+
+.div-opciones-menu > button {
+	border: none;
 }
 
 .div-botones-menu > button {
@@ -489,12 +627,12 @@ p.modal-subtitulo {
 	transition-duration: 0.15s;
 }
 
-.link-evidencia, .link-rojo:hover {
+.link-evidencia-rojo, .link-rojo:hover {
 	background-color: rgb(224, 102, 102);
 	color: white;
 }
 
-.link-verde:hover {
+.link-evidencia-verde, .link-verde:hover {
 	background-color: rgb(47, 145, 93);
 	color: white;
 }
@@ -583,10 +721,6 @@ p.modal-subtitulo {
 
 /*Página 2: Juego Leche con galletas*/
 
-/* #reserva-fabrica{
-	display: none;
-} */
-
 #pagina2 {
 	background-color: lightblue;
 	/* height: 80vh; */
@@ -635,6 +769,9 @@ p.modal-subtitulo {
 	/* height: 100%; */
   /* width: 100%; */
 	gap: 1rem;
+	margin: auto;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .grupo-leche-galletas{
@@ -645,7 +782,7 @@ p.modal-subtitulo {
 	/* width: 100%; */
 	padding: 0 1rem;
 	text-align: center;
-	flex-grow: 1;
+	width: 50%;
 }
 
 .grupo-leche-galletas > p{

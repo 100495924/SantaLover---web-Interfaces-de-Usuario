@@ -39,11 +39,15 @@ function comprobarIniciarSesion(){
   const usernameInput = document.getElementById("username-inicia-sesion").value.trim();
   const contraseñaInput = document.getElementById("contraseña-inicia-sesion").value.trim();
 
+  // La cuenta es de un adulto
   if (usernameInput === usernameLocalStorage && contraseñaInput === contraseñaLocalStorage){
     cambiarVisibilityMessageError("hidden");
     jsonUsuario["sesionIniciada"] = true;
     localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
     $("#icono-sesion-iniciada").show();
+    $("#icono-sesion-iniciada-niño").hide();
+    $("#boton-inicia-sesion-movil").hide();
+    $("#boton-registrarse-movil").hide();
     return true;
   }
 
@@ -65,7 +69,10 @@ function comprobarIniciarSesion(){
     cambiarVisibilityMessageError("hidden");
     jsonUsuario["cuentasAsociadas"][index]["sesionIniciada"] = true;
     localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+    $("#icono-sesion-iniciada").hide();
     $("#icono-sesion-iniciada-niño").show();
+    $("#boton-inicia-sesion-movil").hide();
+    $("#boton-registrarse-movil").hide();
     return true;
   }
 

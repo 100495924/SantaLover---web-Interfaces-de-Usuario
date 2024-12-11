@@ -46,6 +46,7 @@ $(document).ready(function(){
   $("#boton-mi-perfil-adulto").click(function(){
     rellenarFormMiPerfilAdulto();
     $("#modal-mi-perfil-adulto").fadeIn("fast");
+    $("#div-opciones-perfil-adulto").fadeOut("fast");
   });
 
   $("#boton-modificar-mi-perfil-adulto").click(function(){
@@ -94,13 +95,17 @@ function modalRegistrarseInicial(){
     elemento.style.display = "none";
   })
 
+  modalSubtitulo.innerHTML = "¿Cuántos años tienes?";
+  modalSubtitulo.style.color = "black";
+  modalSubtitulo.style.visibility = "visible";
+
   opcionAdulto.style.cursor = "pointer";
   opcionNiño.style.cursor = "pointer";
 
   buttonAtras.removeEventListener("click", modalRegistrarseInicial);
   buttonAtras.addEventListener("click", clickAtrasInicial);
-  opcionAdulto.addEventListener("click", clickOpcionAdultoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño), false);
-  opcionNiño.addEventListener("click", clickOpcionNiñoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, contenidoNiño, modalSubtitulo), false);
+  opcionAdulto.addEventListener("click", clickOpcionAdultoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño, modalSubtitulo), false);
+  opcionNiño.addEventListener("click", clickOpcionNiñoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, buttonCancelar, contenidoNiño, modalSubtitulo), false);
   
   limpiar("registrarse");
 }
@@ -109,7 +114,7 @@ function clickAtrasInicial(){
   $("#modal-registrarse").fadeOut("fast");
 }
 
-function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño){
+function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño, modalSubtitulo){
   buttonAtras.removeEventListener("click", clickAtrasInicial);
   buttonAtras.addEventListener("click", modalRegistrarseInicial);
   opcionAdulto.removeEventListener("click", clickOpcionAdultoInicial);
@@ -120,15 +125,20 @@ function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRe
   opcionAdulto.style.cursor = "default";
   buttonAceptar.style.display = "initial";
   buttonCancelar.style.display = "initial";
+
+  modalSubtitulo.innerHTML = "¡Los niños que se registren aquí entrarán en la lista de niños malos de Papá Noel!";
+  modalSubtitulo.style.color = "rgb(224, 102, 102)";
 }
 
-function clickOpcionNiñoInicial(buttonAtras, opcionAdulto, opcionNiño, contenidoNiño, modalSubtitulo){
+function clickOpcionNiñoInicial(buttonAtras, opcionAdulto, opcionNiño, buttonCancelar, contenidoNiño, modalSubtitulo){
   buttonAtras.removeEventListener("click", clickAtrasInicial);
   buttonAtras.addEventListener("click", modalRegistrarseInicial);
   opcionNiño.removeEventListener("click", clickOpcionNiñoInicial);
   opcionAdulto.style.display = "none";
   contenidoNiño.style.display = "initial";
   opcionNiño.style.cursor = "default";
+  buttonCancelar.style.display = "initial";
+
   modalSubtitulo.style.visibility = "hidden";
 }
 
@@ -332,11 +342,12 @@ function rellenarFormMiPerfilAdulto(){
     cuentasAsociadasDivVariable.innerHTML = `<p>No se encontraron</p>`;
   }
   else{
-    cuentasAsociadasValue.forEach(function(cuenta){
+    cuentasAsociadasDivVariable.innerHTML = "";
+    for (let i = 0; i < cuentasAsociadasValue.length; i++){
       const divItem = document.createElement("div");
       divItem.classList.add("cuenta-asociada-item");
       const pItem = document.createElement("p");
-      pItem.innerHTML = cuenta["username"];
+      pItem.innerHTML = cuentasAsociadasValue[i]["username"];
       const buttonItem = document.createElement("button");
       buttonItem.classList.add("boton-eliminar-cuenta-asociada");
       buttonItem.innerHTML = "Eliminar";
@@ -351,8 +362,23 @@ function rellenarFormMiPerfilAdulto(){
       //                                           </div>`
 
       // ELiminar cuenta asociada
-      // buttonItem.addEventListener("click", botonEliminarCuentaAsociadaHandler);
-    })
+      buttonItem.addEventListener("click", function(){
+        const index = i;
+        newCuentasAsociadas = [];
+        for (let j = 0; j < cuentasAsociadasValue.length; j++){
+          if (j != index){
+            newCuentasAsociadas.push(cuentasAsociadasValue[j]);
+          }
+        }
+        if (window.confirm(`¿Estás seguro/a de que quieres eliminar la cuenta asociada?`)) {
+          jsonUsuario["cuentasAsociadas"] = newCuentasAsociadas;
+          console.log(jsonUsuario);
+          // console.log(jsonUsuario["cuentasAsociadas"].splice(index, 1));
+          localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+          rellenarFormMiPerfilAdulto();
+        }
+      });
+    }
   }
 }
 

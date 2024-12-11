@@ -50,6 +50,7 @@ $(document).ready(function(){
   $("#boton-mi-perfil-niño").click(function(){
     rellenarFormMiPerfilNiño();
     $("#modal-mi-perfil-niño").fadeIn("fast");
+    $("#div-opciones-perfil-niño").fadeOut("fast");
   });
 
   $("#boton-modificar-mi-perfil-niño").click(function(){
@@ -73,7 +74,8 @@ $(document).ready(function(){
     else {
       mensajeNoCartas();
     }
-
+    $("#div-opciones-perfil-adulto").fadeOut("fast");
+    $("#div-opciones-perfil-niño").fadeOut("fast");
   });
 
   $("#boton-atras-mis-cartas").click(function(){
@@ -87,6 +89,8 @@ $(document).ready(function(){
 
   $(".boton-mis-mensajes").click(function(){
     $("#modal-mis-mensajes").fadeIn("fast");
+    $("#div-opciones-perfil-adulto").fadeOut("fast");
+    $("#div-opciones-perfil-niño").fadeOut("fast");
   })
 
   $("#boton-atras-mis-mensajes").click(function(){
@@ -106,7 +110,7 @@ $(document).ready(function(){
     else {
       mensajeNoReservas();
     }
-
+    $("#div-opciones-perfil-adulto").fadeOut("fast");
   });
 
   $("#boton-atras-mis-reservas").click(function(){
@@ -120,6 +124,7 @@ $(document).ready(function(){
 
   $("#boton-crear-cuenta-asociada").click(function(){
     $("#modal-crear-cuenta-asociada").fadeIn("fast");
+    $("#div-opciones-perfil-adulto").fadeOut("fast");
   })
 
   $("#boton-cancelar-crear-cuenta-asociada").click(function(){
@@ -140,6 +145,8 @@ $(document).ready(function(){
       $("#div-opciones-perfil-adulto").fadeOut("fast");
       $("#div-opciones-perfil-niño").fadeOut("fast");
       $(".div-botones-menu").show();
+      $("#boton-inicia-sesion-movil").show();
+      $("#boton-registrarse-movil").show();
       $("#icono-sesion-iniciada").hide();
       $("#icono-sesion-iniciada-niño").hide();
       $("#boton-mostrar-reservas").hide();
