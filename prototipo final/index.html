@@ -26,6 +26,8 @@
 		<script src="scripts/leche-con-galletas.js" async></script>
 		<script src="scripts/chat.js" async></script>
 		<script src="scripts/reservas.js" async></script>
+		<script src="scripts/mensajes-personalizados.js" async></script>
+		<script src="scripts/calendario.js" defer></script>
 
 		<title> SantaLover </title>
 	</head>
@@ -93,10 +95,10 @@
 				<a href="#pagina3" class="link-rojo">Las cartas ✉️</a>
 				<a href="#pagina4" class="link-verde">¡Envía tu carta! 📩</a>
 				<a href="#pagina5" class="link-rojo">Memory Quest 🎮</a>
-				<a href="#pagina6" class="link-verde">Mensajes personalizados 🎅</a>
+				<a href="#MensajesPersonalizados" class="link-verde">Mensajes personalizados 🎅</a>
 				<a href="#pagina7" class="link-rojo">Reserva 🏭</a>
 				<a href="#chat" class="link-verde">Chat 💬</a>
-				<a href="#pagina9" class="link-rojo">Calendario de adviento 📅</a>
+				<a href="#calendario-adviento" class="link-rojo">Calendario de adviento 📅</a>
 				<a href="#pagina10" class="link-verde">Videollamada 💻</a>
 			</div>
 		</header>
@@ -747,6 +749,39 @@
 			</form>
 		</section>
 
+		<section id ="MensajesPersonalizados">
+			<h1>¡Envíale a alguien un mensaje de Papá Noel!</h2>
+				<p>Rellena los datos para que Papá Noel pueda hacer un mensaje personalizado y darle una sorpresa a alguien</p>
+				<div class="container">
+					<form class="form">
+						<div>
+							<label for="name" class="form-label">Nombre de la persona:</label>
+							<input type="text" id="name" name="name" required class="form-input">
+						</div>
+						<div>
+							<label for="relation" class="form-label">Relación que tienes con él/ella (amigo, hermano...):</label>
+							<input type="text" id="relation" name="relation" required class="form-input">
+						</div>
+						<div class="form-group">
+							<label for="likes" class="form-label">Lo que más te gusta de él/ella:</label>
+							<input type="text" id="likes" name="likes" required class="form-input">
+						</div>
+						<div class="form-group">
+							<label for="gift" class="form-label">Lo que quiere por Navidad:</label>
+							<input type="text" id="gift" name="gift" required class="form-input">
+						</div>
+						<div class="button-group">
+						<button type="submit" class="submit-button">ENVIAR</button>
+						<button type="reset" class="reset-button">BORRAR</button>
+						</div>
+					</form>
+					<div class="image-container">
+						<img src="./images/papa-noel-tracker.png" alt="Imagen de Papa Noel" class="image">
+					</div>
+				</div>
+			
+		</section>
+		
 		<section id="pagina5">
 			<!--Página 5-->
 			<h1>¡Juega! 🎮</h1>
@@ -857,6 +892,38 @@
 				<div id="chat-body">
 
 				</div>
+			</div>
+		</section>
+
+		<section id="calendario-adviento">
+			<h2>Calendario de Adviento</h2>
+			<div class="grid-container">
+				<!-- Celdas del calendario -->
+				<div class="grid-item" data-day="1"></div>
+				<div class="grid-item" data-day="2"></div>
+				<div class="grid-item" data-day="3"></div>
+				<div class="grid-item" data-day="4"></div>
+				<div class="grid-item" data-day="5"></div>
+				<div class="grid-item" data-day="6"></div>
+				<div class="grid-item" data-day="7"></div>
+				<div class="grid-item" data-day="8"></div>
+				<div class="grid-item" data-day="9"></div>
+				<div class="grid-item" data-day="10"></div>
+				<div class="grid-item" data-day="11"></div>
+				<div class="grid-item" data-day="12"></div>
+				<div class="grid-item" data-day="13"></div>
+				<div class="grid-item" data-day="14"></div>
+				<div class="grid-item" data-day="15"></div>
+				<div class="grid-item" data-day="16"></div>
+				<div class="grid-item" data-day="17"></div>
+				<div class="grid-item" data-day="18"></div>
+				<div class="grid-item" data-day="19"></div>
+				<div class="grid-item" data-day="20"></div>
+				<div class="grid-item" data-day="21"></div>
+				<div class="grid-item" data-day="22"></div>
+				<div class="grid-item" data-day="23"></div>
+				<div class="grid-item" data-day="24"></div>
+				<div class="grid-item" data-day="25"></div>
 			</div>
 		</section>
 
