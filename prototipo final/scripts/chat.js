@@ -15,10 +15,29 @@ function delay(time) {
 function startChat(){
   // Chequear iniciar sesión
   chatBody = document.getElementById("chat-body");
+  chatBody.innerHTML = "";
+  let textoVariable = "";
 
+  cuenta = isCuentaNiñoAdulto();
+    if (cuenta == -2){
+      // No se ha iniciado sesión
+      textoVariable = "¡Hola!";    
+    }
+    else {
+      const userData = JSON.parse(localStorage.getItem("usuarioData"));
+      let username = "";
+      if (cuenta == -1){
+        username = userData["username"];
+      }
+      else{
+        username = userData["cuentasAsociadas"][cuenta]["username"];
+      }
+      textoVariable = `¡Hola, ${username}!`;
+    }
+  
   const papaNoelPrimero = `<p class="chat-mensaje-papa-noel-primero chat-mensaje-papa-noel"> \
-                            ¡Ho, ho, ho! ¡Hola! ¡Vamos a hablar un poco sobre la navidad! ¿Por dónde quieres empezar? 🎅\
-                          </p>`;
+                            ¡Ho, ho, ho! ${textoVariable} ¡Vamos a hablar un poco sobre la navidad! ¿Por dónde quieres empezar? 🎅\
+                          </p>`;  
 
   chatBody.innerHTML += papaNoelPrimero;
 

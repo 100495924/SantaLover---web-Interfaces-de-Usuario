@@ -48,6 +48,7 @@ function comprobarIniciarSesion(){
     $("#icono-sesion-iniciada-niño").hide();
     $("#boton-inicia-sesion-movil").hide();
     $("#boton-registrarse-movil").hide();
+    startChat();
     return true;
   }
 
@@ -73,6 +74,7 @@ function comprobarIniciarSesion(){
     $("#icono-sesion-iniciada-niño").show();
     $("#boton-inicia-sesion-movil").hide();
     $("#boton-registrarse-movil").hide();
+    startChat();
     return true;
   }
 
