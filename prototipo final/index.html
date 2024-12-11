@@ -26,6 +26,7 @@
 		<script src="scripts/leche-con-galletas.js" async></script>
 		<script src="scripts/chat.js" async></script>
 		<script src="scripts/reservas.js" async></script>
+		<script src="scripts/botones-navegacion.js" async></script>
 
 		<title> SantaLover </title>
 	</head>
@@ -88,7 +89,18 @@
 			<div class="div-opciones-menu">
 				<button id="boton-inicia-sesion-movil" class="boton-inicia-sesion">Inicia sesión</button>
 				<button id="boton-registrarse-movil" class="boton-registrarse">Registrarse</button>
-				<a href="#pagina1" class="link-rojo">Home 🏠</a>
+				<a id="boton-navegacion-home" class="link-rojo">Home 🏠</a>
+				<a id="boton-navegacion-comida" class="link-verde">Envía comida 🍪</a>
+				<a id="boton-navegacion-cartas" class="link-rojo">Las cartas ✉️</a>
+				<a id="boton-navegacion-envia" class="link-verde">¡Envía tu carta! 📩</a>
+				<a id="boton-navegacion-mq" class="link-rojo">Memory Quest 🎮</a>
+				<a id="boton-navegacion-mensajes" class="link-verde">Mensajes personalizados 🎅</a>
+				<a id="boton-navegacion-reserva" class="link-rojo">Reserva 🏭</a>
+				<a id="boton-navegacion-chat" class="link-verde">Chat 💬</a>
+				<a id="boton-navegacion-adviento" class="link-rojo">Calendario de adviento 📅</a>
+				<a id="boton-navegacion-videollamada" class="link-verde">Videollamada 💻</a>
+			
+				<!-- <a href="#pagina1" class="link-rojo">Home 🏠</a>
 				<a href="#pagina2" class="link-verde">Envía comida 🍪</a>
 				<a href="#pagina3" class="link-rojo">Las cartas ✉️</a>
 				<a href="#pagina4" class="link-verde">¡Envía tu carta! 📩</a>
@@ -97,7 +109,7 @@
 				<a href="#pagina7" class="link-rojo">Reserva 🏭</a>
 				<a href="#chat" class="link-verde">Chat 💬</a>
 				<a href="#pagina9" class="link-rojo">Calendario de adviento 📅</a>
-				<a href="#pagina10" class="link-verde">Videollamada 💻</a>
+				<a href="#pagina10" class="link-verde">Videollamada 💻</a> -->
 			</div>
 		</header>
 
@@ -216,7 +228,7 @@
 			<div class="modal">
 				<div class="modal-header">
 					<h2>Inicia sesión ☃️</h2>
-					<p id="subtitulo-registrarse">¡Que empiece la diversión!</p>
+					<!-- <p id="subtitulo-registrarse">¡Que empiece la diversión!</p> -->
 				</div>
 
 				<div class="modal-body">
@@ -248,52 +260,54 @@
 				</div>
 
 				<div class="modal-body">
+					<p class="modal-subtitulo">Consulta y modifica tus datos</p>
 
-					<div id="modal-mi-perfil-adulto-decoracion">
-						<div id="modal-mi-perfil-adulto-decoracion-div-foto">
-							<img id="modal-mi-perfil-adulto-decoracion-foto"
-							src="images/foto-cuenta-adultos.png"
-							alt="Tienes una cuenta de adulto"> 
-						</div> 
-						<p id="modal-mi-perfil-adulto-decoracion-texto">16 años o más</p>
+					<div id="modal-mi-perfil-adulto-opciones">
+						<div id="modal-mi-perfil-adulto-decoracion">
+							<div id="modal-mi-perfil-adulto-decoracion-div-foto">
+								<img id="modal-mi-perfil-adulto-decoracion-foto"
+								src="images/foto-cuenta-adultos.png"
+								alt="Tienes una cuenta de adulto"> 
+							</div> 
+							<p id="modal-mi-perfil-adulto-decoracion-texto">16 años o más</p>
+						</div>
+
+						<form id="form-mi-perfil-adulto" name="form-mi-perfil-adulto">
+							<div class="elemento-form-registrarse">
+								<label for="username-mi-perfil-adulto">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+								<input type="text" id="username-mi-perfil-adulto" name="username-mi-perfil-adulto" required>
+								<p class="mensaje-error">Mínimo 3 caracteres</p>
+							</div>
+						
+							<div class="elemento-form-registrarse">
+								<label for="email-mi-perfil-adulto">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
+								<input type="email" id="email-mi-perfil-adulto" name="email-mi-perfil-adulto" required>
+								<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
+							</div>
+						
+							<div class="elemento-form-registrarse">
+								<label for="contraseña-mi-perfil-adulto">Contraseña<span class="texto-destacado-rojo">*</span></label>
+								<input type="password" id="contraseña-mi-perfil-adulto" name="contraseña-mi-perfil-adulto" required>
+								<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+									carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+							</div>
+						
+							<div class="elemento-form-registrarse">				
+								<label for="repetir-contraseña-mi-perfil-adulto">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+								<input type="password" id="repetir-contraseña-mi-perfil-adulto" name="repetir-contraseña-mi-perfil-adulto" required>
+								<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+							</div>
+						</form>
+
+						<div id="div-cuentas-asociadas">
+							<p>Cuentas asociadas:</p>
+							<div id="div-cuentas-asociadas-variable-mi-perfil">
+								
+							</div>
+						</div>
+
 					</div>
-
-					<form id="form-mi-perfil-adulto" name="form-mi-perfil-adulto">
-						<div class="elemento-form-registrarse">
-							<label for="username-mi-perfil-adulto">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
-							<input type="text" id="username-mi-perfil-adulto" name="username-mi-perfil-adulto" required>
-							<p class="mensaje-error">Mínimo 3 caracteres</p>
-						</div>
-					
-						<div class="elemento-form-registrarse">
-							<label for="email-mi-perfil-adulto">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
-							<input type="email" id="email-mi-perfil-adulto" name="email-mi-perfil-adulto" required>
-							<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
-						</div>
-					
-						<div class="elemento-form-registrarse">
-							<label for="contraseña-mi-perfil-adulto">Contraseña<span class="texto-destacado-rojo">*</span></label>
-							<input type="password" id="contraseña-mi-perfil-adulto" name="contraseña-mi-perfil-adulto" required>
-							<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
-								carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
-						</div>
-					
-						<div class="elemento-form-registrarse">				
-							<label for="repetir-contraseña-mi-perfil-adulto">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
-							<input type="password" id="repetir-contraseña-mi-perfil-adulto" name="repetir-contraseña-mi-perfil-adulto" required>
-							<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
-						</div>
-					</form>
-
-					<div id="div-cuentas-asociadas">
-						<p>Cuentas asociadas:</p>
-						<div id="div-cuentas-asociadas-variable-mi-perfil">
-							
-						</div>
-					</div>
-
 				</div>
-
 				<div class="modal-footer">
 					<button id="boton-modificar-mi-perfil-adulto" class="link-rojo">Modificar</button>
 					<button id="boton-atras-mi-perfil-adulto" class="link-verde">Atrás</button>
@@ -309,44 +323,42 @@
 				</div>
 
 				<div class="modal-body">
-					
-					<form id="form-mi-perfil-niño" name="form-mi-perfil-niño">
-						<div class="elemento-form-registrarse">
-							<label for="username-mi-perfil-niño">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
-							<input type="text" id="username-mi-perfil-niño" name="username-mi-perfil-niño" required>
-							<p class="mensaje-error">Mínimo 3 caracteres</p>
-						</div>
-					
-						<!-- <div class="elemento-form-registrarse">
-							<label for="email-mi-perfil-niño">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
-							<input type="email" id="email-mi-perfil-niño" name="email-mi-perfil-niño" required>
-							<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
-						</div> -->
-					
-						<div class="elemento-form-registrarse">
-							<label for="contraseña-mi-perfil-niño">Contraseña<span class="texto-destacado-rojo">*</span></label>
-							<input type="password" id="contraseña-mi-perfil-niño" name="contraseña-mi-perfil-niño" required>
-							<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
-								carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
-						</div>
-					
-						<div class="elemento-form-registrarse">				
-							<label for="repetir-contraseña-mi-perfil-niño">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
-							<input type="password" id="repetir-contraseña-mi-perfil-niño" name="repetir-contraseña-mi-perfil-niño" required>
-							<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
-						</div>
-					</form>
 
-					<div id="modal-mi-perfil-niño-decoracion">
-						<div id="modal-mi-perfil-niño-decoracion-div-foto">
-							<img id="modal-mi-perfil-niño-decoracion-foto"
-							src="images/foto-cuenta-niños.png"
-							alt="Tienes una cuenta de niño">
+					<p class="modal-subtitulo">Consulta y modifica tus datos</p>
+
+					<div id="modal-mi-perfil-niño-opciones">
+					
+						<form id="form-mi-perfil-niño" name="form-mi-perfil-niño">
+							<div class="elemento-form-registrarse">
+								<label for="username-mi-perfil-niño">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+								<input type="text" id="username-mi-perfil-niño" name="username-mi-perfil-niño" required>
+								<p class="mensaje-error">Mínimo 3 caracteres</p>
+							</div>
+						
+							<div class="elemento-form-registrarse">
+								<label for="contraseña-mi-perfil-niño">Contraseña<span class="texto-destacado-rojo">*</span></label>
+								<input type="password" id="contraseña-mi-perfil-niño" name="contraseña-mi-perfil-niño" required>
+								<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+									carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+							</div>
+						
+							<div class="elemento-form-registrarse">				
+								<label for="repetir-contraseña-mi-perfil-niño">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+								<input type="password" id="repetir-contraseña-mi-perfil-niño" name="repetir-contraseña-mi-perfil-niño" required>
+								<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+							</div>
+						</form>
+
+						<div id="modal-mi-perfil-niño-decoracion">
+							<div id="modal-mi-perfil-niño-decoracion-div-foto">
+								<img id="modal-mi-perfil-niño-decoracion-foto"
+								src="images/foto-cuenta-niños.png"
+								alt="Tienes una cuenta de niño">
+							</div>
+							<p id="modal-mi-perfil-niño-decoracion-texto">15 años o menos</p>
 						</div>
-						<p id="modal-mi-perfil-niño-decoracion-texto">15 años o menos</p>
 					</div>
 				</div>
-
 				<div class="modal-footer">
 					<button id="boton-modificar-mi-perfil-niño" class="link-rojo">Modificar</button>
 					<button id="boton-atras-mi-perfil-niño" class="link-verde">Atrás</button>
@@ -411,42 +423,40 @@
 				</div>
 
 				<div class="modal-body">
-					<p class="modal-subtitulo">¿Cuántos años tienes?</p>
+					<p class="modal-subtitulo">¡Asocia la cuenta de un/a menor de 16 años a tu perfil para que pueda disfrutar de todas las 
+						actividades de esta página de manera segura!</p>
 
-					<form id="form-crear-cuenta-asociada" name="form-crear-cuenta-asociada">
-						<div class="elemento-form-registrarse">
-							<label for="username-crear-cuenta-asociada">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
-							<input type="text" id="username-crear-cuenta-asociada" name="username-crear-cuenta-asociada" required>
-							<p class="mensaje-error">Mínimo 3 caracteres</p>
-						</div>
-					
-						<!-- <div class="elemento-form-registrarse">
-							<label for="email-crear-cuenta-asociada">Correo electrónico<span class="texto-destacado-rojo">*</span></label>
-							<input type="email" id="email-crear-cuenta-asociada" name="email-crear-cuenta-asociada" required>
-							<p class="mensaje-error">Debe tener el formato nombre@dominio.ext</p>
-						</div> -->
-					
-						<div class="elemento-form-registrarse">
-							<label for="contraseña-crear-cuenta-asociada">Contraseña<span class="texto-destacado-rojo">*</span></label>
-							<input type="password" id="contraseña-crear-cuenta-asociada" name="contraseña-crear-cuenta-asociada" required>
-							<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
-								carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
-						</div>
-					
-						<div class="elemento-form-registrarse">				
-							<label for="repetir-contraseña-crear-cuenta-asociada">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
-							<input type="password" id="repetir-contraseña-crear-cuenta-asociada" name="repetir-contraseña-crear-cuenta-asociada" required>
-							<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
-						</div>
-					</form>
+					<div id="modal-mi-perfil-adulto-opciones">
 
-					<div id="modal-crear-cuenta-asociada-decoracion">
-						<div id="modal-crear-cuenta-asociada-decoracion-div-foto">
-							<img id="modal-crear-cuenta-asociada-decoracion-foto"
-							src="images/foto-cuenta-niños.png"
-							alt="Elige la opción de niño">
+						<form id="form-crear-cuenta-asociada" name="form-crear-cuenta-asociada">
+							<div class="elemento-form-registrarse">
+								<label for="username-crear-cuenta-asociada">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
+								<input type="text" id="username-crear-cuenta-asociada" name="username-crear-cuenta-asociada" required>
+								<p class="mensaje-error">Mínimo 3 caracteres</p>
+							</div>
+			
+							<div class="elemento-form-registrarse">
+								<label for="contraseña-crear-cuenta-asociada">Contraseña<span class="texto-destacado-rojo">*</span></label>
+								<input type="password" id="contraseña-crear-cuenta-asociada" name="contraseña-crear-cuenta-asociada" required>
+								<p class="mensaje-error">Mínimo 12 caracteres. Debe contener al menos 2 números, 1
+									carácter especial, 1 letra mayúscula y 1 letra minúscula</p>
+							</div>
+						
+							<div class="elemento-form-registrarse">				
+								<label for="repetir-contraseña-crear-cuenta-asociada">Repetir contraseña<span class="texto-destacado-rojo">*</span></label>
+								<input type="password" id="repetir-contraseña-crear-cuenta-asociada" name="repetir-contraseña-crear-cuenta-asociada" required>
+								<p class="mensaje-error">No coincide con la anterior contraseña introducida</p>
+							</div>
+						</form>
+
+						<div id="modal-crear-cuenta-asociada-decoracion">
+							<div id="modal-crear-cuenta-asociada-decoracion-div-foto">
+								<img id="modal-crear-cuenta-asociada-decoracion-foto"
+								src="images/foto-cuenta-niños.png"
+								alt="Elige la opción de niño">
+							</div>
+							<p id="modal-crear-cuenta-asociada-decoracion-texto">15 años o menos</p>
 						</div>
-						<p id="modal-crear-cuenta-asociada-decoracion-texto">15 años o menos</p>
 					</div>
 				</div>
 

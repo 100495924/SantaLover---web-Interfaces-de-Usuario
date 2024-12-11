@@ -94,13 +94,17 @@ function modalRegistrarseInicial(){
     elemento.style.display = "none";
   })
 
+  modalSubtitulo.innerHTML = "¿Cuántos años tienes?";
+  modalSubtitulo.style.color = "black";
+  modalSubtitulo.style.visibility = "visible";
+
   opcionAdulto.style.cursor = "pointer";
   opcionNiño.style.cursor = "pointer";
 
   buttonAtras.removeEventListener("click", modalRegistrarseInicial);
   buttonAtras.addEventListener("click", clickAtrasInicial);
-  opcionAdulto.addEventListener("click", clickOpcionAdultoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño), false);
-  opcionNiño.addEventListener("click", clickOpcionNiñoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, contenidoNiño, modalSubtitulo), false);
+  opcionAdulto.addEventListener("click", clickOpcionAdultoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño, modalSubtitulo), false);
+  opcionNiño.addEventListener("click", clickOpcionNiñoInicial.bind(null, buttonAtras, opcionAdulto, opcionNiño, buttonCancelar, contenidoNiño, modalSubtitulo), false);
   
   limpiar("registrarse");
 }
@@ -109,7 +113,7 @@ function clickAtrasInicial(){
   $("#modal-registrarse").fadeOut("fast");
 }
 
-function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño){
+function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRegistrarse, buttonAceptar, buttonCancelar, contenidoNiño, modalSubtitulo){
   buttonAtras.removeEventListener("click", clickAtrasInicial);
   buttonAtras.addEventListener("click", modalRegistrarseInicial);
   opcionAdulto.removeEventListener("click", clickOpcionAdultoInicial);
@@ -120,15 +124,20 @@ function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRe
   opcionAdulto.style.cursor = "default";
   buttonAceptar.style.display = "initial";
   buttonCancelar.style.display = "initial";
+
+  modalSubtitulo.innerHTML = "¡Los niños que se registren aquí entrarán en la lista de niños malos de Papá Noel!";
+  modalSubtitulo.style.color = "rgb(224, 102, 102)";
 }
 
-function clickOpcionNiñoInicial(buttonAtras, opcionAdulto, opcionNiño, contenidoNiño, modalSubtitulo){
+function clickOpcionNiñoInicial(buttonAtras, opcionAdulto, opcionNiño, buttonCancelar, contenidoNiño, modalSubtitulo){
   buttonAtras.removeEventListener("click", clickAtrasInicial);
   buttonAtras.addEventListener("click", modalRegistrarseInicial);
   opcionNiño.removeEventListener("click", clickOpcionNiñoInicial);
   opcionAdulto.style.display = "none";
   contenidoNiño.style.display = "initial";
   opcionNiño.style.cursor = "default";
+  buttonCancelar.style.display = "initial";
+
   modalSubtitulo.style.visibility = "hidden";
 }
 
