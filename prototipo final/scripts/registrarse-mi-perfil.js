@@ -46,6 +46,7 @@ $(document).ready(function(){
   $("#boton-mi-perfil-adulto").click(function(){
     rellenarFormMiPerfilAdulto();
     $("#modal-mi-perfil-adulto").fadeIn("fast");
+    $("#div-opciones-perfil-adulto").fadeOut("fast");
   });
 
   $("#boton-modificar-mi-perfil-adulto").click(function(){
@@ -341,11 +342,12 @@ function rellenarFormMiPerfilAdulto(){
     cuentasAsociadasDivVariable.innerHTML = `<p>No se encontraron</p>`;
   }
   else{
-    cuentasAsociadasValue.forEach(function(cuenta){
+    cuentasAsociadasDivVariable.innerHTML = "";
+    for (let i = 0; i < cuentasAsociadasValue.length; i++){
       const divItem = document.createElement("div");
       divItem.classList.add("cuenta-asociada-item");
       const pItem = document.createElement("p");
-      pItem.innerHTML = cuenta["username"];
+      pItem.innerHTML = cuentasAsociadasValue[i]["username"];
       const buttonItem = document.createElement("button");
       buttonItem.classList.add("boton-eliminar-cuenta-asociada");
       buttonItem.innerHTML = "Eliminar";
@@ -360,8 +362,23 @@ function rellenarFormMiPerfilAdulto(){
       //                                           </div>`
 
       // ELiminar cuenta asociada
-      // buttonItem.addEventListener("click", botonEliminarCuentaAsociadaHandler);
-    })
+      buttonItem.addEventListener("click", function(){
+        const index = i;
+        newCuentasAsociadas = [];
+        for (let j = 0; j < cuentasAsociadasValue.length; j++){
+          if (j != index){
+            newCuentasAsociadas.push(cuentasAsociadasValue[j]);
+          }
+        }
+        if (window.confirm(`¿Estás seguro/a de que quieres eliminar la cuenta asociada?`)) {
+          jsonUsuario["cuentasAsociadas"] = newCuentasAsociadas;
+          console.log(jsonUsuario);
+          // console.log(jsonUsuario["cuentasAsociadas"].splice(index, 1));
+          localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
+          rellenarFormMiPerfilAdulto();
+        }
+      });
+    }
   }
 }
 

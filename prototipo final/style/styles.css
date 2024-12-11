@@ -445,6 +445,25 @@ p.modal-subtitulo {
 	text-align: center;
 }
 
+.cuenta-asociada-item > p{
+	margin-bottom: 0;
+}
+
+.cuenta-asociada-item > button{
+	background-color: rgb(225, 225, 225);
+	border: none;
+	border-radius: 5px;
+	padding: 0.2rem 0.5rem;
+	transition-duration: 0.15s;
+	/* border: 1px solid rgb(120, 120, 120); */
+	/* background-color: rgb(200, 200, 200); */
+}
+
+.cuenta-asociada-item > button:hover{
+	color: white;
+	background-color: rgb(224, 102, 102);
+}
+
 /* Modal mi perfil niño */
 
 #modal-mi-perfil-niño-opciones{
@@ -579,7 +598,7 @@ p.modal-subtitulo {
 	display: block;
 }
 
-.div-opciones-menu > a {
+.div-opciones-menu > a, .div-opciones-menu > button {
 	display: block;
 	padding: 1rem 0;
 	text-decoration: none;
@@ -587,6 +606,10 @@ p.modal-subtitulo {
 	text-align: center;
 	font-size: 1rem;
 	cursor: pointer;
+}
+
+.div-opciones-menu > button {
+	border: none;
 }
 
 .div-botones-menu > button {
@@ -746,6 +769,9 @@ p.modal-subtitulo {
 	/* height: 100%; */
   /* width: 100%; */
 	gap: 1rem;
+	margin: auto;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .grupo-leche-galletas{
