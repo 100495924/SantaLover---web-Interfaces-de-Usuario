@@ -10,7 +10,7 @@ function validarUsernameCarta(usernameValue, jsonUsuario){
     // Compara el valor de username del usuario registrado en 
     // el local storage con el valor recibido.
     // -2: no coinciden los valores, -1: cuenta de adulto, otro: cuenta de niño
-    if (usernameValue === jsonUsuario["user-name"] && jsonUsuario["sesionIniciada"]){
+    if (usernameValue === jsonUsuario["username"] && jsonUsuario["sesionIniciada"]){
         return -1;
     }
     else{
