@@ -20,7 +20,7 @@ function clickEventsBotonesNavegacion(){
   const cartasSection = document.getElementById("pagina3");
   const enviaSection = document.getElementById("pagina4");
   const mqSection = document.getElementById("pagina5");
-  const mensajesSection = document.getElementById("MensajesPersonalizados"); // pendiente cambiar
+  const mensajesSection = document.getElementById("mensajes-personalizados"); // pendiente cambiar
   const reservaSection = document.getElementById("reserva-fabrica");
   const chatSection = document.getElementById("chat");
   const advientoSection = document.getElementById("calendario-adviento"); // pendiente cambiar

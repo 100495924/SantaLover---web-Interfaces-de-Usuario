@@ -128,7 +128,7 @@ function clickOpcionAdultoInicial(buttonAtras, opcionAdulto, opcionNiño, formRe
   buttonCancelar.style.display = "initial";
 
   modalSubtitulo.innerHTML = "¡Los niños que se registren aquí entrarán en la lista de niños malos de Papá Noel!";
-  modalSubtitulo.style.color = "rgb(224, 102, 102)";
+  modalSubtitulo.style.color = "rgb(206, 68, 82)";
 }
 
 function clickOpcionNiñoInicial(buttonAtras, opcionAdulto, opcionNiño, buttonCancelar, contenidoNiño, modalSubtitulo){
