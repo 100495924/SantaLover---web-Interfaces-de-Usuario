@@ -20,10 +20,10 @@ function clickEventsBotonesNavegacion(){
   const cartasSection = document.getElementById("pagina3");
   const enviaSection = document.getElementById("pagina4");
   const mqSection = document.getElementById("pagina5");
-  const mensajesSection = document.getElementById("pagina1"); // pendiente cambiar
+  const mensajesSection = document.getElementById("MensajesPersonalizados"); // pendiente cambiar
   const reservaSection = document.getElementById("reserva-fabrica");
   const chatSection = document.getElementById("chat");
-  const advientoSection = document.getElementById("pagina1"); // pendiente cambiar
+  const advientoSection = document.getElementById("calendario-adviento"); // pendiente cambiar
   const videllamadaSection = document.getElementById("pagina1"); // pendiente cambiar
 
   arrayBotones = [
@@ -82,5 +82,13 @@ function clickEventsBotonesNavegacion(){
       }
     }
   });
+
+  botonEmpezar = document.getElementById("pagina1-boton-empezar");
+  botonEmpezar.addEventListener("click", function(){
+    const header = document.querySelector(".barra-navegacion");
+    const headerHeight = header.offsetHeight;
+    comidaSection.scrollIntoView();
+    window.scrollBy(0, -headerHeight + 1);
+  })
 
 }
