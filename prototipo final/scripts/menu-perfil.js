@@ -167,9 +167,13 @@ $(document).ready(function(){
     if (window.confirm("¿Estás seguro/a de que quieres cerrar sesión?")) {
       $("#div-opciones-perfil-adulto").fadeOut("fast");
       $("#div-opciones-perfil-niño").fadeOut("fast");
-      $(".div-botones-menu").show();
-      $("#boton-inicia-sesion-movil").show();
-      $("#boton-registrarse-movil").show();
+      if (window.innerWidth < 1024){
+        $("#boton-inicia-sesion-movil").show();
+        $("#boton-registrarse-movil").show();
+      }
+      else{
+        $(".div-botones-menu").css("display", "flex");
+      }
       $("#icono-sesion-iniciada").hide();
       $("#icono-sesion-iniciada-niño").hide();
       $("#boton-mostrar-reservas").hide();

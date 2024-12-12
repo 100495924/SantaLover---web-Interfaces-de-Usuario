@@ -24,7 +24,7 @@ function clickEventsBotonesNavegacion(){
   const reservaSection = document.getElementById("reserva-fabrica");
   const chatSection = document.getElementById("chat");
   const advientoSection = document.getElementById("calendario-adviento"); // pendiente cambiar
-  const videllamadaSection = document.getElementById("pagina1"); // pendiente cambiar
+  const videllamadaSection = document.getElementById("videollamada"); // pendiente cambiar
 
   arrayBotones = [
     homeBoton, comidaBoton, cartasBoton, enviaBoton, mqBoton, mensajesBoton,

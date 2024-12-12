@@ -555,6 +555,10 @@ p.modal-subtitulo {
 
 /* Barra de navegación */
 
+#boton-inicia-sesion-movil, #boton-registrarse-movil{
+	display: block;
+}
+
 .div-botones-menu{
 	display: none;
 }
@@ -1340,6 +1344,7 @@ footer > .footer-links{
 	/* visibility: hidden; */
 	margin: 0;
 	color: rgb(206, 68, 82);
+	text-align: center;
 }
 
 
@@ -1523,6 +1528,7 @@ footer > .footer-links{
 	#boton-inicia-sesion-movil, #boton-registrarse-movil{
 		display: none;
 	}
+	
 	.div-botones-menu {
 		display: flex;
 		flex-flow: row;
