@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!usuarioData || !usuarioData.sesionIniciada) {
         // Mostrar mensaje y deshabilitar el formulario
         const form = document.querySelector(".form");
-        alert("Debes iniciar sesión para acceder a esta página.");
+        // alert("Debes iniciar sesión para acceder a esta página.");
 
         // Deshabilitar todos los elementos del formulario
         form.querySelectorAll("input, button").forEach((element) => {

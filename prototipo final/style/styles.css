@@ -400,12 +400,12 @@ p.modal-subtitulo {
 }
 
 #modal-registrarse-niño-boton-registrarse{
-	background-color: rgb(120, 120, 120);
+	background-color: rgb(100, 100, 100);
 	color: white;
 }
 
 #modal-registrarse-niño-boton-registrarse:hover{
-	background-color: rgb(95, 95, 95);
+	background-color: rgb(75, 75, 75);
 }
 
 /* Modal mi perfil adulto */
@@ -540,6 +540,7 @@ p.modal-subtitulo {
 	background-color: white;
 	position: fixed;
 	top: 0;
+	z-index: 2;
 }
 
 .div-logo-iconos {
@@ -629,12 +630,12 @@ p.modal-subtitulo {
 
 .link-evidencia-rojo, .link-rojo:hover {
 	background-color: rgb(224, 102, 102);
-	color: white;
+	/* color: white; */
 }
 
 .link-evidencia-verde, .link-verde:hover {
 	background-color: rgb(47, 145, 93);
-	color: white;
+	/* color: white; */
 }
 
 .boton-inicia-sesion {
@@ -647,12 +648,12 @@ p.modal-subtitulo {
 }
 
 .boton-registrarse {
-	background-color: rgb(120, 120, 120);
+	background-color: rgb(100, 100, 100);
 	color: white;
 }
 
 .boton-registrarse:hover {
-	background-color: rgb(95, 95, 95);
+	background-color: rgb(75, 75, 75);
 }
 
 /* Icono de cerrar está escondido de normal */
@@ -722,7 +723,12 @@ p.modal-subtitulo {
 /*Página 2: Juego Leche con galletas*/
 
 #pagina2 {
-	background-color: lightblue;
+	/* background-image: url("../images/background-2.jpg"); */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	/* background-color: lightblue; */
 	/* height: 80vh; */
 }
 
@@ -730,7 +736,7 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	align-content: center;
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(255, 255, 255, 0.6);
 	min-height: 60vh;
 	padding: 2rem;
   padding-top: 0;
@@ -794,7 +800,7 @@ p.modal-subtitulo {
 	flex-flow: row nowrap;
 	justify-content: center;
 	align-items: center;
-	background-color: lightblue;
+	background-color: gainsboro;
 	width: 100%;
 	height: 100%;
 	padding: 1rem;
@@ -814,7 +820,7 @@ p.modal-subtitulo {
 #elige-las-galletas-contenido{
 	display: flex;
 	flex-flow: column;
-	background-color: lightblue;
+	background-color: gainsboro;
 	height: 100%;
   width: 100%;
 	padding: 1rem;
@@ -877,14 +883,14 @@ p.modal-subtitulo {
 
 #pagina2-contenido-3-mensaje-papa-noel{
 	padding: 1rem;
-	background-color: lightblue;
+	background-color: gainsboro;
 }
 
 #pagina2-pedido{
 	display: flex;
 	flex-flow: row;
 	align-items: end;
-	background-color: lightblue;
+	background-color: gainsboro;
 	padding: 2rem 1rem;
 	gap: 1rem;
 }
@@ -915,13 +921,13 @@ p.modal-subtitulo {
 
 #pagina3{
 	padding: 1rem 2rem;
-	background-image: url("../images/background-pagina3-1.png");
+	/* background-image: url("../images/background-pagina3-1.png"); */
 	background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: cover;
 	background-position: bottom 30% right 50%;
-	color: white;
-	text-shadow: 0px 0px 10px black;
+	/* color: white; */
+	/* text-shadow: 0px 0px 10px black; */
 	display: flex;
 	flex-flow: column;
 }
@@ -930,6 +936,8 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	margin: 0;
+	color: white;
+	text-shadow: 0px 0px 10px black;
 }
 
 .carta{
@@ -964,7 +972,7 @@ p.modal-subtitulo {
 /*Página 4: Enviar una carta formulario.*/
 
 #pagina4{
-	background-image: url("../images/background-pagina4.jpg");
+	/* background-image: url("../images/background-pagina4.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -973,10 +981,10 @@ p.modal-subtitulo {
 	flex-flow: column nowrap;
 }
 
-#pagina4 > h1{
+/* #pagina4 > h1{
 	color: white;
 	text-shadow: 0px 0px 15px black;
-}
+} */
 
 .carta_form{
 	display: flex;
@@ -1032,17 +1040,17 @@ p.modal-subtitulo {
 
 #pagina5 {
 	padding: 1rem 2rem 3rem 2rem;
-	background-image: url("../images/background-pagina5.jpg");
+	/* background-image: url("../images/background-pagina5.jpg"); */
 	background-position: center;
 	background-repeat: no-repeat;
   background-attachment: fixed;
 	background-size: cover;
 }
 
-#pagina5 > h1 {
+/* #pagina5 > h1 {
 	color: white;
 	text-shadow: 0px 0px 15px black;
-}
+} */
 
 #mq-container{
 	width: 100%;
@@ -1099,7 +1107,7 @@ p.modal-subtitulo {
 }
 
 #mq-mensaje{
-	color: rgb(0, 100, 90);
+	color: rgb(0, 58, 53);
 }
 
 #mq-boton{
@@ -1109,8 +1117,8 @@ p.modal-subtitulo {
 
 /*Reserva-fabrica*/
 #reserva-fabrica{
-	color: white;
-	background-image: url("../images/background-reserva-fabrica.gif");
+	/* color: white; */
+	/* background-image: url("../images/background-reserva-fabrica.gif"); */
 	background-position: center;
 	background-repeat: no-repeat;
   	background-attachment: fixed;
@@ -1176,7 +1184,23 @@ p.modal-subtitulo {
 	font-size: 1.5rem;
 }
 
+/* Backgrounds */
 
+.background-1{
+	background-image: url("../images/background-1-5.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.background-2{
+	background-image: url("../images/background-2-4.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 	
 /*Footer*/
 
@@ -1237,13 +1261,13 @@ footer > .footer-links{
 
 /* Reserva-fabrica */
 #MensajesPersonalizados {
-    color: white;
-    background-image: url("../images/fondo-mensajes-pers.gif");
+    /* color: white; */
+    /* background-image: url("../images/fondo-mensajes-pers.gif"); */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    padding: 20px 0; /* Añade espacio alrededor */
+    /* padding: 20px 0; Añade espacio alrededor */
 }
 
 /* Contenedor principal */
@@ -1495,6 +1519,7 @@ footer > .footer-links{
 
 	section h2{
 		font-size: 1.5rem;
+		/* font-weight: bold; */
 	}
 
 	/* Pagina 1 */
@@ -1522,7 +1547,9 @@ footer > .footer-links{
 }
 
 #chat-contenido{
-	background-color: rgba(255, 255, 255, 0.5);
+	/* background-color: rgba(240, 240, 240, 0.7); */
+	background-color: rgba(230, 230, 235, 0.6);
+  box-shadow: 0 0 3px gray;
 }
 
 #chat-header{
@@ -1533,6 +1560,7 @@ footer > .footer-links{
 	gap: 1rem;
 	background-color: white;
 	padding: 0.5rem;
+	border-bottom: 1px solid black;
 }
 
 #chat-header > p{
