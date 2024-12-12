@@ -69,5 +69,22 @@ function guardarMensaje() {
     window.alert("¡Mensaje generado!");
 
     $("#modal-mis-mensajes").fadeIn("fast");
-
+    let arrayMensajes;
+    let username;
+    if (codigoCuenta === -1){
+      arrayMensajes = jsonUsuario["mensajesPersonalizados"];
+      username = jsonUsuario["username"];
+    }
+    else{
+      arrayMensajes = jsonUsuario["cuentasAsociadas"][codigoCuenta]["mensajesPersonalizados"];
+      username = jsonUsuario["cuentasAsociadas"][codigoCuenta]["username"];
+    }
+    if (arrayMensajes !== null && arrayMensajes.length != 0) {
+      $("#modal-mis-reservas-body").css("display", "grid");
+      rellenarMisMensajes(arrayMensajes, username);
+      actualizarEventosDragDropMensajes(codigoCuenta);
+    }
+    else {
+      mensajeNoMensajes();
+    }
 }

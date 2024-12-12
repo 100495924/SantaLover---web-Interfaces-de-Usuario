@@ -92,26 +92,32 @@ $(document).ready(function(){
     $("#div-opciones-perfil-adulto").fadeOut("fast");
     $("#div-opciones-perfil-niño").fadeOut("fast");
     const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
-    const cuentaIniciada = isCuentaNiñoAdulto();
+    const codigoCuenta = isCuentaNiñoAdulto();
     let arrayMensajes;
-    if (cuentaIniciada === -1){
-      arrayMensajes = jsonUsuario["mensajes"];
+    let username;
+    if (codigoCuenta === -1){
+      arrayMensajes = jsonUsuario["mensajesPersonalizados"];
+      username = jsonUsuario["username"];
     }
     else{
-      arrayMensajes = jsonUsuario["cuentasAsociadas"][cuentaIniciada]["mensajes"];
+      arrayMensajes = jsonUsuario["cuentasAsociadas"][codigoCuenta]["mensajesPersonalizados"];
+      username = jsonUsuario["cuentasAsociadas"][codigoCuenta]["username"];
     }
-    if (arrayMensajes !== null && arrayReservas.length != 0) {
+    if (arrayMensajes !== null && arrayMensajes.length != 0) {
       $("#modal-mis-reservas-body").css("display", "grid");
-      rellenarMisMensajes(arrayMensajes);
-      // actualizarEventosDragDropMensajes();
+      rellenarMisMensajes(arrayMensajes, username);
+      actualizarEventosDragDropMensajes(codigoCuenta);
     }
-    // else {
-    //   mensajeNoMensajes();
-    // }
+    else {
+      mensajeNoMensajes();
+    }
   })
 
   $("#boton-atras-mis-mensajes").click(function(){
-    $("#modal-mis-mensajes").fadeOut("fast");
+    $("#modal-mis-mensajes").fadeOut("fast", function(){
+      const modalMisMensajesBody = document.getElementById("modal-mis-mensajes-body");
+      modalMisMensajesBody.innerHTML = "";
+    });
   });
 
   // Mis reservas
@@ -386,22 +392,22 @@ function mensajeNoMensajes(){
   $("#modal-mis-reservas-body").append(`<p class="mensaje-no-cartas">Visita a la sección <span class="texto-destacado-rojo">Mensajes personalizados 🎅</span> para que Papá Noel le escriba una carta a un ser querido ;)</p>`);
 }
 
-function rellenarMisMensajes(arrayMensajes, codigoCuenta){
+function rellenarMisMensajes(arrayMensajes, username){
   const modalMisCartasBody = document.getElementById("modal-mis-mensajes-body");
   for(let i = 0; i < arrayMensajes.length; i++) {
     let cartaJSON = arrayMensajes[i];
-    let mensajeNombre = cartaJSON.nombre;
-    let mensajeRelacion = cartaJSON.relacion;
-    let mensajeGusta = cartaJSON.gusta;
-    let mensajeRegalo = cartaJSON.regalo;
+    let mensajeNombre = cartaJSON.mensajeNombre;
+    let mensajeRelacion = cartaJSON.mensajeRelacion;
+    let mensajeGusta = cartaJSON.mensajeGusta;
+    let mensajeRegalo = cartaJSON.mensajeRegalo;
     let currentID = i.toString();
-    let codeToAppend = `<div id="dropzone-mensajes-${currentID}" class="drop-zone">
-                          <div class="mensaje-mis-mensajes" draggable="true">
-                            <p><strong>¡Hola ${mensajeNombre}!</strong></p>
+    let codeToAppend = `<div id="dropzone-${currentID}" class="drop-zone">
+                          <div class="carta-mis-cartas mensaje-mis-mensajes" draggable="true">
+                            <p><strong>¡Hola, ${mensajeNombre}!</strong></p>
                             <p>Acabo de hablar con tu ${mensajeRelacion} ${username}, al cual le encanta de ti "${mensajeGusta}".
                             Me ha dicho que te haría mucha ilusión recibir un mensaje mío. Si te portas bien este año, haré todo lo posible para dejarte debajo del árbol el 25 de diciembre "${mensajeRegalo}".</p>
                             <div>
-                              <p>Un abrazo, Papá Noel</p>
+                              <p>Un abrazo,<br>Papá Noel</p>
                               <div>
                                 <img class="mensaje-foto-papa-noel"
                                 src="images/papa-noel-tracker.png"
@@ -417,77 +423,113 @@ function rellenarMisMensajes(arrayMensajes, codigoCuenta){
 }
 
 
-// function borrarMisMensajes(dropZoneParent){
-//   let userData = JSON.parse(localStorage.getItem("usuarioData"));
-//   let arrayCartas = userData["cartas"];
-//   const indexBorrar = Number(dropZoneParent.id.split("-")[1]);
-
-//   arrayMensajes.splice(indexBorrar, 1);
-
-//   localStorage.setItem("usuarioData", JSON.stringify(userData));
-
-//   const modalMisCartasBody = document.getElementById("modal-mis-cartas-body");
-//   modalMisCartasBody.innerHTML = "";
-
-//   if (arrayMensajes.length > 0){
-//     rellenarMisMensajes(arrayMensajes);
-//     actualizarEventosDragDropMensajes();
-//   }
-//   else {
-//     mensajeNoMensajes();
-//   }
-// }
-
-
-// function actualizarEventosDragDropMensajes(codigoCuenta){
-//   const cartas = document.querySelectorAll(".mensaje-mis-mensajes");
-//   const dropZones = document.querySelectorAll(".drop-zone");
-//   const buttons = document.querySelectorAll(".boton-eliminar-mis-mensajes");
+function borrarMisMensajes(dropZoneParent, codigoCuenta){
+  let userData = JSON.parse(localStorage.getItem("usuarioData"));
   
-//   buttons.forEach(function(boton) {
-//     // 
-//     boton.addEventListener("click", function() {
-//       if (window.confirm("¿Estás seguro/a de que quieres borrar este mensaje personalizado?")) {
-//         dropZoneParent = boton.closest(".drop-zone");
-//         borrarMisCartas(dropZoneParent);
-//       }
-//     })
-//   })
+  let arrayMensajes;
+  let username;
 
-//   cartas.forEach(function(carta) {
-//     // Evento para detectar cuándo el usuario le hace "drag"
-//     carta.addEventListener("dragstart", function() {
-//       carta.classList.add("carta-en-movimiento");
-//     })
+  if (codigoCuenta === -1){
+    arrayMensajes = userData["mensajesPersonalizados"];
+    username = userData["username"]; 
+  }
+  else{
+    arrayMensajes = userData["cuentasAsociadas"][codigoCuenta]["mensajesPersonalizados"];
+    username = userData["cuentasAsociadas"][codigoCuenta]["username"];
+  }
 
-//     // Evento para detectar cuándo el usuario la suelta 
-//     carta.addEventListener("dragend", function() {
-//       carta.classList.remove("carta-en-movimiento");
-//     })
-//   })
+  const indexBorrar = Number(dropZoneParent.id.split("-")[1]);
 
-//   dropZones.forEach(function(dropZone) {
-//     // Evento para detectar que un elemento está siendo movido por encima de la zona del div "drop-zone"
-//     // El elemento pasa a estar ahí colocado y el usuario lo comprueba a tiempo real, no una vez soltado
-//     dropZone.addEventListener("dragover", function(event) {
-//       event.preventDefault();  
-//       const dropZone = event.target.closest(".drop-zone");
-//       const dropeZoneCarta = dropZone.querySelector(".carta-mis-cartas");
-//       const dragCarta = document.querySelector(".carta-en-movimiento");
-//       const dragCartaParent = dragCarta.closest(".drop-zone");
-//       dropZone.appendChild(dragCarta);
-//       dragCartaParent.appendChild(dropeZoneCarta);
+  arrayMensajes.splice(indexBorrar, 1);
 
-//       let arrayCartas = JSON.parse(localStorage.getItem("usuarioData"))["cartas"];
-//       const indexDrag = Number(dragCartaParent.id.split("-")[1]);
-//       const indexDrop = Number(dropZone.id.split("-")[1]);
+  if (codigoCuenta === -1){
+    userData["mensajesPersonalizados"] = arrayMensajes;
+  }
+  else{
+    userData["cuentasAsociadas"][codigoCuenta]["mensajesPersonalizados"] = arrayMensajes;
+  }
 
-//       [arrayCartas[indexDrag], arrayCartas[indexDrop]] = [arrayCartas[indexDrop], arrayCartas[indexDrag]];
+  localStorage.setItem("usuarioData", JSON.stringify(userData));
 
-//       localStorage.setItem("arrayCartas", JSON.stringify(arrayCartas));
-//     })
-//   })
-// }
+  const modalMisMensajesBody = document.getElementById("modal-mis-mensajes-body");
+  modalMisMensajesBody.innerHTML = "";
+
+  if (arrayMensajes.length > 0){
+    rellenarMisMensajes(arrayMensajes, username);
+    actualizarEventosDragDropMensajes(codigoCuenta);
+  }
+  else {
+    mensajeNoMensajes();
+  }
+}
+
+
+function actualizarEventosDragDropMensajes(codigoCuenta){
+  const mensajes = document.querySelectorAll(".mensaje-mis-mensajes");
+  const dropZones = document.querySelectorAll(".drop-zone");
+  const buttons = document.querySelectorAll(".boton-eliminar-mis-mensajes");
+  
+  buttons.forEach(function(boton) {
+    // 
+    boton.addEventListener("click", function() {
+      if (window.confirm("¿Estás seguro/a de que quieres borrar este mensaje personalizado?")) {
+        dropZoneParent = boton.closest(".drop-zone");
+        borrarMisMensajes(dropZoneParent, codigoCuenta);
+      }
+    })
+  })
+
+  mensajes.forEach(function(carta) {
+    // Evento para detectar cuándo el usuario le hace "drag"
+    carta.addEventListener("dragstart", function() {
+      carta.classList.add("carta-en-movimiento");
+    })
+
+    // Evento para detectar cuándo el usuario la suelta 
+    carta.addEventListener("dragend", function() {
+      carta.classList.remove("carta-en-movimiento");
+    })
+  })
+
+  dropZones.forEach(function(dropZone) {
+    // Evento para detectar que un elemento está siendo movido por encima de la zona del div "drop-zone"
+    // El elemento pasa a estar ahí colocado y el usuario lo comprueba a tiempo real, no una vez soltado
+    dropZone.addEventListener("dragover", function(event) {
+      event.preventDefault();  
+      const dropZone = event.target.closest(".drop-zone");
+      const dropeZoneCarta = dropZone.querySelector(".carta-mis-cartas");
+      const dragCarta = document.querySelector(".carta-en-movimiento");
+      const dragCartaParent = dragCarta.closest(".drop-zone");
+      dropZone.appendChild(dragCarta);
+      dragCartaParent.appendChild(dropeZoneCarta);
+
+      let userData = JSON.parse(localStorage.getItem("usuarioData"));
+
+      let arrayMensajes;
+
+      if (codigoCuenta === -1){
+        arrayMensajes = userData["mensajesPersonalizados"];
+      }
+      else{
+        arrayMensajes = userData["cuentasAsociadas"][codigoCuenta]["mensajesPersonalizados"];
+      }
+
+      const indexDrag = Number(dragCartaParent.id.split("-")[1]);
+      const indexDrop = Number(dropZone.id.split("-")[1]);
+
+      [arrayMensajes[indexDrag], arrayMensajes[indexDrop]] = [arrayMensajes[indexDrop], arrayMensajes[indexDrag]];
+
+      if (codigoCuenta === -1){
+        userData["mensajesPersonalizados"] = arrayMensajes;
+      }
+      else{
+        userData["cuentasAsociadas"][codigoCuenta]["mensajesPersonalizados"] = arrayMensajes;
+      }
+
+      localStorage.setItem("usuarioData", JSON.stringify(userData));
+    })
+  })
+}
 
 // Mis reservas
 

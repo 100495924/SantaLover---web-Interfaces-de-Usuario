@@ -203,7 +203,9 @@ form input, select, option{
 	display: none;
 }
 
-#modal-mis-cartas-body {
+/* Mis cartas */
+
+.modal-array-body {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
 	gap: 1rem;
@@ -265,6 +267,31 @@ p.texto-carta-mis-cartas{
 .mensaje-no-cartas {
 	text-align: center;
 	margin: 3rem 0;
+}
+
+/* Mis mensajes */
+
+.mensaje-mis-mensajes > div{
+	display: flex;
+	flex-flow: row;
+	gap: 2rem;
+	align-items: center;
+}
+
+.mensaje-mis-mensajes p{
+	margin-top: 0;
+}
+
+.mensaje-mis-mensajes img{
+	height: 4rem;
+}
+
+.boton-eliminar-mis-mensajes{
+	display: block;
+	margin: auto;
+	padding: 0.3rem 1.3rem;
+	font-size: 1rem;
+	margin-top: 1rem;
 }
 
 /*CSS Menú reservas*/
@@ -352,9 +379,7 @@ p.modal-subtitulo {
 }
 
 #modal-registrarse-inicial-opciones-adulto, #modal-registrarse-inicial-opciones-niño {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
+	display: none;
 }
 
 #modal-registrarse-inicial-opciones-adulto-div-foto, #modal-registrarse-inicial-opciones-niño-div-foto {
@@ -771,7 +796,7 @@ p.modal-subtitulo {
 
 #leche-y-galletas{
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: column;
 	justify-content: center;
 	/* padding: 1vw 5vw; */
 	/* height: 100%; */
@@ -790,7 +815,7 @@ p.modal-subtitulo {
 	/* width: 100%; */
 	padding: 0 1rem;
 	text-align: center;
-	width: 50%;
+	/* width: 100%; */
 }
 
 .grupo-leche-galletas > p{
@@ -1327,14 +1352,7 @@ footer > .footer-links{
 }
 
 /* Contenedor del calendario */
-/* #calendario-adviento {
-    margin-top: 80px;
-    padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-} */
 
-/* Contenedor del grid */
 .grid-container {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
@@ -1345,7 +1363,6 @@ footer > .footer-links{
 	text-align: center;
 }
 
-/* Celdas del grid */
 .grid-item {
 	width: 100%;
 	padding-top: 50%;
@@ -1358,12 +1375,11 @@ footer > .footer-links{
 }
 
 .grid-item:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-/* Contenido interno de las celdas (oculto inicialmente) */
 .grid-item.revealed {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .grid-item img {
@@ -1377,7 +1393,7 @@ footer > .footer-links{
 }
 
 .grid-item.revealed img {
-    display: block;
+  display: block;
 }
 
 /*Pagina 10 (videollamada)*/
@@ -1778,7 +1794,7 @@ footer > .footer-links{
 /* Práctica 2: Pop-ups */
 
 @media only screen and (min-width: 1200px) {
-	#modal-mis-cartas-body {
+	.modal-array-body {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
 	}
 	#modal-mis-reservas-body {
@@ -1787,7 +1803,7 @@ footer > .footer-links{
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
-	#modal-mis-cartas-body {
+	.modal-array-body {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	}
 	#modal-mis-reservas-body {
@@ -1817,4 +1833,26 @@ footer > .footer-links{
 	.card-content{
 		font-size: 3rem;
 	}
+}
+
+@media only screen and (min-width: 528px) {
+	#leche-y-galletas{
+		flex-flow: row nowrap;
+	}
+
+	.grupo-leche-galletas{
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	#modal-registrarse-inicial-opciones-adulto, #modal-registrarse-inicial-opciones-niño {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+	}
+}
+
+@media only screen and (min-width: 457px) {
+	
 }
