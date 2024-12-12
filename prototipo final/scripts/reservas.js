@@ -1,5 +1,6 @@
 
 function reservas_init(){
+    reserva_map = document.getElementById("reserva-mapa");
     $("#boton-mostrar-reservas").hide();
     $("#boton-mostrar-reservas").click(function(){
         $("#modal-mis-reservas").fadeIn("fast");
@@ -7,6 +8,10 @@ function reservas_init(){
     const reserva_button = document.getElementById("reserva-button");
     reserva_button.addEventListener(
         "click", (event) => guardarReserva()
+    );
+    resizeGMap(reserva_map)
+    window.addEventListener(
+        "resize", (event) => resizeGMap(reserva_map)
     );
 }
 
@@ -77,6 +82,15 @@ function guardarReserva(){
     // Arreglar que el botón se siga mostrando después de cerrar sesión.
     $("#boton-mostrar-reservas").show();
 
+}
+
+function resizeGMap(div_padre){
+    if (window.innerWidth < 768){
+        $("#reserva-g-map").css({"width": div_padre.offsetWidth + "px", "height": window.innerHeight/2 + "px"})
+    }
+    else{
+        $("#reserva-g-map").css({"width": window.innerWidth/2 + "px", "height": window.innerHeight/2 + "px"})
+    }
 }
 
 $(document).ready(reservas_init())

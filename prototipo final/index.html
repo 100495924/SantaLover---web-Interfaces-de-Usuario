@@ -29,7 +29,7 @@
 		<script src="scripts/botones-navegacion.js" async></script>
 		<script src="scripts/mensajes-personalizados.js" async></script>
 		<script src="scripts/calendario.js" defer></script>
-
+		<script src="scripts/videollamada.js" async></script>
 		<title> SantaLover </title>
 	</head>
 
@@ -868,7 +868,7 @@
 						</form>
 					</div>
 				</div>
-				<button id="boton-mostrar-reservas" class="link-rojo">Mis reservas</button>
+				<!--<button id="boton-mostrar-reservas" class="link-rojo">Mis reservas</button>-->
 				<button type="button" id="reserva-button">ENVIAR RESERVA</button>
 			</div>
 			
@@ -924,6 +924,38 @@
 				<div class="grid-item">24</div>
 			</div>
 		</section>
+
+		<section id="videollamada">
+            <h1>¡Conoce a Papá Noel en vivo! 💻</h1>
+            <h2>¡Pincha en el botón de llamar y si Papá Noel está disponible podrás conocerlo!</h2>
+			<div id="videollamada-container">
+				<div id="videollamada-header">
+					<div id="chat-header-icono-div">
+						<img src="images/foto-santa-chat.png" alt="Foto de Papá Noel" id="chat-header-icono">
+					</div>
+					<p><strong>Papá Noel</strong></p>
+					
+				</div>
+				<div id="videollamada-body">
+					<!--
+					<div id="videollamada-video">
+						<video src="videos/video-papa-noel.mp4" controls></video>
+					</div>
+					-->
+					<video class="videollamada-video" id="videollamada-video-1" src="videos/video-papa-noel.mp4"></video>
+					<video class="videollamada-video" id="videollamada-video-2" src="videos/video-papa-noel-2.mp4"></video>
+					<img class="videollamada-video" id="videollamada-video-3" src="images/videollamada-video-no-disponible.png">
+					<p class="videollamada-status-text" id="videollamada-text-1">Desconectado</p>
+					<div class="videollamada-boton" id="boton-llamar">
+						<img src="images/videollamada-boton-img.png" alt="botón para llamar">
+					</div>
+					<div class="videollamada-boton" id="boton-colgar">
+						<img src="images/videollamada-colgar-boton-img.png" alt="Botón para colgar la llamada">
+					</div>
+				</div>
+			</div>
+            
+        </section>
 
 		<footer id="footer">
 			<div class="footer-logos">

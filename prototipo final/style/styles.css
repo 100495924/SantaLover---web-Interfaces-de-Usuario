@@ -1179,9 +1179,14 @@ p.modal-subtitulo {
 }
 
 #reserva-button{
-	align-self: center;
-	transition-duration: 0.15s;
-	font-size: 1.5rem;
+    align-self: center;
+    font-size: 1.5rem;
+    background-color: deepskyblue;
+    transition-duration: 0.15s;
+}
+
+#reserva-button:hover{
+    background-color: aliceblue;
 }
 
 /* Backgrounds */
@@ -1373,6 +1378,103 @@ footer > .footer-links{
 
 .grid-item.revealed img {
     display: block;
+}
+
+/*Pagina 10 (videollamada)*/
+#videollamada{
+	background-image: url("../images/background-1-5.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	background-color: cadetblue;
+}
+
+#videollamada-container{
+	width: 80%;
+	align-self: center;
+}
+
+#videollamada-header{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	background-color: white;
+	padding: 0.5rem;
+}
+
+#videollamada-body{
+	color: white;
+	background-color: grey;
+	height: 57.7vh;
+	max-height: 57.7vh;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.videollamada-boton{
+	width: 80px;
+	height: 80px;
+	aspect-ratio: 1;
+	display: flex;
+	position: absolute;
+	align-self: flex-end;
+	padding: 2rem;
+}
+
+.videollamada-boton:hover{
+	cursor: pointer;
+}
+
+.videollamada-boton > img{
+	width: auto;
+	height: 100%;
+}
+
+.videollamada-status-text{
+	font-size: 2rem;
+}
+
+.videollamada-video{
+	display: none;
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+}
+
+#boton-colgar{
+	display: none;
+}
+
+#videollamada-text-2{
+	display: none;
+}
+
+
+
+/* Media queries */
+@media only screen and ( max-width: 768px){
+	/*Pagina 7 (Reservas)*/
+	#reserva-info{
+		flex-direction: column;
+	}
+
+	#reserva-horarios{
+		margin-top: 0;
+		margin-bottom: 2vh;
+	}
+
+	/*Pagina 10 (Reserva)*/
+
+	#videollamada-container{
+		width: 100%;
+		align-self: center;
+	}
 }
 
 /* Media queries */

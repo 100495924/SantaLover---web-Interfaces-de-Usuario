@@ -239,6 +239,9 @@ function isCuentaNiñoAdulto(){
   // otro: cuenta niño
   // "otro" es el index del niño con respecto al array de "cuentas asociadas" de la cuenta de adulto
   const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+  if (jsonUsuario === null){
+    return -2;
+  }
   if (!jsonUsuario["sesionIniciada"]){
     const index = encontrarCuentaNiñoIndex(jsonUsuario);
     if (index === -1){
