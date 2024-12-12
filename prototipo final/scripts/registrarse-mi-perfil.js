@@ -5,6 +5,7 @@ $(document).ready(function(){
   $(".boton-registrarse").click(function(){
     modalRegistrarseInicial();
     $("#modal-registrarse").fadeIn("fast");
+    $("#modal-inicia-sesion").fadeOut("fast");
   });
 
   // Si todos los datos se validan y son almacenados con éxito, se oculta el pop-up de "Registrarse"

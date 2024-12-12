@@ -1,5 +1,9 @@
 /*Aplicado a toda la página*/
 
+#reserva-fabrica, #MensajesPersonalizados{
+	display: none;
+}
+
 body{
 	font-size: 20px;
 	font-family: "Roboto Slab";
@@ -54,7 +58,7 @@ form input, select, option{
 	/* min-height: 50%; */
 	max-height: 75%;
 	margin: auto;
-	margin-top: 20vh;
+	margin-top: 25vh;
 	/* margin-bottom: 20vh; */
 	background-color: white;
 	overflow: auto;
@@ -180,6 +184,7 @@ form input, select, option{
 	flex-flow: column;
 	padding: 1rem;
 	gap: 1rem;
+	z-index: 2;
 }
 
 .boton-opciones-perfil {
@@ -410,10 +415,6 @@ p.modal-subtitulo {
 
 /* Modal mi perfil adulto */
 
-/* #reserva-fabrica{
-	display: none;
-} */
-
 #modal-mi-perfil-adulto-opciones{
 	display: flex;
 	flex-direction: row;
@@ -460,7 +461,7 @@ p.modal-subtitulo {
 }
 
 .cuenta-asociada-item > button:hover{
-	color: white;
+	/* color: white; */
 	background-color: rgb(224, 102, 102);
 }
 
@@ -742,6 +743,7 @@ p.modal-subtitulo {
   padding-top: 0;
 	margin: auto;
 	max-width: 1000px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 #pagina2-contenido-1{
@@ -1549,7 +1551,7 @@ footer > .footer-links{
 #chat-contenido{
 	/* background-color: rgba(240, 240, 240, 0.7); */
 	background-color: rgba(230, 230, 235, 0.6);
-  box-shadow: 0 0 3px gray;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 #chat-header{
@@ -1560,7 +1562,7 @@ footer > .footer-links{
 	gap: 1rem;
 	background-color: white;
 	padding: 0.5rem;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid gainsboro;
 }
 
 #chat-header > p{

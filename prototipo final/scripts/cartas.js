@@ -10,7 +10,7 @@ function validarUsernameCarta(usernameValue, jsonUsuario){
     // Compara el valor de username del usuario registrado en 
     // el local storage con el valor recibido.
     // -2: no coinciden los valores, -1: cuenta de adulto, otro: cuenta de niño
-    if (usernameValue === jsonUsuario["username"] && jsonUsuario["sesionIniciada"]){
+    if (usernameValue === jsonUsuario["user-name"] && jsonUsuario["sesionIniciada"]){
         return -1;
     }
     else{
@@ -18,7 +18,7 @@ function validarUsernameCarta(usernameValue, jsonUsuario){
         if (index === -1){
             return -2;
         }
-        else if (usernameValue === jsonUsuario["cuentasAsociadas"][index]["username"]){
+        else if (usernameValue === jsonUsuario["cuentasAsociadas"][index]["user-name"]){
             return index;
         }
         else{
@@ -31,7 +31,7 @@ function guardarCarta(){
     const respuesta_form = document.forms["carta_form"];
 
     const nombre_input = document.getElementById("nombre");
-    const username_input = document.getElementById("username");
+    const username_input = document.getElementById("user-name");
     const ciudad_input = document.getElementById("ciudad");
     const pais_input = document.getElementById("pais");
     const carta_input = document.getElementById("carta");
@@ -53,7 +53,7 @@ function guardarCarta(){
         nombre_input.style.border = "2px solid gray";
     }
 
-    if(respuesta_form["username"].value === ""){
+    if(respuesta_form["user-name"].value === ""){
         username_input.style.border = "2px solid red";
         is_form_complete = false;
     }
@@ -103,7 +103,7 @@ function guardarCarta(){
 
     // revisamos si el username proporcionado en la carta es el mismo
     // que el username con el que el usuario se ha registrado.
-    const codigoCuenta = validarUsernameCarta(respuesta_form["username"].value, jsonUsuario)
+    const codigoCuenta = validarUsernameCarta(respuesta_form["user-name"].value, jsonUsuario)
 
     if (codigoCuenta === -2){
         username_input.style.border = "2px solid red";
@@ -123,7 +123,7 @@ function guardarCarta(){
     // Guardamos la carta en formato JSON.
     const carta = { 
         "carta_nombre": respuesta_form["nombre"].value,
-        "carta_username": respuesta_form["username"].value,
+        "carta_username": respuesta_form["user-name"].value,
         "carta_ciudad": respuesta_form["ciudad"].value,
         "carta_pais": respuesta_form["pais"].value,
         "carta_texto": respuesta_form["carta"].value,

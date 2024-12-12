@@ -2,6 +2,7 @@ $(document).ready(function(){
   // El pop-up aparece al darle al botón de "Inicia sesión"
   $(".boton-inicia-sesion").click(function(){
     $("#modal-inicia-sesion").fadeIn("fast");
+    $("#modal-registrarse").fadeOut("fast");
   });
 
   // Al iniciar sesión con éxito, al darle al botón de "Aceptar", se oculta el pop-up
