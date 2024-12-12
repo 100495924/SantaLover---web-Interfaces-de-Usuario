@@ -1,9 +1,5 @@
 /*Aplicado a toda la página*/
 
-#reserva-fabrica, #MensajesPersonalizados{
-	display: none;
-}
-
 body{
 	font-size: 20px;
 	font-family: "Roboto Slab";
