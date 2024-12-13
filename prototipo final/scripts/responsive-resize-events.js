@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $(window).on("resize", function(){
     displayIniciarSesionRegistrarse();
-    displayModales();
+    //displayModales();
   });
 });
 
