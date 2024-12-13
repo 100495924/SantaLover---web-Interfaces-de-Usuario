@@ -17,7 +17,7 @@ async function llamar_papa_noel(lista_videos, boton_llamar){
     const boton_colgar = document.getElementById("boton-colgar");
 
     const video = get_random_video(lista_videos);
-    console.log("Llamando");
+    // console.log("Llamando");
     $(boton_llamar).hide();
     $(boton_colgar).show();
     
@@ -48,7 +48,7 @@ async function llamar_papa_noel(lista_videos, boton_llamar){
 }
 
 function colgar_papa_noel(boton_llamar, boton_colgar, video){
-    console.log("Colgando");
+    // console.log("Colgando");
     $(boton_llamar).show();
     $(boton_colgar).hide();
 

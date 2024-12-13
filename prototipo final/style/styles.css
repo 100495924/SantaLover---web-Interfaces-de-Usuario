@@ -723,7 +723,10 @@ p.modal-subtitulo {
 #pagina1 h1 {
 	font-size: 10vw;
 	color: white;
-	text-shadow: 0px 0px 20px black;
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: 1rem;
+	padding-bottom: 0;
+	/* text-shadow: 0px 0px 20px black; */
 	margin: 0;
 	text-align: center;
 }
@@ -732,7 +735,10 @@ p.modal-subtitulo {
 	font-size: 6vw;
 	margin: 0 0 2rem 0;
 	color: rgb(226, 237, 255);
-	text-shadow: 0px 0px 20px black;
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: 1rem;
+	padding-top: 0;
+	/* text-shadow: 0px 0px 20px black; */
 }
 
 #pagina1 button {
@@ -805,7 +811,7 @@ p.modal-subtitulo {
 	/* padding: 1vw 5vw; */
 	/* height: 100%; */
   /* width: 100%; */
-	gap: 1rem;
+	gap: initial;
 	margin: auto;
 	margin-left: 0;
 	margin-right: 0;
@@ -877,7 +883,7 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	/* padding: 0; */
+	padding-top: 0;
 	text-align: center;
 }
 
@@ -891,11 +897,13 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
+	gap: 1rem;
+	padding-top: 2rem;
 }
 
 #pagina2-contenido-3-div-principal{
 	display: flex;
-	flex-flow: row;
+	flex-flow: column;
 	gap: 1rem;
 	margin: auto;
 	align-items: center;
@@ -918,7 +926,7 @@ p.modal-subtitulo {
 	flex-flow: row;
 	align-items: end;
 	background-color: gainsboro;
-	padding: 2rem 1rem;
+	padding: 0.8rem;
 	gap: 1rem;
 }
 
@@ -942,6 +950,7 @@ p.modal-subtitulo {
 #pagina2-contenido-3-img-papa-noel{
 	width: 100%;
 	height: auto;
+	max-height: 200px;
 }
 
 /*Página 3: Cartas de otros niños.*/
@@ -1160,6 +1169,8 @@ p.modal-subtitulo {
 	padding: 2vh 5vh;
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 #reserva-info{
@@ -1210,86 +1221,115 @@ p.modal-subtitulo {
 #reserva-button{
     align-self: center;
     font-size: 1.5rem;
-    background-color: deepskyblue;
+    background-color: rgb(102, 192, 222);
     transition-duration: 0.15s;
+		border-radius: 5px;
+		border: 2px solid rgb(78, 113, 160);
+		padding: 0.3rem 0.7rem;
 }
 
 #reserva-button:hover{
     background-color: aliceblue;
 }
 
-/* Backgrounds */
+/* Chat */
 
-.background-1{
-	background-image: url("../images/background-1-5.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
+#chat {
+	background-color: lightblue;
 }
 
-.background-2{
-	background-image: url("../images/background-2-6.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
+#chat-contenido{
+	/* background-color: rgba(240, 240, 240, 0.7); */
+	background-color: rgba(230, 230, 235, 0.6);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
-	
-/*Footer*/
 
-footer{
+#chat-header{
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 1rem;
-	justify-content: space-between;
-	padding: 1rem 0 0 0;
-	gap: 1rem;
-}
-
-.footer-logos{
-	display: flex;
-	flex-direction: column;
+	flex-flow: row;
+	justify-content: center;
 	align-items: center;
 	gap: 1rem;
+	background-color: white;
+	padding: 0.5rem;
+	border-bottom: 1px solid gainsboro;
 }
 
-.footer-logos > p{
+#chat-header > p{
 	margin: 0;
 }
 
-#footer-logo{
-	width: 20rem;
+#chat-header-icono-div{
+	height: 60px;
 }
 
-.social-logos{
+#chat-header-icono{
+	height: 100%;
+	width: auto;
+	border-radius: 50%;
+	background-color: rgb(185, 202, 189);
+}
+
+#chat-body{
 	display: flex;
-	flex-direction: row;
-	gap: 1rem
+	flex-flow: column;
+	gap: 2rem;
+	padding: 2rem;
+	height: 50vh;
+	max-height: 50vh;
+	overflow: auto;
+	align-items: center;
 }
 
-
-.social-logos > img{
-	width: 1.5rem;
-}
-
-footer > .footer-links{
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-.footer-links > a{
-	display: block;
+.chat-mensaje-papa-noel, .chat-mensaje-usuario{
 	margin: 0;
-	border-top: 2px solid gray;
 	padding: 1rem;
+	width: fit-content;
+}
+
+.chat-mensaje-papa-noel{
+	background-color: white;
+	border-radius: 20px 20px 20px 0;
+	font-size: 20px;
+	align-self: flex-start;
+	margin-right: 2rem;
+}
+
+.chat-mensaje-usuario{
+	background-color: rgb(202, 218, 206);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 1rem;
+	border-radius: 20px 20px 0 20px;
+	align-self: flex-end;
+	margin-left: 2rem;
+}
+
+.chat-boton, .chat-boton-repetir{
+	background-color: white;
 	color: black;
-	text-decoration: none;
+	padding: 0.5rem 0.7rem;
+	border-radius: 5px;
+	border: none;
+	transition-duration: 0.15s;
+	font-size: 20px;
 	text-align: center;
-	background-color: rgb(225, 225, 225);
-	font-size: 1.2rem;
+	width: fit-content;
+}
+
+.chat-boton-repetir{
+	border: solid 2px rgb(147, 147, 147);
+	background-color: rgb(220, 220, 220);
+	/* box-shadow: 0 0 4px rgba(0, 0, 0, 0.416); */
+}
+
+.chat-boton:hover{
+	background-color: rgb(167, 188, 175);
+}
+
+.chat-boton-repetir:hover{
+	background-color: rgb(200, 200, 200);
 }
 
 
@@ -1301,7 +1341,7 @@ footer > .footer-links{
 	justify-content: center;
 	background-color: rgba(255, 255, 255, 0.6);
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-	gap: 2rem;
+	gap: 0.7rem;
 	padding: 2rem;
 	width: fit-content;
 	margin: auto;
@@ -1309,9 +1349,9 @@ footer > .footer-links{
 
 #mensajes-personalizados-contenido-sin-boton{
 	display: flex;
-	flex-flow: row;
+	flex-flow: column;
 	justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 #mensajes-personalizados-div-imagen{
@@ -1323,6 +1363,7 @@ footer > .footer-links{
 	height: 100%;
 	object-fit: contain;
 	border-radius: 15px;
+	max-height: 200px;
 }
 
 #form-mensajes-personalizados > div{
@@ -1356,11 +1397,11 @@ footer > .footer-links{
     background-color: #f9f9f9;
 }
 
-/* Contenedor del calendario */
+/* Calendario de adviento */
 
 .grid-container {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
 	justify-content: center;
 	max-width: 700px;
@@ -1402,6 +1443,7 @@ footer > .footer-links{
 }
 
 /*Pagina 10 (videollamada)*/
+
 #videollamada{
 	background-image: url("../images/background-1-5.png");
 	background-position: center;
@@ -1416,6 +1458,7 @@ footer > .footer-links{
 #videollamada-container{
 	width: 80%;
 	align-self: center;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 #videollamada-header{
@@ -1476,9 +1519,82 @@ footer > .footer-links{
 	display: none;
 }
 
+/* Backgrounds */
 
+.background-1{
+	background-image: url("../images/background-1-5.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.background-2{
+	background-image: url("../images/background-2-6.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+	
+/* Footer */
+
+footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1rem;
+	justify-content: space-between;
+	padding: 1rem 0 0 0;
+	gap: 1rem;
+}
+
+.footer-logos{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.footer-logos > p{
+	margin: 0;
+}
+
+#footer-logo{
+	width: 20rem;
+}
+
+.social-logos{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem
+}
+
+
+.social-logos > img{
+	width: 1.5rem;
+}
+
+footer > .footer-links{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.footer-links > a{
+	display: block;
+	margin: 0;
+	border-top: 2px solid gray;
+	padding: 1rem;
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	background-color: rgb(225, 225, 225);
+	font-size: 1.2rem;
+}
 
 /* Media queries */
+
 @media only screen and ( max-width: 768px){
 	/*Pagina 7 (Reservas)*/
 	#reserva-info{
@@ -1497,8 +1613,6 @@ footer > .footer-links{
 		align-self: center;
 	}
 }
-
-/* Media queries */
 
 @media only screen and (min-width: 1100px) {
 
@@ -1626,106 +1740,6 @@ footer > .footer-links{
 	}
 }
 
-/* Chat */
-
-#chat {
-	background-color: lightblue;
-}
-
-#chat-contenido{
-	/* background-color: rgba(240, 240, 240, 0.7); */
-	background-color: rgba(230, 230, 235, 0.6);
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-}
-
-#chat-header{
-	display: flex;
-	flex-flow: row;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-	background-color: white;
-	padding: 0.5rem;
-	border-bottom: 1px solid gainsboro;
-}
-
-#chat-header > p{
-	margin: 0;
-}
-
-#chat-header-icono-div{
-	height: 60px;
-}
-
-#chat-header-icono{
-	height: 100%;
-	width: auto;
-	border-radius: 50%;
-	background-color: rgb(185, 202, 189);
-}
-
-#chat-body{
-	display: flex;
-	flex-flow: column;
-	gap: 2rem;
-	padding: 2rem;
-	height: 50vh;
-	max-height: 50vh;
-	overflow: auto;
-	align-items: center;
-}
-
-.chat-mensaje-papa-noel, .chat-mensaje-usuario{
-	margin: 0;
-	padding: 1rem;
-	width: fit-content;
-}
-
-.chat-mensaje-papa-noel{
-	background-color: white;
-	border-radius: 20px 20px 20px 0;
-	font-size: 20px;
-	align-self: flex-start;
-	margin-right: 2rem;
-}
-
-.chat-mensaje-usuario{
-	background-color: rgb(202, 218, 206);
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	gap: 1rem;
-	border-radius: 20px 20px 0 20px;
-	align-self: flex-end;
-	margin-left: 2rem;
-}
-
-.chat-boton, .chat-boton-repetir{
-	background-color: white;
-	color: black;
-	padding: 0.5rem 0.7rem;
-	border-radius: 5px;
-	border: none;
-	transition-duration: 0.15s;
-	font-size: 20px;
-	text-align: center;
-	width: fit-content;
-}
-
-.chat-boton-repetir{
-	border: solid 2px rgb(147, 147, 147);
-	background-color: rgb(220, 220, 220);
-	/* box-shadow: 0 0 4px rgba(0, 0, 0, 0.416); */
-}
-
-.chat-boton:hover{
-	background-color: rgb(167, 188, 175);
-}
-
-.chat-boton-repetir:hover{
-	background-color: rgb(200, 200, 200);
-}
-
 /* Media queries */
 
 @media only screen and (min-width: 600px) and ( max-width: 768px){
@@ -1842,21 +1856,107 @@ footer > .footer-links{
 }
 
 @media only screen and (min-width: 528px) {
+	/* Pagina 2 */
+
 	#leche-y-galletas{
 		flex-flow: row nowrap;
+		gap: 1rem;
 	}
 
 	.grupo-leche-galletas{
 		width: 50%;
 	}
+
+	#pagina2-contenido-2{
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		padding-top: 2rem;
+		text-align: center;
+	}
+
+	#pagina2-contenido-3{
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		gap: initial;
+		padding-top: 0;
+	}
+
+	#pagina2-contenido-3-div-principal{
+		display: flex;
+		flex-flow: row;
+		gap: 1rem;
+		margin: auto;
+		align-items: center;
+	}
+
+	#pagina2-contenido-3-img-papa-noel{
+		width: 100%;
+		height: auto;
+		max-height: initial;
+	}
+
+	#pagina2-pedido{
+		display: flex;
+		flex-flow: row;
+		align-items: end;
+		background-color: gainsboro;
+		padding: 2rem 1rem;
+		gap: 1rem;
+	}
 }
 
 @media only screen and (min-width: 600px) {
+	/* Modal registrarse */
+
 	#modal-registrarse-inicial-opciones-adulto, #modal-registrarse-inicial-opciones-niño {
 		display: flex;
 		flex-flow: column;
 		align-items: center;
 	}
+
+	/* Mensajes personalizados */
+
+	#mensajes-personalizados-contenido{
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		background-color: rgba(255, 255, 255, 0.6);
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		gap: 2rem;
+		padding: 2rem;
+		width: fit-content;
+		margin: auto;
+	}
+
+	#mensajes-personalizados-contenido-sin-boton{
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		gap: 3rem;
+	}
+
+	#mensajes-personalizados-imagen{
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		border-radius: 15px;
+		max-height: initial;
+	}
+
+	/* Calendario de adviento */
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1rem;
+		justify-content: center;
+		max-width: 700px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
 }
 
 @media only screen and (min-width: 457px) {
