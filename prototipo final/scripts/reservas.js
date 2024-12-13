@@ -38,7 +38,7 @@ function guardarReserva(){
         return -1;
     }else if(codigoCuenta > -1){
         console.log(codigoCuenta);
-        window.alert("¡Pídele a tu padre que haga la reserva por tí!");
+        window.alert("¡Pídele a un adulto que haga la reserva por ti!");
         return -1;
     }
 

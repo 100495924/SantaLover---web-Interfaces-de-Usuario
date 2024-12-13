@@ -31,10 +31,12 @@ $(document).ready(function(){
 
   $("#cerrar").click(function(){
     $("#div-opciones-perfil-adulto").hide();
+    $("#div-opciones-perfil-niño").hide();
   });
 
   $("#menu-hamburguesa").click(function(){
     $("#div-opciones-perfil-adulto").hide();
+    $("#div-opciones-perfil-niño").hide();
   });
   
   // Mi perfil
@@ -65,11 +67,19 @@ $(document).ready(function(){
 
   $(".boton-mis-cartas").click(function(){
     $("#modal-mis-cartas").fadeIn("fast");
-    const arrayCartas = JSON.parse(localStorage.getItem("usuarioData"))["cartas"];
+    const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
+    const codigoCuenta = isCuentaNiñoAdulto();
+    let arrayCartas;
+    if (codigoCuenta === -1){
+      arrayCartas = jsonUsuario["cartas"];
+    }
+    else{
+      arrayCartas = jsonUsuario["cuentasAsociadas"][codigoCuenta]["cartas"];
+    }
     if (arrayCartas !== null && arrayCartas.length != 0) {
       $("#modal-mis-cartas-body").css("display", "grid");
       rellenarMisCartas(arrayCartas);
-      actualizarEventosDragDrop();
+      actualizarEventosDragDrop(codigoCuenta);
     }
     else {
       mensajeNoCartas();
@@ -158,6 +168,7 @@ $(document).ready(function(){
     const cuentaCreada = validarFormCuentaAsociada("crear-cuenta-asociada");
     if (cuentaCreada) {
       document.getElementById("form-crear-cuenta-asociada").reset();
+      $("#modal-crear-cuenta-asociada").fadeOut("fast");
     }
   });
 
@@ -317,12 +328,28 @@ function rellenarMisCartas(arrayCartas){
 }
 
 
-function borrarMisCartas(dropZoneParent){
+function borrarMisCartas(dropZoneParent, codigoCuenta){
   let userData = JSON.parse(localStorage.getItem("usuarioData"));
-  let arrayCartas = userData["cartas"];
+  
+  let arrayCartas;
+
+  if (codigoCuenta === -1){
+    arrayCartas = userData["cartas"];
+  }
+  else{
+    arrayCartas = userData["cuentasAsociadas"][codigoCuenta]["cartas"];
+  }
+  
   const indexBorrar = Number(dropZoneParent.id.split("-")[1]);
 
   arrayCartas.splice(indexBorrar, 1);
+
+  if (codigoCuenta === -1){
+    userData["cartas"] = arrayCartas;
+  }
+  else{
+    userData["cuentasAsociadas"][codigoCuenta]["cartas"] = arrayCartas;
+  }
 
   localStorage.setItem("usuarioData", JSON.stringify(userData));
 
@@ -331,7 +358,7 @@ function borrarMisCartas(dropZoneParent){
 
   if (arrayCartas.length > 0){
     rellenarMisCartas(arrayCartas);
-    actualizarEventosDragDrop();
+    actualizarEventosDragDrop(codigoCuenta);
   }
   else {
     mensajeNoCartas();
@@ -339,7 +366,7 @@ function borrarMisCartas(dropZoneParent){
 }
 
 
-function actualizarEventosDragDrop(){
+function actualizarEventosDragDrop(codigoCuenta){
   const cartas = document.querySelectorAll(".carta-mis-cartas");
   const dropZones = document.querySelectorAll(".drop-zone");
   const buttons = document.querySelectorAll(".boton-borrar-mis-cartas");
@@ -349,7 +376,7 @@ function actualizarEventosDragDrop(){
     boton.addEventListener("click", function() {
       if (window.confirm("¿Estás seguro/a de que quieres borrar esta carta?")) {
         dropZoneParent = boton.closest(".drop-zone");
-        borrarMisCartas(dropZoneParent);
+        borrarMisCartas(dropZoneParent, codigoCuenta);
       }
     })
   })
@@ -378,13 +405,30 @@ function actualizarEventosDragDrop(){
       dropZone.appendChild(dragCarta);
       dragCartaParent.appendChild(dropeZoneCarta);
 
-      let arrayCartas = JSON.parse(localStorage.getItem("usuarioData"))["cartas"];
+      let userData = JSON.parse(localStorage.getItem("usuarioData"));
+
+      let arrayCartas;
+
+      if (codigoCuenta === -1){
+        arrayCartas = userData["cartas"];
+      }
+      else{
+        arrayCartas = userData["cuentasAsociadas"][codigoCuenta]["cartas"];
+      }
+
       const indexDrag = Number(dragCartaParent.id.split("-")[1]);
       const indexDrop = Number(dropZone.id.split("-")[1]);
 
       [arrayCartas[indexDrag], arrayCartas[indexDrop]] = [arrayCartas[indexDrop], arrayCartas[indexDrag]];
 
-      localStorage.setItem("arrayCartas", JSON.stringify(arrayCartas));
+      if (codigoCuenta === -1){
+        userData["cartas"] = arrayCartas;
+      }
+      else{
+        userData["cuentasAsociadas"][codigoCuenta]["cartas"] = arrayCartas;
+      }
+
+      localStorage.setItem("usuarioData", JSON.stringify(userData));
     })
   })
 }
@@ -392,8 +436,8 @@ function actualizarEventosDragDrop(){
 // Mis mensajes
 
 function mensajeNoMensajes(){
-  $("#modal-mis-reservas-body").css("display", "block");
-  $("#modal-mis-reservas-body").append(`<p class="mensaje-no-cartas">Visita a la sección <span class="texto-destacado-rojo">Mensajes personalizados 🎅</span> para que Papá Noel le escriba una carta a un ser querido ;)</p>`);
+  $("#modal-mis-mensajes-body").css("display", "block");
+  $("#modal-mis-mensajes-body").append(`<p class="mensaje-no-cartas">Visita a la sección <span class="texto-destacado-rojo">Mensajes personalizados 🎅</span> para que Papá Noel le escriba una carta a un ser querido ;)</p>`);
 }
 
 function rellenarMisMensajes(arrayMensajes, username){
@@ -419,7 +463,7 @@ function rellenarMisMensajes(arrayMensajes, username){
                               </div>
                             </div>
                             
-                            <button class="boton-eliminar-mis-mensajes">ELIMINAR</button>
+                            <button class="boton-eliminar-mis-mensajes">Borrar</button>
                           </div>
                         </div>`;
     modalMisCartasBody.innerHTML += codeToAppend;
@@ -550,7 +594,7 @@ function rellenarMisReservas(arrayReservas){
     let reservaHora = reserva.hora;
     let reservaLugar = reserva.lugar;
     let currentID = i.toString();
-    let codeToAppend = `<div id="dropzone-reserva-${currentID}" class="drop-zone">
+    let codeToAppend = `<div id="dropzone-${currentID}" class="drop-zone">
                           <div class="reserva-mis-reservas" draggable="true">
                             <div class="reserva-mis-reservas-sub">
                               <div>
@@ -585,7 +629,7 @@ function borrarMisReservas(dropZoneParent){
 
   if (arrayReservas.length > 0){
     rellenarMisReservas(arrayReservas);
-    actualizarEventosDragDrop();
+    actualizarEventosDragDropReservas();
   }
   else {
     mensajeNoReservas();
@@ -638,6 +682,8 @@ function actualizarEventosDragDropReservas(){
       const indexDrop = Number(dropZone.id.split("-")[1]);
 
       [arrayReservas[indexDrag], arrayReservas[indexDrop]] = [arrayReservas[indexDrop], arrayReservas[indexDrag]];
+
+      userData["reservas"] = arrayReservas;
 
       localStorage.setItem("usuarioData", JSON.stringify(userData));
     })

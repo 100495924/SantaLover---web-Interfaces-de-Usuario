@@ -33,7 +33,7 @@ function setMemoryQuest(numFilas, numColumnas){
 
   for(let i = 0; i < totalELementos; i++){
     let codeToAppend = `<div class="card">
-                          <p class="card-content">🎅</p>
+                          <h3 class="card-content">🎅</h3>
                         </div>`;
     cardContainer.innerHTML += codeToAppend;
   }
@@ -84,7 +84,7 @@ async function startMemoryQuest(numFilas, numColumnas){
 
   for(let i = 0; i < totalELementos; i++){
     let codeToAppend = `<div class="card ${cardsDisplayShuffled[i].name}">
-                          <p class="card-content">${cardsDisplayShuffled[i].emoji}</p>
+                          <h3 class="card-content">${cardsDisplayShuffled[i].emoji}</h3>
                         </div>`;
     cardContainer.innerHTML += codeToAppend;
   }

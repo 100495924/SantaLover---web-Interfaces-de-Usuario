@@ -18,7 +18,7 @@ function validarUsernameCarta(usernameValue, jsonUsuario){
         if (index === -1){
             return -2;
         }
-        else if (usernameValue === jsonUsuario["cuentasAsociadas"][index]["user-name"]){
+        else if (usernameValue === jsonUsuario["cuentasAsociadas"][index]["username"]){
             return index;
         }
         else{

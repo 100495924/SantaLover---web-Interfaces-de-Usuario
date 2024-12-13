@@ -102,17 +102,6 @@
 				<a href="#menu-hamburguesa" id="boton-navegacion-chat" class="link-verde">Chat 💬</a>
 				<a href="#menu-hamburguesa" id="boton-navegacion-adviento" class="link-rojo">Calendario de adviento 📅</a>
 				<a href="#menu-hamburguesa" id="boton-navegacion-videollamada" class="link-verde">Videollamada 💻</a>
-			
-				<!-- <a href="#pagina1" class="link-rojo">Home 🏠</a>
-				<a href="#pagina2" class="link-verde">Envía comida 🍪</a>
-				<a href="#pagina3" class="link-rojo">Las cartas ✉️</a>
-				<a href="#pagina4" class="link-verde">¡Envía tu carta! 📩</a>
-				<a href="#pagina5" class="link-rojo">Memory Quest 🎮</a>
-				<a href="#MensajesPersonalizados" class="link-verde">Mensajes personalizados 🎅</a>
-				<a href="#pagina7" class="link-rojo">Reserva 🏭</a>
-				<a href="#chat" class="link-verde">Chat 💬</a>
-				<a href="#pagina9" class="link-rojo">Calendario de adviento 📅</a>
-				<a href="#pagina10" class="link-verde">Videollamada 💻</a> -->
 			</div>
 		</header>
 
@@ -413,7 +402,7 @@
 					<p class="modal-subtitulo">¡Asocia la cuenta de un/a menor de 16 años a tu perfil para que pueda disfrutar de todas las 
 						actividades de esta página de manera segura!</p>
 
-					<div id="modal-mi-perfil-adulto-opciones">
+					<div id="modal-crear-cuenta-asociada-opciones">
 
 						<form id="form-crear-cuenta-asociada" name="form-crear-cuenta-asociada">
 							<div class="elemento-form-registrarse">
@@ -457,7 +446,7 @@
 		<section id="pagina1">
 			<!--Página 1-->
 			<h1>¡Vive la magia de la navidad!</h1>
-			<p id="counter-text">297 días 15 h 40 min 38 s</p>
+			<h2 id="counter-text">297 días 15 h 40 min 38 s</h2>
 			<!-- <a href="#pagina1">EMPEZAR</a> -->
 			<button id="pagina1-boton-empezar">EMPEZAR</button>
 		</section>
@@ -469,7 +458,7 @@
 			<div id="pagina2-contenido-1" class="pagina2-contenido">
 				<div id="leche-y-galletas">
 					<div id="elige-la-leche" class="grupo-leche-galletas">
-						<p>Elige la leche</p>
+						<h3>Elige la leche</h3>
 						<div id="elige-la-leche-contenido">
 							<div class="imgs-leche">
 								<img id="img-leche-normal"
@@ -494,7 +483,7 @@
 					</div>
 
 					<div id="elige-las-galletas" class="grupo-leche-galletas">
-						<p>Elige las galletas</p>
+						<h3>Elige las galletas</h3>
 						<div id="elige-las-galletas-contenido">
 							<form id="form-cantidad-galletas">
 								<label for="cantidad-galletas">Cantidad:</label>
@@ -581,7 +570,7 @@
 			</div>
 
 			<div id="pagina2-contenido-2" class="pagina2-contenido">
-				<p id="pagina2-contenido-2-texto">Preparando tu pedido</p>
+				<h3 id="pagina2-contenido-2-texto">Preparando tu pedido</h3>
 			</div>
 
 			<div id="pagina2-contenido-3" class="pagina2-contenido">
@@ -728,16 +717,16 @@
 			<h2>¿Qué quieres que te traiga Papá Noel?</h2>
 			<form id="carta_form" class="carta_form"> 
 				<div id="form-inputs">
-					<label class="name-label" for="nombre">Nombre </label>
+					<label class="name-label" for="nombre">Nombre<span class="texto-destacado-rojo">*</span></label>
 					<input class="name-input" id="nombre" type="text" name="nombre">
-					<label class="username-label" for="user-name">Nombre de usuario</label>
+					<label class="username-label" for="user-name">Nombre de usuario<span class="texto-destacado-rojo">*</span></label>
 					<input class="username-input" id="user-name" type="text" name="user-name" autocomplete="on">
-					<label class="city-label" for="ciudad">Ciudad </label>
+					<label class="city-label" for="ciudad">Ciudad<span class="texto-destacado-rojo">*</span></label>
 					<input class="city-input" id="ciudad" type="text" name="ciudad">
-					<label class="country-label" for="pais">País </label>
+					<label class="country-label" for="pais">País<span class="texto-destacado-rojo">*</span></label>
 					<input class="country-input" id="pais" type="text" name="pais">	
 				</div>
-				<label for="carta">Carta para Papá Noel </label>
+				<label for="carta">Carta para Papá Noel<span class="texto-destacado-rojo">*</span></label>
 				<textarea class="carta-papa-noel" id="carta" name="carta"></textarea> 
 				<p id="form-no-completo"> 
 					¡Creo que te has olvidado de poner algún dato en tu carta! 
@@ -774,19 +763,19 @@
 				<div id="mensajes-personalizados-contenido-sin-boton">
 					<form id="form-mensajes-personalizados">
 						<div>
-							<label for="form-mensajes-nombre" class="form-label">Nombre de la persona</label>
+							<label for="form-mensajes-nombre" class="form-label">Nombre de la persona<span class="texto-destacado-rojo">*</span></label>
 							<input id="form-mensajes-nombre" name="form-mensajes-nombre">
 						</div>
 						<div>
-							<label for="form-mensajes-relacion" class="form-label">Relación que tienes con él/ella (amigo, hermano...)</label>
+							<label for="form-mensajes-relacion" class="form-label">Relación que tienes con él/ella (amigo, hermano...)<span class="texto-destacado-rojo">*</span></label>
 							<input id="form-mensajes-relacion" name="form-mensajes-relacion">
 						</div>
 						<div>
-							<label for="form-mensajes-gusta" class="form-label">Lo que más te gusta de él/ella</label>
+							<label for="form-mensajes-gusta" class="form-label">Lo que más te gusta de él/ella<span class="texto-destacado-rojo">*</span></label>
 							<input id="form-mensajes-gusta" name="form-mensajes-gusta">
 						</div>
 						<div>
-							<label for="form-mensajes-regalo" class="form-label">Lo que quiere por Navidad</label>
+							<label for="form-mensajes-regalo" class="form-label">Lo que quiere por Navidad<span class="texto-destacado-rojo">*</span></label>
 							<input id="form-mensajes-regalo" name="form-mensajes-regalo">
 						</div>
 					</form>
@@ -949,7 +938,7 @@
 					<video class="videollamada-video" id="videollamada-video-1" src="videos/video-papa-noel.mp4"></video>
 					<video class="videollamada-video" id="videollamada-video-2" src="videos/video-papa-noel-2.mp4"></video>
 					<img class="videollamada-video" id="videollamada-video-3" src="images/videollamada-video-no-disponible.png" alt="Papá Noel no disponible">
-					<p class="videollamada-status-text" id="videollamada-text-1">Desconectado</p>
+					<h3 class="videollamada-status-text" id="videollamada-text-1">Desconectado</h3>
 					<div class="videollamada-boton" id="boton-llamar">
 						<img src="images/videollamada-boton-img.png" alt="botón para llamar">
 					</div>

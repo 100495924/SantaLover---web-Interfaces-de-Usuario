@@ -12,7 +12,7 @@ body{
 }
 
 section{
-	padding: 1rem 2rem;
+	padding: 1rem 2rem 2rem 2rem;
 }
 
 section h1{
@@ -58,7 +58,7 @@ form input, select, option{
 	/* min-height: 50%; */
 	max-height: 75%;
 	margin: auto;
-	margin-top: 25vh;
+	margin-top: 20vh;
 	/* margin-bottom: 20vh; */
 	background-color: white;
 	overflow: auto;
@@ -364,7 +364,7 @@ p.texto-reserva-mis-reservas{
 #modal-registrarse-inicial {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: initial;
 }
 
 p.modal-subtitulo {
@@ -373,9 +373,10 @@ p.modal-subtitulo {
 
 #modal-registrarse-inicial-opciones{
 	display: flex;
-	flex-flow: row nowrap;
-	gap: 5vw;
+	flex-flow: column-reverse;
+	/* gap: 1rem; */
 	justify-content: center;
+	align-items: center;
 }
 
 #modal-registrarse-inicial-opciones-adulto, #modal-registrarse-inicial-opciones-niño {
@@ -390,6 +391,7 @@ p.modal-subtitulo {
 #modal-registrarse-inicial-opciones-adulto-foto, #modal-registrarse-inicial-opciones-niño-foto {
 	height: 100%;
 	width: 100%;
+	max-height: 150px;
 }
 
 #modal-registrarse-inicial-opciones-adulto-texto, #modal-registrarse-inicial-opciones-niño-texto {
@@ -397,18 +399,24 @@ p.modal-subtitulo {
 	text-align: center;
 }
 
+#modal-registrarse-inicial-opciones-niño-elegido-texto{
+	margin-top: 0;
+}
+
 #form-registrarse{
-	width: 50%;
+	width: 100%;
+	margin-bottom: 3rem;
 }
 
 #modal-registrarse-inicial-opciones-niño-elegido{
-	width: 50%;
+	width: 100%;
 }
 
 #modal-registrarse-inicial-opciones-niño-elegido-botones{
 	display: flex;
 	flex-flow: wrap;
 	gap: 0.5rem;
+	justify-content: center;
 }
 
 #modal-registrarse-niño-boton-iniciar-sesion, #modal-registrarse-niño-boton-registrarse{
@@ -442,10 +450,14 @@ p.modal-subtitulo {
 
 #modal-mi-perfil-adulto-opciones{
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap;
 	justify-content: center;
 	gap: 2rem;
 	margin-top: 1rem;
+}
+
+#modal-mi-perfil-adulto-decoracion{
+	order: 1;
 }
 
 /* #modal-mi-perfil-adulto-decoracion{
@@ -453,7 +465,7 @@ p.modal-subtitulo {
 } */
 
 #form-mi-perfil-niño{
-	width: 50%;
+	width: initial;
 }
 
 #modal-mi-perfil-niño-decoracion-div-foto {
@@ -494,9 +506,9 @@ p.modal-subtitulo {
 
 #modal-mi-perfil-niño-opciones{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
-	gap: 2rem;
+	gap: initial;
 	margin-top: 1rem;
 }
 
@@ -505,7 +517,7 @@ p.modal-subtitulo {
 } */
 
 #form-mi-perfil-adulto{
-	width: 30%;
+	width: initial;
 }
 
 #modal-mi-perfil-adulto-decoracion-div-foto {
@@ -526,16 +538,16 @@ p.modal-subtitulo {
 
 /* Modal crear cuenta asociada */
 
-#modal-mi-perfil-adulto-opciones{
+#modal-crear-cuenta-asociada-opciones{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	gap: 2rem;
 	margin-top: 1rem;
 }
 
 #form-crear-cuenta-asociada{
-	width: 50%;
+	width: initial;
 }
 
 #modal-crear-cuenta-asociada-decoracion-div-foto {
@@ -731,7 +743,7 @@ p.modal-subtitulo {
 	text-align: center;
 }
 
-#pagina1 p {
+#pagina1 h2 {
 	font-size: 6vw;
 	margin: 0 0 2rem 0;
 	color: rgb(226, 237, 255);
@@ -828,8 +840,9 @@ p.modal-subtitulo {
 	/* width: 100%; */
 }
 
-.grupo-leche-galletas > p{
+.grupo-leche-galletas > h3{
 	font-weight: bold;
+	font-size: 20px;
 }
 
 #elige-la-leche-contenido{
@@ -872,7 +885,9 @@ p.modal-subtitulo {
 }
 
 .hidden-label{
-	display: none;
+	visibility: hidden;
+	font-size: 1px;
+	position: fixed;
 }
 
 #form-cantidad-galletas{
@@ -891,6 +906,7 @@ p.modal-subtitulo {
 	/* margin-left: 20%;  */
 	font-size: max(2rem, 4vw);
 	margin: auto;
+	font-weight: normal;
 }
 
 #pagina2-contenido-3{
@@ -1013,8 +1029,7 @@ p.modal-subtitulo {
 	/* background-image: url("../images/background-pagina4.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
-    background-attachment: fixed; 
-	padding: 1rem 2rem;
+  background-attachment: fixed; 
 	display: flex;
 	flex-flow: column nowrap;
 }
@@ -1077,7 +1092,6 @@ p.modal-subtitulo {
 /* Pagina 5: Juego Memory Quest. */
 
 #pagina5 {
-	padding: 1rem 2rem 3rem 2rem;
 	/* background-image: url("../images/background-pagina5.jpg"); */
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1224,7 +1238,7 @@ p.modal-subtitulo {
     background-color: rgb(102, 192, 222);
     transition-duration: 0.15s;
 		border-radius: 5px;
-		border: 2px solid rgb(78, 113, 160);
+		border: 2px solid rgb(80, 117, 123);
 		padding: 0.3rem 0.7rem;
 }
 
@@ -1502,6 +1516,7 @@ p.modal-subtitulo {
 
 .videollamada-status-text{
 	font-size: 2rem;
+	font-weight: normal;
 }
 
 .videollamada-video{
@@ -1639,6 +1654,10 @@ footer > .footer-links{
 
 	/* Barra de navegación */
 
+	.modal{
+		margin-top: 25vh;
+	}
+
 	#boton-inicia-sesion-movil, #boton-registrarse-movil{
 		display: none;
 	}
@@ -1728,7 +1747,7 @@ footer > .footer-links{
 		font-size: 5vw;
 	}
 	
-	#pagina1 p {
+	#pagina1 h2 {
 		font-size: 4vw;
 	}
 
@@ -1916,6 +1935,24 @@ footer > .footer-links{
 		align-items: center;
 	}
 
+	/* Modal mi perfil (adulto) */
+
+	#modal-mi-perfil-adulto-opciones{
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 1rem;
+	}
+
+	#modal-mi-perfil-adulto-decoracion{
+		order: initial;
+	}
+
+	#form-mi-perfil-adulto{
+		width: 30%;
+	}
+
 	/* Mensajes personalizados */
 
 	#mensajes-personalizados-contenido{
@@ -1960,5 +1997,80 @@ footer > .footer-links{
 }
 
 @media only screen and (min-width: 457px) {
-	
+	/* Modal registrarse */
+
+	#modal-registrarse-inicial {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	#modal-registrarse-inicial-opciones {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 5vw;
+		justify-content: center;
+	}
+
+	#form-registrarse{
+		width: 50%;
+		margin-bottom: 0;
+	}
+
+	#modal-registrarse-inicial-opciones-adulto-foto, #modal-registrarse-inicial-opciones-niño-foto {
+		height: 100%;
+		width: 100%;
+		max-height: initial;
+	}
+
+	#modal-registrarse-inicial-opciones-niño-elegido {
+    width: 50%;
+	}
+
+	#modal-registrarse-inicial-opciones-niño-texto{
+		margin-top: 0;
+		text-align: center;
+	}
+
+	#modal-registrarse-inicial-opciones-niño-elegido-texto{
+		margin-top: initial;
+	}
+
+	#modal-registrarse-inicial-opciones-niño-elegido-botones{
+		display: flex;
+		flex-flow: wrap;
+		gap: 0.5rem;
+		justify-content: initial;
+	}
+
+	/* Modal crear cuenta asociada */
+
+	#modal-crear-cuenta-asociada-opciones{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 1rem;
+	}
+
+	#form-crear-cuenta-asociada{
+		width: 50%;
+	}
+
+	/* Modal mi perfil (adulto) */
+
+	/* Modal mi perfil (niño) */
+
+	#modal-mi-perfil-niño-opciones{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 1rem;
+	}
+
+	#form-mi-perfil-niño{
+		width: 50%;
+	}
+
 }
