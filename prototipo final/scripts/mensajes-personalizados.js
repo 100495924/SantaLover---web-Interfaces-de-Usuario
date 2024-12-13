@@ -68,6 +68,7 @@ function guardarMensaje() {
     // Enseñar mensaje de la página
     window.alert("¡Mensaje generado!");
 
+    // Automáticamente se abre el modal de mis mensajes una vez se genera el mensaje con éxito
     $("#modal-mis-mensajes").fadeIn("fast");
     let arrayMensajes;
     let username;

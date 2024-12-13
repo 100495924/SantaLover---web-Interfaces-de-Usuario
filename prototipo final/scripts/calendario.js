@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Añadir la imagen a la celda
             item.appendChild(img);
 
-            // Revelar la celda y cambiar el fondo
+            // Revelar la celda
             item.classList.add("revealed");
         });
     });

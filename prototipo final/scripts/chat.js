@@ -18,6 +18,7 @@ function startChat(){
   chatBody.innerHTML = "";
   let textoVariable = "";
 
+  // Si se ha iniciado sesión, Papá Noel dice el nombre de usuario de la cuenta
   cuenta = isCuentaNiñoAdulto();
     if (cuenta == -2){
       // No se ha iniciado sesión
@@ -75,6 +76,8 @@ function appendUsuarioInicial(chatBody){
 
   chatBody.appendChild(divMensaje);
 
+  // Se clona para eliminar eventos de click y se hace scroll automáticamente hasta el final del chat
+  // para ver bien los mensajes según van saliendo
   botonChiste.addEventListener("click", function(){
     cloneMensajeUsuario(chatBody, divMensaje);
     appendPapaNoelChiste(chatBody);

@@ -59,15 +59,10 @@ $(document).ready(function(){
       limpiar("mi-perfil-adulto");
     });
   });
-
-  // Cuando el usuario aumenta o disminuye el campo número de hijos, hay que modificar el form para poder introducir
-  // la información correspondientes a cada hijo
-  $("#hijos-registrarse").change(function(){
-    cambioInputHijos()
-  });
 });
 
 // Registrarse
+// Estas funciones gestionan la transición entre las 3 diferentes pantallas del modal registrarse
 
 function modalRegistrarseInicial(){
   const modalRegistrarse = document.getElementById("modal-registrarse");
@@ -364,6 +359,7 @@ function rellenarFormMiPerfilAdulto(){
 
       // ELiminar cuenta asociada
       buttonItem.addEventListener("click", function(){
+        const jsonUsuario = JSON.parse(localStorage.getItem("usuarioData"));
         const index = i;
         newCuentasAsociadas = [];
         for (let j = 0; j < cuentasAsociadasValue.length; j++){
@@ -382,15 +378,3 @@ function rellenarFormMiPerfilAdulto(){
     }
   }
 }
-
-// function botonEliminarCuentaAsociadaHandler(){
-//   // Sacar index
-//   const cuentasAsociadasDivVariable = document.getElementById("div-cuentas-asociadas-variable-mi-perfil");
-//   const index = cuentasAsociadasDivVariable.children.length - 1;
-//   console.log(index);
-//   if (window.confirm(`¿Estás seguro/a de que quieres eliminar la cuenta asociada?`)) {
-//     jsonUsuario["cuentasAsociadas"].splice(index, 1);
-//     localStorage.setItem("usuarioData", jsonUsuario);
-//     rellenarFormMiPerfilAdulto();
-//   }
-// }

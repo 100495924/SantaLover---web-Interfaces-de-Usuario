@@ -1,10 +1,11 @@
 $(document).ready(function(){
   $(window).on("resize", function(){
     displayIniciarSesionRegistrarse();
-    //displayModales();
   });
 });
 
+// Para que, según el tamaño del navegador, se muestren los botones de iniciar sesión
+// y registrarse correspondientes (son elementos HTML distintos)
 function displayIniciarSesionRegistrarse(){
   sesionIniciada = isCuentaNiñoAdulto();
   WIDTH = 1024;
@@ -19,21 +20,3 @@ function displayIniciarSesionRegistrarse(){
     $(".div-botones-menu").css("display", "flex");
   }
 }
-
-// function displayModales(){
-//   WIDTH1 = 457;
-//   WIDTH2 = 600;
-
-//   if (window.innerWidth < WIDTH2){
-//     $("#modal-registrarse-inicial-opciones-adulto").hide();
-//     $("#modal-registrarse-inicial-opciones-niño").hide();
-//   }
-//   else{
-//     $("#modal-registrarse-inicial-opciones-adulto").css("display", "flex");
-//     $("#modal-registrarse-inicial-opciones-niño").css("display", "flex");
-//   }
-
-//   // if (window.innerWidth < WIDTH2){
-
-//   // }
-// }

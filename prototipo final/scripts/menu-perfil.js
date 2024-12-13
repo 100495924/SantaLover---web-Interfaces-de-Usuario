@@ -738,7 +738,7 @@ function validarFormCuentaAsociada(opcionForm){
       jsonUsuario["cuentasAsociadas"].push(dictNiño);
       localStorage.setItem("usuarioData", JSON.stringify(jsonUsuario));
 
-      window.alert("¡Cuenta asociada creada con éxito!");
+      window.alert("¡Cuenta asociada creada con éxito! Para acceder a ella, primero cierra sesión en esta cuenta de adulto e inicia sesión en la cuenta asociada");
     }
     else {
       const cuenta = jsonUsuario["cuentasAsociadas"][encontrarCuentaNiñoIndex(jsonUsuario)];

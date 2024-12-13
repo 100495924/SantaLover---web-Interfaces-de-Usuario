@@ -46,7 +46,7 @@ function guardarCarta(){
     if (respuesta_form["nombre"].value === ""){
         // marcamos en rojo el cuadro en el que el usuario
         // no ha introducido respuesta.
-        nombre_input.style.border = "2px solid red";
+        nombre_input.style.border = "2px solid rgb(206, 68, 82)";
         is_form_complete = false;
     }
     else {
@@ -54,12 +54,12 @@ function guardarCarta(){
     }
 
     if(respuesta_form["user-name"].value === ""){
-        username_input.style.border = "2px solid red";
+        username_input.style.border = "2px solid rgb(206, 68, 82)";
         is_form_complete = false;
     }
 
     if (respuesta_form["ciudad"].value === ""){
-        ciudad_input.style.border = "2px solid red";
+        ciudad_input.style.border = "2px solid rgb(206, 68, 82)";
         is_form_complete = false;
     }
     else {
@@ -67,7 +67,7 @@ function guardarCarta(){
     }
 
     if (respuesta_form["pais"].value === ""){
-        pais_input.style.border = "2px solid red";
+        pais_input.style.border = "2px solid rgb(206, 68, 82)";
         is_form_complete = false;
     }
     else {
@@ -75,7 +75,7 @@ function guardarCarta(){
     }
 
     if (respuesta_form["carta"].value === ""){
-        carta_input.style.border = "2px solid red";
+        carta_input.style.border = "2px solid rgb(206, 68, 82)";
         is_form_complete = false;
     }
     else {
@@ -87,7 +87,8 @@ function guardarCarta(){
 
     // no existen cuentas registradas
     if (jsonUsuario_existe === null){
-        return -1;
+        mensaje_error.innerText = "¡Antes de mandar una carta recuerda iniciar sesión! ¿O no te has registrado? D:";
+        mensaje_error.style.display = "inline";
     }
 
     const jsonUsuario = JSON.parse(jsonUsuario_existe)
@@ -106,7 +107,7 @@ function guardarCarta(){
     const codigoCuenta = validarUsernameCarta(respuesta_form["user-name"].value, jsonUsuario)
 
     if (codigoCuenta === -2){
-        username_input.style.border = "2px solid red";
+        username_input.style.border = "2px solid rgb(206, 68, 82)";
         mensaje_error.innerText = "¡El nombre de usuario puesto en la carta no coincide con tu nombre de usuario!";
         mensaje_error.style.display = "inline";
         return -1;

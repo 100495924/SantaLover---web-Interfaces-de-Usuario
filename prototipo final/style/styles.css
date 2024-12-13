@@ -1,9 +1,5 @@
 /*Aplicado a toda la página*/
 
-/* #reserva-fabrica{
-	display: none;
-} */
-
 body{
 	font-size: 20px;
 	font-family: "Roboto Slab";
@@ -55,11 +51,9 @@ form input, select, option{
 	display: grid;
 	grid-template-rows: min-content 1fr min-content;
 	width: 80%;
-	/* min-height: 50%; */
 	max-height: 75%;
 	margin: auto;
 	margin-top: 20vh;
-	/* margin-bottom: 20vh; */
 	background-color: white;
 	overflow: auto;
 }
@@ -67,9 +61,7 @@ form input, select, option{
 .modal-header {
 	border-bottom: 2px dashed gray;
 	padding: 1rem 2rem;
-	/* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8); */
 	background-color: rgb(240, 240, 240);
-	/* margin-bottom: 1rem; */
 }
 
 .modal-header > * {
@@ -84,13 +76,7 @@ form input, select, option{
 .modal-body {
 	overflow: auto;
 	padding: 1rem 2rem;
-	/* padding-top: 0; */
 }
-
-/* #modal-inicia-sesion form {
-	min-width: 40%;
-	max-width: 60%;
-} */
 
 .modal-body .grid-registrarse, #div-hijos-variable-registrarse, #div-hijos-variable-mi-perfil {
 	display: grid;
@@ -99,14 +85,6 @@ form input, select, option{
 	/* flex-flow: row nowrap; */
 	gap: 0.8rem;
 }
-
-/* .modal-body form #grupo1-registrarse {
-	flex-grow: 1;
-} */
-
-/* .modal-body form #grupo2-registrarse {
-	flex-grow: 1;
-} */
 
 .modal-body input, option {
 	height: 1.5rem;
@@ -132,17 +110,13 @@ form input, select, option{
 .modal-body .elemento-form-registrarse, .elemento-form-inicia-sesion {
 	display: flex;
 	flex-direction: column;
-	/* margin-top: 0.2rem; */
-	/* gap: 0.8rem */
 }
 
 .modal-body .mensaje-error {
-	/* visibility: hidden; */
 	display: none;
 	font-size: 0.8rem;
 	color: rgb(206, 68, 82);
 	margin: 0;
-	/* margin-bottom: 0.2rem; */
 }
 
 .texto-destacado-rojo {
@@ -177,9 +151,7 @@ form input, select, option{
 #div-opciones-perfil-adulto, #div-opciones-perfil-niño {
 	display: none;
 	position: fixed;
-	/* width: calc(100% - 2rem); */
 	background-color: rgb(181, 181, 181);
-	/* top: 135px; */
 	right: 0px;
 	flex-flow: column;
 	padding: 1rem;
@@ -194,10 +166,6 @@ form input, select, option{
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 }
-
-/* #div-opciones-perfil-adulto > button:hover {
-	background-color: rgb(207, 29, 29);
-} */
 
 #icono-sesion-iniciada, #icono-sesion-iniciada-niño {
 	display: none;
@@ -294,7 +262,8 @@ p.texto-carta-mis-cartas{
 	margin-top: 1rem;
 }
 
-/*CSS Menú reservas*/
+/* Modal mis reservas */
+
 #modal-mis-reservas-body {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
@@ -460,10 +429,6 @@ p.modal-subtitulo {
 	order: 1;
 }
 
-/* #modal-mi-perfil-adulto-decoracion{
-	align-self: center;
-} */
-
 #form-mi-perfil-niño{
 	width: initial;
 }
@@ -493,8 +458,6 @@ p.modal-subtitulo {
 	border-radius: 5px;
 	padding: 0.2rem 0.5rem;
 	transition-duration: 0.15s;
-	/* border: 1px solid rgb(120, 120, 120); */
-	/* background-color: rgb(200, 200, 200); */
 }
 
 .cuenta-asociada-item > button:hover{
@@ -511,10 +474,6 @@ p.modal-subtitulo {
 	gap: initial;
 	margin-top: 1rem;
 }
-
-/* #modal-mi-perfil-niño-decoracion{
-	align-self: center;
-} */
 
 #form-mi-perfil-adulto{
 	width: initial;
@@ -599,7 +558,6 @@ p.modal-subtitulo {
 
 .div-logo {
 	height: 80%;
-	/* margin-left: 3vw; */
 }
 
 .logo {
@@ -622,7 +580,6 @@ p.modal-subtitulo {
 .icono {
 	height: 35%;
 	margin-top: 4vh; 
-	/* margin-bottom: 4.5vh; */
 }
 
 .div-opciones-menu{
@@ -633,7 +590,6 @@ p.modal-subtitulo {
 	width: 100%;
 	position: absolute;
 	flex-shrink: 1;
-	/* padding: 0.7rem 3vw; */
 }
 
 /* Al darle click al icono del menú hamburguesa, se muestran los botones del menú */
@@ -738,7 +694,6 @@ p.modal-subtitulo {
 	background-color: rgba(0, 0, 0, 0.2);
 	padding: 1rem;
 	padding-bottom: 0;
-	/* text-shadow: 0px 0px 20px black; */
 	margin: 0;
 	text-align: center;
 }
@@ -750,7 +705,6 @@ p.modal-subtitulo {
 	background-color: rgba(0, 0, 0, 0.2);
 	padding: 1rem;
 	padding-top: 0;
-	/* text-shadow: 0px 0px 20px black; */
 }
 
 #pagina1 button {
@@ -771,13 +725,10 @@ p.modal-subtitulo {
 /*Página 2: Juego Leche con galletas*/
 
 #pagina2 {
-	/* background-image: url("../images/background-2.jpg"); */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-	/* background-color: lightblue; */
-	/* height: 80vh; */
 }
 
 .pagina2-contenido{
@@ -796,7 +747,6 @@ p.modal-subtitulo {
 #pagina2-contenido-1{
 	display: flex;
 	flex-flow: column;
-	/* align-items: center; */
 	gap: 1rem;
 	justify-content: center;
 }
@@ -820,9 +770,6 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	/* padding: 1vw 5vw; */
-	/* height: 100%; */
-  /* width: 100%; */
 	gap: initial;
 	margin: auto;
 	margin-left: 0;
@@ -833,11 +780,8 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	align-items: center;
-	/* width: 30%; */
-	/* width: 100%; */
 	padding: 0 1rem;
 	text-align: center;
-	/* width: 100%; */
 }
 
 .grupo-leche-galletas > h3{
@@ -858,7 +802,6 @@ p.modal-subtitulo {
 }
 
 .imgs-leche, .imgs-galleta{
-	/* width: 15%; */
 	height: auto;
 }
 
@@ -898,7 +841,7 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	padding-top: 0;
+	padding-top: 2rem;
 	text-align: center;
 }
 
@@ -958,28 +901,20 @@ p.modal-subtitulo {
 	margin: 0;
 }
 
-/* #pagina2-contenido-3-div-img-papa-noel{
-	width: 100%;
-	height: auto;
-} */
-
 #pagina2-contenido-3-img-papa-noel{
 	width: 100%;
 	height: auto;
 	max-height: 200px;
 }
 
-/*Página 3: Cartas de otros niños.*/
+/* Página 3: Cartas de otros niños */
 
 #pagina3{
 	padding: 1rem 2rem;
-	/* background-image: url("../images/background-pagina3-1.png"); */
 	background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-size: cover;
+	background-attachment: fixed; 
+	background-size: cover;
 	background-position: bottom 30% right 50%;
-	/* color: white; */
-	/* text-shadow: 0px 0px 10px black; */
 	display: flex;
 	flex-flow: column;
 }
@@ -988,9 +923,7 @@ p.modal-subtitulo {
 	display: flex;
 	flex-flow: column;
 	margin: 0;
-	/* color: white; */
 	color: black;
-	/* text-shadow: 0px 0px 10px black; */
 }
 
 .carta{
@@ -1026,18 +959,12 @@ p.modal-subtitulo {
 /*Página 4: Enviar una carta formulario.*/
 
 #pagina4{
-	/* background-image: url("../images/background-pagina4.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
   background-attachment: fixed; 
 	display: flex;
 	flex-flow: column nowrap;
 }
-
-/* #pagina4 > h1{
-	color: white;
-	text-shadow: 0px 0px 15px black;
-} */
 
 .carta_form{
 	display: flex;
@@ -1073,8 +1000,8 @@ p.modal-subtitulo {
 }
 
 .carta_form > button{
-	font-size: 2rem;
-	background-color: #ff6347;
+	font-size: 1.5rem;
+	background-color: rgb(224 109 121);
 	margin: 1vw 0vw;
 }
 
@@ -1084,25 +1011,21 @@ p.modal-subtitulo {
 
 #form-no-completo{
 	display: none;
-	font-size: 1rem;
+	font-size: 20px;
 	margin: 0;
-	color: red;
+	margin-top: 0.5rem;
+	text-align: center;
+	color: rgb(206, 68, 82);
 }
 
 /* Pagina 5: Juego Memory Quest. */
 
 #pagina5 {
-	/* background-image: url("../images/background-pagina5.jpg"); */
 	background-position: center;
 	background-repeat: no-repeat;
   background-attachment: fixed;
 	background-size: cover;
 }
-
-/* #pagina5 > h1 {
-	color: white;
-	text-shadow: 0px 0px 15px black;
-} */
 
 #mq-container{
 	width: 100%;
@@ -1111,13 +1034,7 @@ p.modal-subtitulo {
 }
 
 #memory-quest{
-	/* height: 0;
-  aspect-ratio: width/height; */
-	/* padding-bottom: 100%; */
 	background-color: rgb(110, 169, 151);
-	/* aspect-ratio: 1 / 1;
-	max-width: 100%;
-	max-height: 100%; */
 	flex-flow: row wrap;
 	gap: 1rem;
 	align-content: center;
@@ -1136,7 +1053,6 @@ p.modal-subtitulo {
 
 .card{
 	background-color: white;
-	/* border: black solid 1px; */
 	padding: 0.2rem;
 }
 
@@ -1167,10 +1083,9 @@ p.modal-subtitulo {
 	font-size: 1rem;
 }
 
-/*Reserva-fabrica*/
+/* Reserva-fabrica */
+
 #reserva-fabrica{
-	/* color: white; */
-	/* background-image: url("../images/background-reserva-fabrica.gif"); */
 	background-position: center;
 	background-repeat: no-repeat;
   	background-attachment: fixed;
@@ -1253,7 +1168,6 @@ p.modal-subtitulo {
 }
 
 #chat-contenido{
-	/* background-color: rgba(240, 240, 240, 0.7); */
 	background-color: rgba(230, 230, 235, 0.6);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
@@ -1335,7 +1249,6 @@ p.modal-subtitulo {
 .chat-boton-repetir{
 	border: solid 2px rgb(147, 147, 147);
 	background-color: rgb(220, 220, 220);
-	/* box-shadow: 0 0 4px rgba(0, 0, 0, 0.416); */
 }
 
 .chat-boton:hover{
@@ -1396,7 +1309,6 @@ p.modal-subtitulo {
 }
 
 #mensajes-mensaje-error{
-	/* visibility: hidden; */
 	margin: 0;
 	color: rgb(206, 68, 82);
 	text-align: center;
@@ -1404,11 +1316,11 @@ p.modal-subtitulo {
 
 
 .message {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #f9f9f9;
 }
 
 /* Calendario de adviento */
@@ -1724,8 +1636,6 @@ footer > .footer-links{
 
 	.seccion_cartas > .carta{
 		width: initial;
-		/* width: 19.45rem; */
-		/* height: 18.3rem; */
 	}
 }
 
@@ -1738,7 +1648,6 @@ footer > .footer-links{
 
 	section h2{
 		font-size: 1.5rem;
-		/* font-weight: bold; */
 	}
 
 	/* Pagina 1 */
@@ -1764,9 +1673,7 @@ footer > .footer-links{
 @media only screen and (min-width: 600px) and ( max-width: 768px){
 	/*Pagina 3*/
 	.seccion_cartas > .carta{
-		/* margin: 1rem 0; */
 		padding: 0.5rem;
-		/* width: 32.25rem; */
 		align-self: center;
 	}
 }
@@ -1890,7 +1797,7 @@ footer > .footer-links{
 		display: flex;
 		flex-flow: column;
 		justify-content: center;
-		padding-top: 2rem;
+		padding-top: 0;
 		text-align: center;
 	}
 
